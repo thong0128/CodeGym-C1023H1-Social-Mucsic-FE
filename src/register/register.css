@@ -11,10 +11,9 @@ body {
 }
 .main {
     border-radius: 15px;
-    box-shadow: 0 0 20px
-    rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 20px 80px rgb(206, 206, 206);
     padding: 20px;
-    width: 700px;
+    width: 600px;
 
 }
 .main h1 {
@@ -24,7 +23,11 @@ body {
 
 }
 p{
-    color: white;
+    margin-top: 5px;
+    color: #400485;
+}
+.form-group{
+    margin-bottom: 0px;
 }
 
 label {
@@ -33,16 +36,24 @@ label {
     color: #555;
     font-weight: bold;
 }
-
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #400485;
+    color: #400485;
+}
 input[type="text"],
 input[type="email"],
 input[type="password"],
 select {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 5px;
 }
 

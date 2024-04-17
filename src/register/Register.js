@@ -51,46 +51,49 @@ export default function Register() {
 
     return (
         <>
-            <div className="main">
-                <h1>Register</h1>
+            <div className="main bg-white">
+                <div className="h2 text-center">Register</div>
                 <br/>
                 <br/>
                 <form onSubmit={formik.handleSubmit}>
-                    <div className="row mb-3">
-                        <label htmlFor="userName" className="col-sm-2 col-form-label">User name</label>
-                        <div className="col-sm-10">
+                    <div className="form-group py-2">
+                        <div className="input-field"><span className="far fa-user p-2"></span>
                             <input type="text" className="form-control" name={"username"}
+                                   placeholder={"Enter your username"}
                                    value={formik.values.user.username} onInput={formik.handleChange}/>
-                            {formik.errors.username && formik.touched.username && (<p>{formik.errors.username}</p>)}
                         </div>
+                        {formik.errors.username && formik.touched.username && (<p>{formik.errors.username}</p>)}
                     </div>
-                    <div className="row mb-3">
-                        <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-                        <div className="col-sm-10">
+                    <div className="form-group py-1 pb-2">
+                        <div className="input-field"><span className="fas fa-lock p-2"></span>
                             <input type="password" className="form-control" name={"password"}
+                                   placeholder={"Enter your password"}
                                    value={formik.values.password} onInput={formik.handleChange}/>
-                            {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}
                         </div>
+                        {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}
                     </div>
-                    <div className="row mb-3">
-                        <label htmlFor="confirmPassword" className="col-sm-2 col-form-label">Confirm Password</label>
-                        <div className="col-sm-10">
+                    <div className="form-group py-1 pb-2">
+                        <div className="input-field"><span className="fas fa-lock p-2"></span>
                             <input type="password" className="form-control" name={"confirmPassword"}
+                                   placeholder={"Confirm your password"}
                                    value={formik.values.confirmPassword} onInput={formik.handleChange}/>
-                            {formik.errors.confirmPassword && formik.touched.confirmPassword && (<p>{formik.errors.confirmPassword}</p>)}
                         </div>
+                        {formik.errors.confirmPassword && formik.touched.confirmPassword && (
+                            <p>{formik.errors.confirmPassword}</p>)}
                     </div>
-                    <div className="row mb-3">
-                        <label htmlFor="phoneNumber" className="col-sm-2 col-form-label">Phone number</label>
-                        <div className="col-sm-10">
+                    <div className="form-group py-1 pb-2">
+                        <div className="input-field"><span className="fas fa-phone p-2"></span>
                             <input type="text" className="form-control" name={"phoneNumber"}
+                                   placeholder={"Enter your phone number"}
                                    value={formik.values.phoneNumber} onInput={formik.handleChange}/>
-                            {formik.errors.phoneNumber && formik.touched.phoneNumber && (<p>{formik.errors.phoneNumber}</p>)}
                         </div>
+                        {formik.errors.phoneNumber && formik.touched.phoneNumber && (
+                            <p>{formik.errors.phoneNumber}</p>)}
                     </div>
+
                     <br/>
                     <br/>
-                    <button type="submit" className="btn btn-primary">Save</button>
+                    <button type="submit" className="btn btn-primary">Sign up</button>
                 </form>
             </div>
         </>
