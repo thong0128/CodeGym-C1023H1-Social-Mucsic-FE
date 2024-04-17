@@ -4,7 +4,9 @@ export default function Register() {
     return (
         <>
             <div className="main">
-                <h2>Register</h2>
+                <h1>Register</h1>
+                <br/>
+                <br/>
                 <form>
                     <div className="row mb-3">
                         <label htmlFor="userName" className="col-sm-2 col-form-label">User name</label>
@@ -30,7 +32,8 @@ export default function Register() {
                             <input type="password" className="form-control" id="phoneNumber"/>
                         </div>
                     </div>
-
+                    <br/>
+                    <br/>
 
                     <button type="submit" className="btn btn-primary">Sign in</button>
                 </form>
