@@ -11,13 +11,14 @@ export function UpdateSong() {
     const [songs, setSongs] = useState({})
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
+    const [songType, setSongTypes] = useState([])
 
     const uploadFileImg = (image) => {
         if (image === null) return
         const imageRef = ref(storage, `IMG/${image.name}`);
         uploadBytes(imageRef, image).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setImageUrl(url); // Lưu URL sau khi upload thành công vào state mới
+                setImageUrl(url);
                 console.log("image uploaded successfully", url);
                 console.log("image uploaded successfully", imageUrl);
                 songs.img_url = url;
@@ -43,7 +44,13 @@ export function UpdateSong() {
         axios.get("http://localhost:8080/songs/"+idSong.id).then((res)=>{
             setSongs(res.data)
         })
-    }, [idSong]);
+    }, []);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/songTypes").then((res)=>{
+            setSongTypes(res.data)
+        })
+    }, []);
 
     return (
         <>
@@ -55,14 +62,15 @@ export function UpdateSong() {
                 song_url: songs.song_url,
                 author: songs.author,
                 singer: songs.singer,
-                album:songs.album
+                album:songs.album,
+                songTypes:songs.songTypes
             }}
                     enableReinitialize={true}
                     onSubmit={(value) => {
                 value.img_url = localStorage.getItem("url_img");
                 value.song_url = localStorage.getItem("url_song");
-                axios.post("http://localhost:8080/songs", value).then((res)=>{
-                    console.log("success")
+                axios.put("http://localhost:8080/songs", value).then((res)=>{
+                    console.log(res.data)
                 })
             }}>
                 <Form>
@@ -86,6 +94,17 @@ export function UpdateSong() {
                             <label className="form-label" htmlFor="description">Mô tả</label>
                             <Field name="description" component="textarea" id="description" placeholder="Nhập mô tả"
                                    className="form-control"/>
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className="form-label" htmlFor="type">Thể loại</label>
+                            <Field className="form-control form-control-sm" placeholder="Chọn thể loại"
+                                   as="select" name="songTypes.id" id="type">
+                                {songType.map((i, key) => {
+                                    return (
+                                        <option key={key} value={i.id}>{i.name}</option>
+                                    )
+                                })}
+                            </Field>
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label" htmlFor="album">Album</label>

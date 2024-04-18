@@ -1,6 +1,6 @@
 import {getDownloadURL,ref,uploadBytes} from "firebase/storage";
 import {storage} from '../../fireBase/FirebaseConfig';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Field, Form, Formik} from "formik";
 import axios from "axios";
 import './createSong.css'
@@ -8,6 +8,7 @@ export function CreateSong() {
     const [songs,setSongs] = useState({})
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
+    const [songType, setSongTypes] = useState([])
     const uploadFileImg = (image) => {
         if (image === null) return
         const imageRef = ref(storage, `IMG/${image.name}`);
@@ -34,6 +35,12 @@ export function CreateSong() {
             });
         });
     };
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/songTypes").then((res)=>{
+            setSongTypes(res.data)
+        })
+    }, []);
     return (
         <>
             <Formik initialValues={{
@@ -43,13 +50,16 @@ export function CreateSong() {
                 song_url: "",
                 author: "",
                 singer: "",
-                album:""
+                album:"",
+                songTypes:{
+                    id: "1"
+                }
 
             }} onSubmit={(value) => {
                 value.img_url = localStorage.getItem("url_img");
                 value.song_url = localStorage.getItem("url_song");
                 axios.post("http://localhost:8080/songs", value).then((res)=>{
-                    console.log("success")
+                    console.log(res.data)
                 })
             }}>
                 <Form>
@@ -73,6 +83,17 @@ export function CreateSong() {
                             <label className="form-label" htmlFor="description">Mô tả</label>
                             <Field name="description" component="textarea" id="description" placeholder="Nhập mô tả"
                                    className="form-control"/>
+                        </div>
+                        <div className="form-group mb-2">
+                            <label className="form-label" htmlFor="type">Thể loại</label>
+                            <Field className="form-control form-control-sm" placeholder="Chọn thể loại"
+                                   as="select" name="songTypes.id" id="type">
+                                {songType.map((i, key) => {
+                                    return (
+                                        <option key={key} value={i.id}>{i.name}</option>
+                                    )
+                                })}
+                            </Field>
                         </div>
                         <div className="form-group mb-2">
                             <label className="form-label" htmlFor="album">Album</label>
