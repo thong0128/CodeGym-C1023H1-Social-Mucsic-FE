@@ -1,25 +1,33 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #180F23;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
 }
 .main {
-    background-color: #fff;
     border-radius: 15px;
-    box-shadow: 0 0 20px
-    rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 20px 80px rgb(206, 206, 206);
     padding: 20px;
-    width: 700px;
+    width: 600px;
+
 }
-.main h2 {
-    color: #4caf50;
+.main h1 {
+    color: #8F46CE;
     margin-bottom: 20px;
     text-align: center;
+
+}
+p{
+    margin-top: 5px;
+    color: #400485;
+}
+.form-group{
+    margin-bottom: 0px;
 }
 
 label {
@@ -28,16 +36,24 @@ label {
     color: #555;
     font-weight: bold;
 }
-
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #400485;
+    color: #400485;
+}
 input[type="text"],
 input[type="email"],
 input[type="password"],
 select {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 5px;
 }
 
@@ -45,9 +61,24 @@ button[type="submit"] {
     padding: 15px;
     border-radius: 10px;
     border: none;
-    background-color: #4caf50;
+    background-color: #8F46CE;
     color: white;
     cursor: pointer;
     width: 100%;
     font-size: 16px;
+}
+
+
+button[type="submit"]:hover {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #975EDE;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+.col-form-label{
+    color: white;
 }
