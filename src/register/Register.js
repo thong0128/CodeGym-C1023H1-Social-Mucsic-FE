@@ -51,6 +51,7 @@ export default function Register() {
 
     return (
         <>
+            <div className={"container1"}>
             <div className="main bg-white">
                 <div className="h2 text-center">Register</div>
                 <br/>
@@ -95,6 +96,7 @@ export default function Register() {
                     <br/>
                     <button type="submit" className="btn btn-primary">Sign up</button>
                 </form>
+            </div>
             </div>
         </>
     );

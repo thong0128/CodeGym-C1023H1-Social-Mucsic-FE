@@ -51,6 +51,7 @@ export default function ChangePassword() {
 
     return (
         <>
+            <div className={"container1"}>
             <div className="main bg-white">
                 <div className="h2 text-center">Change Password</div>
                 <br/>
@@ -87,6 +88,7 @@ export default function ChangePassword() {
                     <br/>
                     <button type="submit" className="btn btn-primary">Accept</button>
                 </form>
+            </div>
             </div>
         </>
     );
