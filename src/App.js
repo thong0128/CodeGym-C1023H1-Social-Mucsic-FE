@@ -8,6 +8,8 @@ import Login from "./login/Login";
 import Home from "./home/Home";
 import ChangePassword from "./changepassword/ChangePassword";
 import BasicModal from "./user/Modal";
+import {CreateSong} from "./component/song/CreateSong";
+import {UpdateSong} from "./component/song/UpdateSong";
 
 
 
@@ -25,6 +27,11 @@ function App() {
 
                   <Route path={"modal"} element={<BasicModal/>}></Route>
 
+                  <Route path={"songs/create"} element={<CreateSong/>}></Route>
+                  <Route path={"songs/:id"} element={<UpdateSong/>}></Route>
+                  <Route path={"login"} element={<Login/>}></Route>
+                  <Route path={"register"} element={<Register/>}></Route>
+                  <Route path={"home"} element={<Home/>}></Route>
               </Routes>
               </AppProvider> <ToastContainer />
 
