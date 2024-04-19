@@ -9,6 +9,7 @@ import Home from "./home/Home";
 import ChangePassword from "./changepassword/ChangePassword";
 import {CreateSong} from "./component/song/CreateSong";
 import {UpdateSong} from "./component/song/UpdateSong";
+import UserSongList from "./userSongList/UserSongList";
 
 
 
@@ -18,15 +19,16 @@ function App() {
           <div>
               <AppProvider>
               <Routes>
-                      <Route path={"login"} element={<Login/>}></Route>
-                      <Route path={"register"} element={<Register/>}></Route>
-                      <Route path={"home"} element={<Home/>}></Route>
-                      <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
+                  <Route path={"login"} element={<Login/>}></Route>
+                  <Route path={"register"} element={<Register/>}></Route>
+                  <Route path={"home"} element={<Home/>}></Route>
+                  <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
                   <Route path={"songs/create"} element={<CreateSong/>}></Route>
                   <Route path={"songs/:id"} element={<UpdateSong/>}></Route>
                   <Route path={"login"} element={<Login/>}></Route>
                   <Route path={"register"} element={<Register/>}></Route>
                   <Route path={"home"} element={<Home/>}></Route>
+                  <Route path={"mysong"} element={<UserSongList/>}></Route>
               </Routes>
               </AppProvider> <ToastContainer />
 
