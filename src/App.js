@@ -7,6 +7,7 @@ import {AppProvider} from "./Context/AppContext";
 import Login from "./login/Login";
 import Home from "./home/Home";
 import ChangePassword from "./changepassword/ChangePassword";
+import BasicModal from "./user/Modal";
 
 
 
@@ -21,6 +22,9 @@ function App() {
                       <Route path={"home"} element={<Home/>}></Route>
                       <Route path={""} element={<Home/>}></Route>
                       <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
+
+                  <Route path={"modal"} element={<BasicModal/>}></Route>
+
               </Routes>
               </AppProvider> <ToastContainer />
 
