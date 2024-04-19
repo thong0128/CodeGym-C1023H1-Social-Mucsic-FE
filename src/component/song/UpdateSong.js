@@ -11,7 +11,8 @@ export function UpdateSong() {
     const [songs, setSongs] = useState({})
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
-    const [songType, setSongTypes] = useState([])
+    const [songType, setSongTypes] = useState([]);
+    const [idUser, setIdUser] = useState(localStorage.getItem("idUser"));
 
     const uploadFileImg = (image) => {
         if (image === null) return
@@ -63,7 +64,10 @@ export function UpdateSong() {
                 author: songs.author,
                 singer: songs.singer,
                 album:songs.album,
-                songTypes:songs.songTypes
+                songTypes:songs.songTypes,
+                appUser: {
+                    id:idUser
+                }
             }}
                     enableReinitialize={true}
                     onSubmit={(value) => {

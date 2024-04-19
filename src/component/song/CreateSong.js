@@ -22,6 +22,7 @@ export function CreateSong() {
             });
         });
     };
+
     const uploadFileSong = (music) => {
         if (music === null) return
         const urlRef = ref(storage, `Music/${music.name}`);
@@ -41,6 +42,7 @@ export function CreateSong() {
             setSongTypes(res.data)
         })
     }, []);
+
     return (
         <>
             <Formik initialValues={{
@@ -53,11 +55,14 @@ export function CreateSong() {
                 album:"",
                 songTypes:{
                     id: "1"
+                },
+                appUser: {
+                    id:""
                 }
-
             }} onSubmit={(value) => {
                 value.img_url = localStorage.getItem("url_img");
                 value.song_url = localStorage.getItem("url_song");
+                value.appUser.id = localStorage.getItem("idUser")
                 axios.post("http://localhost:8080/songs", value).then((res)=>{
                     console.log(res.data)
                 })
