@@ -20,7 +20,7 @@ export default function Login(){
                         localStorage.setItem("idUser", res.data.id)
                         localStorage.setItem("user", res.data.username)
                         localStorage.setItem("role", res.data.authorities[0].authority)
-                        console.log("user:",localStorage.getItem("user"))
+                        localStorage.setItem("token", res.data.token)
                         navigate("/home")
 
                     }
