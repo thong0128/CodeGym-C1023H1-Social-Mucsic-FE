@@ -31,6 +31,7 @@ export default function Login(){
     });
     return(
         <>
+            <div className={"container1"}>
             <div className="wrapper bg-white">
                 <div className="h2 text-center">MP3</div>
                 <div className="h4 text-muted text-center pt-2">Enter your login details</div>
@@ -55,6 +56,7 @@ export default function Login(){
                     <button className="btn btn-block text-center my-3" onClick={formik.handleSubmit}>Log in</button>
                     <div className="text-center pt-3 text-muted">Not a member?<Link to={'/register'}>Sign up</Link></div>
                 </form>
+            </div>
             </div>
         </>
     )
