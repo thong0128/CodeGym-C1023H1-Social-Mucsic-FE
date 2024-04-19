@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Field, Form, Formik} from "formik";
@@ -41,8 +41,17 @@ export function UpdateSong() {
         });
     };
 
+    const token = localStorage.getItem('token'); // Lấy token từ Local Storage
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
+        }
+    };
+
     useEffect(() => {
-        axios.get("http://localhost:8080/songs/"+idSong.id).then((res)=>{
+        axios.get("http://localhost:8080/songs/"+idSong.id,config).then((res)=>{
             setSongs(res.data)
         })
     }, []);
@@ -52,6 +61,7 @@ export function UpdateSong() {
             setSongTypes(res.data)
         })
     }, []);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -73,8 +83,8 @@ export function UpdateSong() {
                     onSubmit={(value) => {
                 value.img_url = localStorage.getItem("url_img");
                 value.song_url = localStorage.getItem("url_song");
-                axios.put("http://localhost:8080/songs", value).then((res)=>{
-                    console.log(res.data)
+                axios.put("http://localhost:8080/songs/user/update", value,config).then((res)=>{
+                    navigate('/home')
                 })
             }}>
                 <Form>

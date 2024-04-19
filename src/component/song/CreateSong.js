@@ -43,6 +43,15 @@ export function CreateSong() {
         })
     }, []);
 
+    const token = localStorage.getItem('token'); // Lấy token từ Local Storage
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
+        }
+    };
+
     return (
         <>
             <Formik initialValues={{
@@ -63,7 +72,7 @@ export function CreateSong() {
                 value.img_url = localStorage.getItem("url_img");
                 value.song_url = localStorage.getItem("url_song");
                 value.appUser.id = localStorage.getItem("idUser")
-                axios.post("http://localhost:8080/songs", value).then((res)=>{
+                axios.post("http://localhost:8080/songs/user/create", value,config).then((res)=>{
                     console.log(res.data)
                 })
             }}>
