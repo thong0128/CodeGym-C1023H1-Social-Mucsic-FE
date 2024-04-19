@@ -7,44 +7,44 @@ import * as Yup from 'yup';
 export default function ChangePassword() {
 
     const [user, setUser] = useState({});
-    const [listUserCheck, setListUserCheck] = useState([]);
+    const [oldPass, setOldPass] = useState("");
+    const token = localStorage.getItem('token'); // Lấy token từ Local Storage
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
+        }
+    };
     const navigate = useNavigate();
-    const yup = require("yup");
+    const id = localStorage.getItem("idUser");
+
     useEffect(() => {
-        axios.get('http://localhost:8080/users/update/pass/id').then(res => {
-            setListUserCheck(findUser(res.data)) ;
+        axios.get(`http://localhost:8080/users/${id}`, config).then(res => {
+            console.log(res.data.oldPassword)
+            console.log(token)
+            setUser(res.data);
+            setOldPass(res.data.oldPassword);
         })
     }, []);
 
-    function findUser(data){
-        let a = [];
-        for (let i=0; i <data.length; i++){
-            a.push(data[i].username)
-        }
-        return a;
-    }
+
 
     const formik = useFormik({
         initialValues: {user},
         validationSchema: Yup.object({
-            username: Yup.string().min(1, 'Username cannot be blank')
-                .required('You must fill in this section!').test('unique', 'Account already exists', (value) =>{
-                    return !listUserCheck.includes(value);
-                }),
+            oldPassword: Yup.string().matches(`${oldPass}`, "Password is wrong!!!")
+                .required("You must fill this section!"),
             password: Yup.string().matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Password must contain at least 8 characters, including numbers, lowercase letters, and uppercase letters")
                 .required("You must fill this section!"),
             confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password does not match!')
-                .required('You must fill in this section'),
-            phoneNumber: Yup.string().matches(/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, "Not Vietnam's phone number")
-                .required("Invalid phone number")
-
+                .required('You must fill in this section')
         }),
         onSubmit: values => {
 
-            axios.post(" http://localhost:8080/users/create", values).then(
+            axios.put(` http://localhost:8080/users/update/pass/${id}`, values, config).then(
                 res =>{
-                    alert("Them moi thanh cong!!!");
-                    navigate("/login")
+                    alert("Cap nhat thanh cong!!!");
+                    navigate("/")
                 })
         }
     });
@@ -59,16 +59,19 @@ export default function ChangePassword() {
                 <form onSubmit={formik.handleSubmit}>
                     <div className="form-group py-1 pb-2">
                         <div className="input-field"><span className="fas fa-lock p-2"></span>
-                            <input type="password" className="form-control" name={"password"}
+                            <input type="password" className="form-control" name={"oldPassword"}
                                    placeholder={"Enter your old password"}
-                                   value={formik.values.password} onInput={formik.handleChange}/>
+                                   value={formik.values.oldPassword} onInput={formik.handleChange}
+                                  />
+
                         </div>
-                        {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}
+                        {formik.errors.oldPassword && formik.touched.oldPassword && (<p>{formik.errors.oldPassword}</p>)}
+
                     </div>
                     <div className="form-group py-1 pb-2">
                         <div className="input-field"><span className="fas fa-lock p-2"></span>
                             <input type="password" className="form-control" name={"password"}
-                                   placeholder={"Enter your password"}
+                                   placeholder={"Enter your new password"}
                                    value={formik.values.password} onInput={formik.handleChange}/>
                         </div>
                         {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}
