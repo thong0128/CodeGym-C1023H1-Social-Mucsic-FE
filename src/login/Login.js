@@ -1,7 +1,6 @@
 import './login.css'
 import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
-import * as Yup from "yup";
 import axios from "axios";
 import {useState} from "react";
 export default function Login(){
@@ -14,7 +13,7 @@ export default function Login(){
             axios.post(" http://localhost:8080/login", values).then(
                 res =>{
                     if (res.data === false){
-                        alert("Tài khoản của bạn đã bị khóa");
+                        alert("Account not available");
                     }
                     else{
                         localStorage.setItem("idUser", res.data.id)
@@ -26,7 +25,7 @@ export default function Login(){
 
                     }
                 }).catch(() => {
-                alert("thong tin sai")
+                alert("Information is wrong!!!!")
                 })
         }
     });

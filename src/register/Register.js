@@ -1,4 +1,4 @@
-import './register.css';
+import  './register.css';
 import {useFormik} from "formik";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -43,7 +43,7 @@ export default function Register() {
 
             axios.post(" http://localhost:8080/users/create", values).then(
                 res =>{
-                    alert("Them moi thanh cong!!!");
+                    alert("Successfully!!!");
                     navigate("/login")
                 })
         }
