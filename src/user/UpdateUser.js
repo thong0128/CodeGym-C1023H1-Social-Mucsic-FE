@@ -1,9 +1,9 @@
 import './update-user.css'
-import {Field, Form, Formik} from "formik";
+import {Field, Form, Formik, useFormik} from "formik";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import React from 'react';
-import {Button, Modal, notification, Space} from 'antd';
+import {Modal} from 'antd';
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import {AppContext} from "../Context/AppContext";
@@ -16,9 +16,8 @@ export default function UpdateUser() {
     const id = localStorage.getItem("idUser")
     const [user, setUser] = useState({})
     const [uploadedImageUrl, setUploadedImageUrl] = useState(undefined);
-    const [image, setImage] = useState(null);
-    const [api, contextHolder] = notification.useNotification();
     const [isModalOpen, setIsModalOpen] = useState(true);
+
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -57,14 +56,6 @@ export default function UpdateUser() {
         });
     };
 
-    // const openNotificationWithIcon = (title, desc) => {
-    //     console.log(title, desc);
-    //     api.success({
-    //         message: title,
-    //         description: desc,
-    //         placement: 'top'
-    //     });
-    // };
     if (id != null){
         return (
             <>
@@ -78,10 +69,10 @@ export default function UpdateUser() {
                         onSubmit={(user1) => {
                             axios.put("http://localhost:8080/users/update/infor/" + id, user1).then((res) => {
                                 localStorage.setItem("user", res.data.username)
-                                toast.success("Cập nhật thành công")
+                                toast.success("Update successfully")
                                 navigate("/")
                             }).catch(() => {
-                                toast.error("Cập nhật không thành công")
+                                toast.error("Update does not successfully")
                             })
                             toggleFlag()
                         }}
@@ -100,16 +91,9 @@ export default function UpdateUser() {
                                             </div>
                                             <input id="photo-upload" type="file" onChange={(event) => {
                                                 uploadFile(event.target.files[0])
-                                                console.log("OKKKKKK")
                                             }}/></label>
                                     </div>
 
-                                    {/*<div className="form-group mb-2">*/}
-                                    {/*    <label className="form-label" htmlFor="url_img">Ảnh</label>*/}
-                                    {/*    <input type="file"  onChange={(event) => {*/}
-                                    {/*        uploadFile(event.target.files[0])*/}
-                                    {/*    }}/>*/}
-                                    {/*</div>*/}
                                     <div className="col-md-7">
                                         <div className="card-body">
                                             <div className="form-group mb-2">

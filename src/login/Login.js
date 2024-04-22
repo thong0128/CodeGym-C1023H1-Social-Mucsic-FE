@@ -13,7 +13,7 @@ export default function Login(){
             axios.post(" http://localhost:8080/login", values).then(
                 res =>{
                     if (res.data === false){
-                        alert("Tài khoản của bạn đã bị khóa");
+                        alert("Account not available");
                     }
                     else{
                         localStorage.setItem("idUser", res.data.id)
@@ -25,7 +25,7 @@ export default function Login(){
 
                     }
                 }).catch(() => {
-                alert("thong tin sai")
+                alert("Information is wrong!!!!")
                 })
         }
     });

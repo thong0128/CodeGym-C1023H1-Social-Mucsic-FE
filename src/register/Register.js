@@ -43,7 +43,7 @@ export default function Register() {
 
             axios.post(" http://localhost:8080/users/create", values).then(
                 res =>{
-                    alert("Them moi thanh cong!!!");
+                    alert("Successfully!!!");
                     navigate("/login")
                 })
         }
