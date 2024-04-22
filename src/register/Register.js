@@ -1,4 +1,4 @@
-import './register.css';
+import  './register.css';
 import {useFormik} from "formik";
 import {useEffect, useState} from "react";
 import axios from "axios";

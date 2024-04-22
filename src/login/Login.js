@@ -1,7 +1,6 @@
 import './login.css'
 import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
-import * as Yup from "yup";
 import axios from "axios";
 import {useState} from "react";
 export default function Login(){
