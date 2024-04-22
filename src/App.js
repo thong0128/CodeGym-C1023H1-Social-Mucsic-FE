@@ -37,11 +37,16 @@ function App() {
 
                   <Route path={"modal"} element={<UpdateUser/>}></Route>
 
+                  <Route path={"login"} element={<Login/>}></Route>
+                  <Route path={"register"} element={<Register/>}></Route>
+                  <Route path={"home"} element={<Home/>}></Route>
+                  <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
                   <Route path={"songs/create"} element={<CreateSong/>}></Route>
                   <Route path={"songs/:id"} element={<UpdateSong/>}></Route>
                   <Route path={"login"} element={<Login/>}></Route>
                   <Route path={"register"} element={<Register/>}></Route>
                   <Route path={"home"} element={<Home/>}></Route>
+                  <Route path={"mysong"} element={<UserSongList/>}></Route>
               </Routes>
               </AppProvider> <ToastContainer />
 
