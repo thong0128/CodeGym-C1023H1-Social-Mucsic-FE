@@ -9,6 +9,9 @@ import Home from "./home/Home";
 import ChangePassword from "./changepassword/ChangePassword";
 import {CreateSong} from "./component/song/CreateSong";
 import {UpdateSong} from "./component/song/UpdateSong";
+import UserSongList from "./userSongList/UserSongList";
+import UpdateUser from "./user/UpdateUser";
+import ResponsiveDrawer from "./responsiveDrawer/ResponsiveDrawer";
 
 
 
@@ -18,34 +21,16 @@ function App() {
           <div style={{backgroundColor: "red"}}>
 
               <AppProvider>
-                  <ResponsiveDrawer/>
-              <Routes>
-
-                      <Route path={"login"} element={<Login/>}></Route>
-                      <Route path={"register"} element={<Register/>}></Route>
-                      <Route path={"home"} element={<Home/>}></Route>
-                      <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
-              </Routes>
-              </AppProvider>
               <ToastContainer />
               <Routes>
-                      <Route path={"login"} element={<Login/>}></Route>
-                      <Route path={"register"} element={<Register/>}></Route>
-                      <Route path={"home"} element={<Home/>}></Route>
-                      <Route path={""} element={<Home/>}></Route>
-                      <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
-
-                  <Route path={"modal"} element={<UpdateUser/>}></Route>
-
                   <Route path={"login"} element={<Login/>}></Route>
                   <Route path={"register"} element={<Register/>}></Route>
-                  <Route path={"home"} element={<Home/>}></Route>
+                  <Route path={"home"} element={<ResponsiveDrawer/>}></Route>
+                  <Route path={""} element={<Home/>}></Route>
                   <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
+                  <Route path={"modal"} element={<UpdateUser/>}></Route>
                   <Route path={"songs/create"} element={<CreateSong/>}></Route>
                   <Route path={"songs/:id"} element={<UpdateSong/>}></Route>
-                  <Route path={"login"} element={<Login/>}></Route>
-                  <Route path={"register"} element={<Register/>}></Route>
-                  <Route path={"home"} element={<Home/>}></Route>
                   <Route path={"mysong"} element={<UserSongList/>}></Route>
               </Routes>
               </AppProvider> <ToastContainer />
