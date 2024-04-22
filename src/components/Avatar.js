@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {RxAvatar} from "react-icons/rx";
+import {NavLink} from "react-router-dom";
 
 export default function Avatar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,11 +35,11 @@ export default function Avatar() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Change Password</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <NavLink to="/login" activeClassName='active'><MenuItem onClick={handleClose}>Login</MenuItem></NavLink>
+                <NavLink to="/register" activeClassName='active'><MenuItem onClick={handleClose}>Register</MenuItem></NavLink>
+                <NavLink to="/profile" activeClassName='active'><MenuItem onClick={handleClose}>Profile</MenuItem></NavLink>
+                <NavLink to="/change-password" activeClassName='active'><MenuItem onClick={handleClose}>Change Password</MenuItem></NavLink>
+                <NavLink to="/login" activeClassName='active'><MenuItem onClick={handleClose}>Logout</MenuItem></NavLink>
             </Menu>
         </div>
     );
