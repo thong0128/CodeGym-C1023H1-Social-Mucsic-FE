@@ -2,7 +2,7 @@
 import {Field, Form, Formik} from "formik";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
-import {storage} from "../../fireBase/FirebaseConfig";
+import {storage} from "../../FireBase/FirebaseConfig";
 import {
     ref,
     uploadBytes,
@@ -35,14 +35,14 @@ export default function UpdateUser() {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-    useEffect(() => {
-        if(id != null) {
-            axios.get('http://localhost:8080/users/' + id).then((res) => {
-                console.log(res.data)
-                setUser(res.data)
-            })
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(id != null) {
+    //         axios.get('http://localhost:8080/users/' + id).then((res) => {
+    //             console.log(res.data)
+    //             setUser(res.data)
+    //         })
+    //     }
+    // }, [])
 
     const uploadFile = (image, id_user) => {
         if (image === null) return

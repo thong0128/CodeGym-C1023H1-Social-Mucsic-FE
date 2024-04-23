@@ -41,7 +41,7 @@ const Header = () => {
             setChecksetting(false);
         setCheck(isCheck);
     }
-    console.log(localStorage.getItem("role"))
+    // console.log(localStorage.getItem("role"))
     if (localStorage.getItem("idUser") !== null) {
         if (localStorage.getItem("role") === "ROLE_ADMIN") {
             return (

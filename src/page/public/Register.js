@@ -6,13 +6,14 @@ import axios from "axios";
 export default function Register() {
     const [listMailCheck, setListEmailCheck] = useState([]);
     const [listUserCheck, setListUserCheck] = useState([]);
+    const [user, setUser] = useState({})
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     axios.get('http://localhost:8080/users').then(res => {
-    //         setListEmailCheck(findEmail(res.data)) ;
-    //         setListUserCheck(findUser(res.data)) ;
-    //     })
-    // }, []);
+    useEffect(() => {
+        axios.get('http://localhost:8080/users').then(res => {
+            // setListEmailCheck(findEmail(res.data)) ;
+            setListUserCheck(findUser(res.data)) ;
+        })
+    }, []);
 
     function findUser (data) {
         let a = [] ;
@@ -33,7 +34,8 @@ export default function Register() {
         if(values !== null) {
             axios.post('http://localhost:8080/users/register', values)
             .then((res) => {
-                toast.warning('Đăng kí thành công', {autoClose : 700})
+                toast.success('Đăng kí thành công', {autoClose : 700})
+                console.log(values)
 
                 // toast.success('Đăng kí thành công vui lòng đăng nhập lại', {autoClose : 700})
                 navigate('/login')
@@ -45,11 +47,10 @@ export default function Register() {
     const onSubmit = (values) => {
        let user = {
            userName : values.userName ,
-           email : values.email,
            password : values.password,
-           confirmedPassword : values.confirmedPassword
+           confirmPassword : values.confirmPassword
        }
-        console.log(user)
+        // console.log(user)
         handleButtonClick(user) ;
     };
 
@@ -58,10 +59,7 @@ export default function Register() {
             <div className={'title'}>Đăng Ký</div>
             <Formik
                 initialValues={{
-                    userName: '',
-                    password: '',
-                    email: '',
-                    confirmedPassword: ''
+                    user
                 }}
                 validationSchema={
                     require("yup").object().shape({
@@ -74,13 +72,13 @@ export default function Register() {
                         password: require("yup")
                             .string()
                             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm số, chữ thường và chữ hoa")
-                            .required("Vui lòng nhập mật khẩu."),
-                        email: require("yup")
-                            .string()
-                            .email("Email không hợp lệ.")
-                            .required("Vui lòng nhập email.").test('unique', 'Email đã tồn tại', (value) => {
-                                return !listMailCheck.includes(value);
-                            }),
+                            .required("Vui lòng nhập mật khẩu.")
+                        // email: require("yup")
+                        //     .string()
+                        //     .email("Email không hợp lệ.")
+                        //     .required("Vui lòng nhập email.").test('unique', 'Email đã tồn tại', (value) => {
+                        //         return !listMailCheck.includes(value);
+                        //     }),
                     })
                 }
                 onSubmit={onSubmit}
@@ -124,18 +122,10 @@ export default function Register() {
                                                                 </div>
                                                                 <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="password" component="div"/>
                                                                 <div className="wrap-input100 validate-input">
-                                                                    <Field className="input100" type="password" name="confirmedPassword" placeholder="Nhập lại mật khẩu"/>
+                                                                    <Field className="input100" type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>
                                                                     <span className="focus-input100"></span>
                                                                     <span className="symbol-input100">
 							<i className="fa fa-lock" aria-hidden="true"></i>
-						</span>
-                                                                </div>
-                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="email" component="div"/>
-                                                                <div className="wrap-input100 validate-input">
-                                                                    <Field className="input100" type="email" name="email" placeholder="Email"/>
-                                                                    <span className="focus-input100"></span>
-                                                                    <span className="symbol-input100">
-							<i className="fa fa-envelope" aria-hidden="true"></i>
 						</span>
                                                                 </div>
                                                                 <div className="container-login100-form-btn">
@@ -143,21 +133,11 @@ export default function Register() {
                                                                         Đăng ký
                                                                     </button>
                                                                 </div>
-
-                        {/*                                        <div className="text-center p-t-12">*/}
-						{/*<span className="txt1">*/}
-						{/*	Forgot*/}
-						{/*</span>*/}
-                        {/*                                            <a className="txt2" href="#">*/}
-                        {/*                                                Username / Password?*/}
-                        {/*                                            </a>*/}
-                        {/*                                        </div>*/}
                                                                 <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
     &client_id=80724656105-fg2ndheoujm7c7dd4ob1i9mq3ebdbjhb.apps.googleusercontent.com&approval_prompt=force">Login With
                                                                     Gmail</a>
                                                                 <div>
                                                                     <button onClick={back} className="txt2">
-
                                                                         <i className="fa fa-long-arrow-left m-l-5"
                                                                            ></i>
                                                                         Quay lại

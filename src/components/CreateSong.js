@@ -8,7 +8,7 @@ import {
     uploadBytes,
     getDownloadURL
 } from "firebase/storage";
-import {storage} from "../fireBase/FirebaseConfig"
+import {storage} from "../FireBase/FirebaseConfig";
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import * as actions from "../store/actions";
