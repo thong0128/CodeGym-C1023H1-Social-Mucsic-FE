@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d75459-0ef0-46dd-b91e-9d7bc9ebf5b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CodeGym-C1023H1-Social-Mucsic-FE.iml" afterDir="false" />
-    </list>
+    <list default="true" id="39d75459-0ef0-46dd-b91e-9d7bc9ebf5b9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/update-user" />
+        <entry key="$PROJECT_DIR$" value="features/song" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,10 +21,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2fRyizJXmCZFj96uqVZkvKwFeDV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,8 +35,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "features/song",
-    "last_opened_file_path": "D:/0_WebFullStack/8_Module6/zingmp3-frontend/du_an_zing_mp3",
+    "git-widget-placeholder": "template",
+    "last_opened_file_path": "D:/0_WebFullStack/8_Module6/zingmp3-frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
