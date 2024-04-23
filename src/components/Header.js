@@ -32,12 +32,6 @@ const Header = () => {
         //         navigate("/")
         //     }
         // }, [isFlag])
-    const dataUser = {}
-
-    useEffect(() => {
-        setUser(dataUser)
-        setImg(dataUser.url_img)
-    }, [isFlag]);
 
 
     const [check, setCheck] = useState(false)

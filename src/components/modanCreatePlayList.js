@@ -33,10 +33,6 @@ const ModalCreatePlayList = () => {
     //         setPlaylistCheck(findPlaylist(res.data)) ;
     //     })
     // }, [ isFlag]);
-    const dataPlayLists = {}
-    useEffect(() => {
-        setPlaylistCheck(findPlaylist(dataPlayLists))
-    }, []);
     function findPlaylist (data) {
         let a = [];
         for (let i = 0; i < data.length; i++) {

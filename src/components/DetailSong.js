@@ -13,10 +13,6 @@ export default function SongDetail (){
     //         setdetailSong(res.data)
     //     }).catch(Error => console.log(Error))
     // }, [])
-    const data = {};
-    useEffect(() => {
-        setdetailSong(data)
-    }, []);
 
     return(
         <>

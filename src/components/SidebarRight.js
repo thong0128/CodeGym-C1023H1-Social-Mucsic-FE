@@ -17,10 +17,6 @@ const SidebarRight = () => {
     //     })
     // }, []);
 
-    const searchByIdPll = {}
-    useEffect(() => {
-        setSongs(searchByIdPll)
-    }, []);
     return (
         <div className={'flex flex-col text-xs w-full'}>
             <div className={'h-[70px] w-full flex-none py-[14px] px-2 gap-8 flex items-center justify-between'}>

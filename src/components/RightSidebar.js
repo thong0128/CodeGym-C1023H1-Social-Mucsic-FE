@@ -33,10 +33,6 @@ const RightSidebar = () => {
     //     })
     // }, []);
 
-    const dataSong = {}
-    useEffect(() => {
-        setSongs(dataSong)
-    }, []);
 
     return (
         <>

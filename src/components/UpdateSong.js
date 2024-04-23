@@ -5,7 +5,7 @@ import {
     getDownloadURL
 } from "firebase/storage";
 import React, {useEffect, useState} from 'react';
-import {storage} from "../FireBase/FireBaseConfig";
+import {storage} from "../fireBase/FirebaseConfig";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
@@ -47,29 +47,21 @@ export default function UpdateSong(prop) {
             });
         });
     };
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songTypes").then((res)=>{
-    //         setSongType(res.data);
-    //     })
-    //
-    // }, []);
-    const songTypes = {}
     useEffect(() => {
-        setSongType(songTypes)
+        axios.get("http://localhost:8080/songTypes").then((res)=>{
+            setSongType(res.data);
+        })
+
     }, []);
 
 
-    // useEffect(()=>{
-    //     console.log("id: ", idSong.id)
-    //     axios.get("http://localhost:8080/songs/" + idSong.id).then((res)=>{
-    //         setSongs(res.data);
-    //     })
-    // },[])
+    useEffect(()=>{
+        console.log("id: ", idSong.id)
+        axios.get("http://localhost:8080/songs/" + idSong.id).then((res)=>{
+            setSongs(res.data);
+        })
+    },[])
 
-    const songs1 = {}
-    useEffect(() => {
-        setSongs(songs1)
-    }, []);
 
     const uploadFileSong = (url) => {
         if (url === null) return
