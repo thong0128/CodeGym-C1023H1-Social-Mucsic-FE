@@ -2,7 +2,7 @@
 import {Field, Form, Formik} from "formik";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
-import {storage} from "../../FireBase/FireBaseConfig";
+import {storage} from "../../FireBase/FirebaseConfig";
 import {
     ref,
     uploadBytes,

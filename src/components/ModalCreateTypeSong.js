@@ -6,7 +6,7 @@ import {Button, Modal} from "antd";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {toast} from "react-toastify";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
-import {storage} from "../FireBase/FireBaseConfig";
+import {storage} from "../FireBase/FirebaseConfig";
 
 function ModalCreateTypeSong(props) {
     const [isModalOpen, setIsModalOpen] = useState(false);

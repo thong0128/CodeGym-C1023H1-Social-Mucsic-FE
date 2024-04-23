@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39d75459-0ef0-46dd-b91e-9d7bc9ebf5b9" name="Changes" comment="" />
+    <list default="true" id="aa5fd528-91a0-49df-9250-5fd129872798" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UpdateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fireBase/FirebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FireBase/FirebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/UpdateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdateUser.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/song" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,10 +39,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2fRyizJXmCZFj96uqVZkvKwFeDV" />
+  <component name="ProjectId" id="2fUdyV0z4XaxjTUqyDw1pTESlcD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,9 +50,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "template",
-    "last_opened_file_path": "D:/0_WebFullStack/8_Module6/zingmp3-frontend",
+    "git-widget-placeholder": "temp1",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,12 +63,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="39d75459-0ef0-46dd-b91e-9d7bc9ebf5b9" name="Changes" comment="" />
-      <created>1713778316484</created>
+      <changelist id="aa5fd528-91a0-49df-9250-5fd129872798" name="Changes" comment="" />
+      <created>1713859845173</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713778316484</updated>
-      <workItem from="1713778319585" duration="1192000" />
+      <updated>1713859845173</updated>
+      <workItem from="1713859846381" duration="312000" />
+      <workItem from="1713860174506" duration="2914000" />
     </task>
     <servers />
   </component>

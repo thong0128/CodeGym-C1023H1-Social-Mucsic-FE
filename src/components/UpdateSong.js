@@ -5,7 +5,7 @@ import {
     getDownloadURL
 } from "firebase/storage";
 import React, {useEffect, useState} from 'react';
-import {storage} from "../FireBase/FireBaseConfig";
+import {storage} from "../FireBase/FirebaseConfig";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
