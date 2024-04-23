@@ -13,16 +13,19 @@ const ShowListSong = () => {
     const [idUser, setIdUser] = useState(localStorage.getItem("idUser"))
     const [list, setList] = useState([]);
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs/showByIdUser/" + idUser).then((res) => {
-    //         setList(res.data);
-    //     })
-    // }, [isFlag]);
-
-    const showByIdUser = {}
     useEffect(() => {
-        setList(showByIdUser)
+        axios.get("http://localhost:8080/songs/findUserSongs/1").then((res) => {
+            setList(res.data);
+            setIdUser(1)
+        })
     }, [isFlag]);
+
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/songs/findUserSongs/1").then((res) => {
+    //         setList(res.data);
+    //         console.log(list);
+    //     })
+    // },[isFlag]);
     return (
         <>
             <div style={{backgroundColor: "#3c2452", color:"white"}}>
@@ -46,7 +49,7 @@ const ShowListSong = () => {
                                 <div className={'flex flex-col'}>
                                     <span className={'text-sm font-semibold'}>{i.nameSong}</span>
                                     <span className={'text-xs text-gray-400'}>{i.singer}</span>
-                                    <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.date}</span>
+                                    <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.listen_count}</span>
                                 </div>
                                 <div className={'flex flex-col'}>
                                     <Dropdown_listSong idSong={i.id}/>

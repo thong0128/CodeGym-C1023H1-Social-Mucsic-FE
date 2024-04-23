@@ -14,11 +14,6 @@ export default function Register() {
     //     })
     // }, []);
 
-    const users1 = {}
-    useEffect(() => {
-        setListEmailCheck(findEmail(users1.data)) ;
-        setListUserCheck(findUser(users1.data)) ;
-    }, []);
     function findUser (data) {
         let a = [] ;
         for (let i = 0; i < data.length; i++) {

@@ -18,10 +18,6 @@ function ViewPlaylist(props) {
     //     })
     // },[listSong]);
 
-    const searchByIdPll = {}
-    useEffect(() => {
-        setListSong(searchByIdPll)
-    }, []);
 
     // useEffect(() => {
     //     axios.get("http://localhost:8080/playLists/" + idPlaylist.id).then((res)=>{
@@ -29,10 +25,6 @@ function ViewPlaylist(props) {
     //     })
     // }, []);
 
-    const playLists = {}
-    useEffect(() => {
-        setPlayList(playLists)
-    }, []);
     function deleteSong(idSong, idPlaylist) {
         axios.delete("http://localhost:8080/playLists/deleteSongInPlaylist/" + idSong + "/" + idPlaylist).then((res)=>{
             toast.success("Bạn vừa xóa 1 bài hát ra khỏi D/S", {

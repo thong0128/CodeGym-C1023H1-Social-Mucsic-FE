@@ -6,7 +6,7 @@ import {Button, Modal} from "antd";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {toast} from "react-toastify";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
-import {storage} from "../FireBase/FireBaseConfig";
+import {storage} from "../fireBase/FirebaseConfig";
 
 function ModalCreateTypeSong(props) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,11 +35,6 @@ function ModalCreateTypeSong(props) {
     //     })
     // }, [isFlag]);
 
-    const playLists = {}
-
-    useEffect(() => {
-        setPlaylistCheck(playLists)
-    }, [isFlag]);
 
     function findPlaylist(data) {
         let a = [];

@@ -21,10 +21,6 @@ function ShoListSongByNameSinger(props) {
     //     })
     // }, [isFlag]);
 
-    const findAllByNameSinger={}
-    useEffect(() => {
-        setList(findAllByNameSinger)
-    }, [isFlag]);
     return (
         <>
             <div style={{backgroundColor: "#3c2452", color:"white"}}>

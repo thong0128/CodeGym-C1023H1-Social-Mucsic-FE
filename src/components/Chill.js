@@ -19,10 +19,6 @@ const Chill = () => {
     //         setSongType(res.data)
     //     })
     // }, []);
-    const songTypes = {};
-    useEffect(() => {
-        setSongType(songTypes)
-    }, []);
     return (
         <div className={'mt-12 px-[59px] flex flex-col gap-5'}>
             <div className={'flex items-center justify-between'}>

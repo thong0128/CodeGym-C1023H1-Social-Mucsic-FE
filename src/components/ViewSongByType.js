@@ -26,15 +26,13 @@ function ViewPlaylist(props) {
     //         toast.error('bux')
     //     })
     // }, []);
-    const songTypes ={}
+
     // useEffect(() => {
     //     axios.get("http://localhost:8080/songTypes/" + idType.id).then((res) =>{
     //         setType(res.data)
     //     })
     // }, []);
-    useEffect(() => {
-        setType(songTypes)
-    }, []);
+
     return (
         <>
             <div style={{color:"white", marginTop:30}}>

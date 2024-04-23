@@ -18,10 +18,6 @@ function DropdownSong({idSong}) {
     //         })
     //     }
     // }, []);
-    const findByIdUser = {}
-    useEffect(() => {
-        setPlaylist(findByIdUser)
-    }, []);
     const navigate = useNavigate()
     const {toggleFlag} = useContext(AppContext);
     const items = [

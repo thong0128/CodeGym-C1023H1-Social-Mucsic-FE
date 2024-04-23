@@ -8,7 +8,7 @@ import {
     uploadBytes,
     getDownloadURL
 } from "firebase/storage";
-import {storage} from "../FireBase/FireBaseConfig";
+import {storage} from "../fireBase/FirebaseConfig"
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import * as actions from "../store/actions";
@@ -39,10 +39,6 @@ const ModalCreateSong = () => {
     //         setSongType(res.data);
     //     })
     // }, []);
-    const data = {};
-    useEffect(() => {
-        setSongType(data)
-    }, []);
 
     const uploadFileSong = (url) => {
         if (url === null) return

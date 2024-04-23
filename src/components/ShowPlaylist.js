@@ -19,16 +19,14 @@ const ShowPlaylist = () => {
             toast.error("Bạn cần đăng nhập")
             navigate("/login")
         } else {
-            // axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
-            //     if (res.data !== []){
-            //         setList(res.data);
-            //     } else {
-            //         toast.success("Bạn chưa có PlayList nào")
-            //     }
-            // }
-            // )
-            const findByIdUser = {}
-            setList(findByIdUser)
+            axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
+                if (res.data !== []){
+                    setList(res.data);
+                } else {
+                    toast.success("Bạn chưa có PlayList nào")
+                }
+            }
+            )
         }
     }, [isFlag]);
     function updatePlaylist(id) {
