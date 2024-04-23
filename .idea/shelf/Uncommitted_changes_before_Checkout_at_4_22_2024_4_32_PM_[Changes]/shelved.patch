@@ -1,0 +1,549 @@
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/social-music-fe.iml
+===================================================================
+diff --git a/.idea/social-music-fe.iml b/.idea/social-music-fe.iml
+deleted file mode 100644
+--- a/.idea/social-music-fe.iml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+-      <excludeFolder url="file://$MODULE_DIR$/temp" />
+-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/.idea/inspectionProfiles/Project_Default.xml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]/shelved.patch	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,21 +0,0 @@
+-Index: src/App.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>\r\nimport './App.css';\r\nimport {Route, Routes} from \"react-router-dom\";\r\nimport Register from \"./register/Register\";\r\nimport {ToastContainer} from \"react-toastify\";\r\nimport {AppProvider} from \"./Context/AppContext\";\r\nimport Login from \"./login/Login\";\r\nimport Home from \"./home/Home\";\r\nimport ChangePassword from \"./changepassword/ChangePassword\";\r\nimport {CreateSong} from \"./component/song/CreateSong\";\r\nimport {UpdateSong} from \"./component/song/UpdateSong\";\r\n\r\n\r\n\r\nfunction App() {\r\n  return (\r\n      <>\r\n          <div>\r\n              <AppProvider>\r\n              <Routes>\r\n                      <Route path={\"login\"} element={<Login/>}></Route>\r\n                      <Route path={\"register\"} element={<Register/>}></Route>\r\n                      <Route path={\"home\"} element={<Home/>}></Route>\r\n                      <Route path={\"users/update/pass/:id\"} element={<ChangePassword/>}></Route>\r\n                  <Route path={\"songs/create\"} element={<CreateSong/>}></Route>\r\n                  <Route path={\"songs/:id\"} element={<UpdateSong/>}></Route>\r\n                  <Route path={\"login\"} element={<Login/>}></Route>\r\n                  <Route path={\"register\"} element={<Register/>}></Route>\r\n                  <Route path={\"home\"} element={<Home/>}></Route>\r\n              </Routes>\r\n              </AppProvider> <ToastContainer />\r\n\r\n          </div>\r\n      </>\r\n  );\r\n}\r\n\r\nexport default App;\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/App.js b/src/App.js
+---- a/src/App.js	(revision fcbe2a4111dd8845296b109b6ac6a035530b3152)
+-+++ b/src/App.js	(date 1713518319743)
+-@@ -24,9 +24,7 @@
+-                       <Route path={"users/update/pass/:id"} element={<ChangePassword/>}></Route>
+-                   <Route path={"songs/create"} element={<CreateSong/>}></Route>
+-                   <Route path={"songs/:id"} element={<UpdateSong/>}></Route>
+--                  <Route path={"login"} element={<Login/>}></Route>
+--                  <Route path={"register"} element={<Register/>}></Route>
+--                  <Route path={"home"} element={<Home/>}></Route>
+-+
+-               </Routes>
+-               </AppProvider> <ToastContainer />
+- 
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/social-music-fe.iml" filepath="$PROJECT_DIR$/.idea/social-music-fe.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+deleted file mode 100644
+--- a/.idea/workspace.xml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,80 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+-  <component name="ChangeListManager">
+-    <list default="true" id="0a7a36f3-63f2-4ce2-bfb6-0c56bd08638f" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/social-music-fe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/social-music-fe.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ResponsiveDrawer/ResponsiveDrawer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ResponsiveDrawer/ResponsiveDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.js" afterDir="false" />
+-    </list>
+-    <option name="SHOW_DIALOG" value="false" />
+-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-    <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="Git.Settings">
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="GitHubPullRequestSearchHistory">{
+-  &quot;lastFilter&quot;: {
+-    &quot;state&quot;: &quot;OPEN&quot;,
+-    &quot;assignee&quot;: &quot;thong0128&quot;
+-  }
+-}</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/thong0128/CodeGym-C1023H1-Social-Mucsic-FE.git&quot;,
+-    &quot;accountId&quot;: &quot;e974f9b3-44c8-4b3a-83d4-c3e361a84660&quot;
+-  }
+-}</component>
+-  <component name="MarkdownSettingsMigration">
+-    <option name="stateVersion" value="1" />
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;customColor&quot;: &quot;&quot;,
+-  &quot;associatedIndex&quot;: 0
+-}</component>
+-  <component name="ProjectId" id="2fRmswUKUvQVabqaktQZvoVoddW" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/thong/Documents/Codegym/Module4/Projects/social-music-fe&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+-  }
+-}</component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="0a7a36f3-63f2-4ce2-bfb6-0c56bd08638f" name="Changes" comment="" />
+-      <created>1713772490035</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1713772490035</updated>
+-      <workItem from="1713772491065" duration="590000" />
+-      <workItem from="1713773290772" duration="301000" />
+-      <workItem from="1713774144837" duration="248000" />
+-      <workItem from="1713774487622" duration="349000" />
+-    </task>
+-    <servers />
+-  </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM__Changes_.xml	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]" date="1713518340915" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_19_2024_4_18_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/19/2024 4:18 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_22_2024_3_58_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2024_3_58_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2024_3_58_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_2024_3_58_PM_[Changes]/shelved.patch	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
++++ /dev/null	(revision b6e7d5e18fd92ec78e823af46f3899cfd54a8cff)
+@@ -1,350 +0,0 @@
+-Index: src/login/login.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box\r\n}\r\n\r\n/*body {*/\r\n/*    background-color: #eee;*/\r\n/*    height: 100vh;*/\r\n/*    font-family: 'Poppins', sans-serif;*/\r\n/*    background: linear-gradient(to top, #fff 10%, rgba(93, 42, 141, 0.4) 90%) no-repeat*/\r\n/*}*/\r\n\r\n.wrapper {\r\n    width: 600px;\r\n    border-radius: 10px;\r\n    margin: 50px auto;\r\n    padding: 30px 40px;\r\n    box-shadow: 20px 20px 80px rgb(206, 206, 206)\r\n}\r\n\r\n.h2 {\r\n    font-family: 'Kaushan Script', cursive;\r\n    font-size: 3.5rem;\r\n    font-weight: bold;\r\n    color: #400485;\r\n    font-style: italic\r\n}\r\n\r\n.h4 {\r\n    font-family: 'Montserrat', sans-serif\r\n}\r\n#login-name{\r\n    margin:0px;\r\n    border: none;\r\n}\r\n#login-pass{\r\n    margin:0px;\r\n    border: none;\r\n}\r\n\r\n.input-field {\r\n    border-radius: 5px;\r\n    padding: 5px;\r\n    display: flex;\r\n    align-items: center;\r\n    cursor: pointer;\r\n    border: 1px solid #400485;\r\n    color: #400485\r\n}\r\n\r\n.input-field:hover {\r\n    color: #7b4ca0;\r\n    border: 1px solid #7b4ca0\r\n}\r\n\r\ninput {\r\n    border: none;\r\n    outline: none;\r\n    box-shadow: none;\r\n    width: 100%;\r\n    padding: 0px 2px;\r\n    font-family: 'Montserrat', sans-serif\r\n}\r\n\r\n.fa-eye-slash.btn {\r\n    border: none;\r\n    outline: none;\r\n    box-shadow: none\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    color: #400485;\r\n    font-weight: 700\r\n}\r\n\r\na:hover {\r\n    text-decoration: none;\r\n    color: #7b4ca0\r\n}\r\n\r\n.option {\r\n    position: relative;\r\n    padding-left: 30px;\r\n    cursor: pointer\r\n}\r\n\r\n.option label.text-muted {\r\n    display: block;\r\n    cursor: pointer\r\n}\r\n\r\n.option input {\r\n    display: none\r\n}\r\n\r\n.checkmark {\r\n    position: absolute;\r\n    top: 3px;\r\n    left: 0;\r\n    height: 20px;\r\n    width: 20px;\r\n    background-color: #fff;\r\n    border: 1px solid #ddd;\r\n    border-radius: 50%;\r\n    cursor: pointer\r\n}\r\n\r\n.option input:checked~.checkmark:after {\r\n    display: block\r\n}\r\n\r\n.option .checkmark:after {\r\n    content: \"\";\r\n    width: 13px;\r\n    height: 13px;\r\n    display: block;\r\n    background: #400485;\r\n    position: absolute;\r\n    top: 48%;\r\n    left: 53%;\r\n    border-radius: 50%;\r\n    transform: translate(-50%, -50%) scale(0);\r\n    transition: 300ms ease-in-out 0s\r\n}\r\n\r\n.option input[type=\"radio\"]:checked~.checkmark {\r\n    background: #fff;\r\n    transition: 300ms ease-in-out 0s;\r\n    border: 1px solid #400485\r\n}\r\n\r\n.option input[type=\"radio\"]:checked~.checkmark:after {\r\n    transform: translate(-50%, -50%) scale(1)\r\n}\r\n\r\n.btn.btn-block {\r\n    border-radius: 20px;\r\n    background-color: #400485;\r\n    color: #fff\r\n}\r\n\r\n.btn.btn-block:hover {\r\n    background-color: #55268be0\r\n}\r\n\r\n/*@media(max-width: 575px) {*/\r\n/*    .wrapper {*/\r\n/*        margin: 10px*/\r\n/*    }*/\r\n/*}*/\r\n\r\n/*@media(max-width:424px) {*/\r\n/*    .wrapper {*/\r\n/*        padding: 30px 10px;*/\r\n/*        margin: 5px*/\r\n/*    }*/\r\n\r\n/*    .option {*/\r\n/*        position: relative;*/\r\n/*        padding-left: 22px*/\r\n/*    }*/\r\n\r\n/*    .option label.text-muted {*/\r\n/*        font-size: 0.95rem*/\r\n/*    }*/\r\n\r\n/*    .checkmark {*/\r\n/*        position: absolute;*/\r\n/*        top: 2px*/\r\n/*    }*/\r\n\r\n/*    .option .checkmark:after {*/\r\n/*        top: 50%*/\r\n/*    }*/\r\n\r\n/*    #forgot {*/\r\n/*        font-size: 0.95rem*/\r\n/*    }*/\r\n/*}*/
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/login/login.css b/src/login/login.css
+---- a/src/login/login.css	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/login/login.css	(date 1713775328099)
+-@@ -20,11 +20,10 @@
+- }
+- 
+- .h2 {
+--    font-family: 'Kaushan Script', cursive;
+--    font-size: 3.5rem;
+-+    font-family: 'Montserrat', sans-serif;
+-+    font-size: 2rem;
+-     font-weight: bold;
+-     color: #400485;
+--    font-style: italic
+- }
+- 
+- .h4 {
+-Index: src/changepassword/ChangePassword.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import './changepassword.css';\r\nimport {useFormik} from \"formik\";\r\nimport {useEffect, useState} from \"react\";\r\nimport axios from \"axios\";\r\nimport {useNavigate} from \"react-router-dom\";\r\nimport * as Yup from 'yup';\r\nexport default function ChangePassword() {\r\n\r\n    const [user, setUser] = useState({});\r\n    const [oldPass, setOldPass] = useState(\"\");\r\n    const token = localStorage.getItem('token'); // Lấy token từ Local Storage\r\n    const config = {\r\n        headers: {\r\n            'Content-Type': 'application/json',\r\n            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header\r\n        }\r\n    };\r\n    const navigate = useNavigate();\r\n    const id = localStorage.getItem(\"idUser\");\r\n\r\n    useEffect(() => {\r\n        axios.get(`http://localhost:8080/users/${id}`, config).then(res => {\r\n            console.log(res.data.oldPassword)\r\n            console.log(token)\r\n            setUser(res.data);\r\n            setOldPass(res.data.oldPassword);\r\n        })\r\n    }, []);\r\n\r\n\r\n\r\n    const formik = useFormik({\r\n        initialValues: {user},\r\n        validationSchema: Yup.object({\r\n            oldPassword: Yup.string().matches(`${oldPass}`, \"Mật khẩu sai!!!\")\r\n                .required(\"Không được để trống!\"),\r\n            password: Yup.string().matches(/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, \"Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ số, chữ hoa và chữ thường.\")\r\n                .required(\"Không được để trống!\"),\r\n            confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Mật khẩu không khớp!')\r\n                .required('Không được để trống!')\r\n        }),\r\n        onSubmit: values => {\r\n\r\n            axios.put(` http://localhost:8080/users/update/pass/${id}`, values, config).then(\r\n                res =>{\r\n                    alert(\"Cập nhật thành công!!!\");\r\n                    navigate(\"/\")\r\n                })\r\n        }\r\n    });\r\n\r\n    return (\r\n        <>\r\n            <div className={\"container1\"}>\r\n            <div className=\"main bg-white\">\r\n                <div className=\"h2 text-center\">Change Password</div>\r\n                <br/>\r\n                <br/>\r\n                <form onSubmit={formik.handleSubmit}>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input type=\"password\" className=\"form-control\" name={\"oldPassword\"}\r\n                                   placeholder={\"Enter your old password\"}\r\n                                   value={formik.values.oldPassword} onInput={formik.handleChange}\r\n                                  />\r\n\r\n                        </div>\r\n                        {formik.errors.oldPassword && formik.touched.oldPassword && (<p>{formik.errors.oldPassword}</p>)}\r\n\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input type=\"password\" className=\"form-control\" name={\"password\"}\r\n                                   placeholder={\"Enter your new password\"}\r\n                                   value={formik.values.password} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input type=\"password\" className=\"form-control\" name={\"confirmPassword\"}\r\n                                   placeholder={\"Confirm your password\"}\r\n                                   value={formik.values.confirmPassword} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.confirmPassword && formik.touched.confirmPassword && (\r\n                            <p>{formik.errors.confirmPassword}</p>)}\r\n                    </div>\r\n\r\n\r\n                    <br/>\r\n                    <br/>\r\n                    <button type=\"submit\" className=\"btn btn-primary\">Accept</button>\r\n                </form>\r\n            </div>\r\n            </div>\r\n        </>\r\n    );\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/changepassword/ChangePassword.js b/src/changepassword/ChangePassword.js
+---- a/src/changepassword/ChangePassword.js	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/changepassword/ChangePassword.js	(date 1713775318905)
+-@@ -1,9 +1,10 @@
+- import './changepassword.css';
+- import {useFormik} from "formik";
+--import {useEffect, useState} from "react";
+-+import React, {useEffect, useState} from "react";
+- import axios from "axios";
+--import {useNavigate} from "react-router-dom";
+-+import {Link, useNavigate} from "react-router-dom";
+- import * as Yup from 'yup';
+-+import {Modal} from "antd";
+- export default function ChangePassword() {
+- 
+-     const [user, setUser] = useState({});
+-@@ -17,6 +18,17 @@
+-     };
+-     const navigate = useNavigate();
+-     const id = localStorage.getItem("idUser");
+-+    const [isModalOpen, setIsModalOpen] = useState(true);
+-+    const showModal = () => {
+-+        setIsModalOpen(true);
+-+    };
+-+    const handleOk = () => {
+-+        setIsModalOpen(false);
+-+    };
+-+    const handleCancel = () => {
+-+        setIsModalOpen(false);
+-+        navigate("/")
+-+    };
+- 
+-     useEffect(() => {
+-         axios.get(`http://localhost:8080/users/${id}`, config).then(res => {
+-@@ -51,9 +63,11 @@
+- 
+-     return (
+-         <>
+--            <div className={"container1"}>
+-+            <Modal width={650} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+-+                   footer={null}>
+-+            {/*<div className={"container1"}>*/}
+-             <div className="main bg-white">
+--                <div className="h2 text-center">Change Password</div>
+-+                <div className="h2 text-center">Thay đổi mật khẩu</div>
+-                 <br/>
+-                 <br/>
+-                 <form onSubmit={formik.handleSubmit}>
+-@@ -62,10 +76,11 @@
+-                             <input type="password" className="form-control" name={"oldPassword"}
+-                                    placeholder={"Enter your old password"}
+-                                    value={formik.values.oldPassword} onInput={formik.handleChange}
+--                                  />
+-+                            />
+- 
+-                         </div>
+--                        {formik.errors.oldPassword && formik.touched.oldPassword && (<p>{formik.errors.oldPassword}</p>)}
+-+                        {formik.errors.oldPassword && formik.touched.oldPassword && (
+-+                            <p>{formik.errors.oldPassword}</p>)}
+- 
+-                     </div>
+-                     <div className="form-group py-1 pb-2">
+-@@ -85,14 +100,14 @@
+-                         {formik.errors.confirmPassword && formik.touched.confirmPassword && (
+-                             <p>{formik.errors.confirmPassword}</p>)}
+-                     </div>
+--
+--
+-                     <br/>
+-                     <br/>
+--                    <button type="submit" className="btn btn-primary">Accept</button>
+--                </form>
+-+                    <button type="submit" className="btn btn-primary">Cập nhật</button>
+-+                    <div className="text-center pt-3 text-muted"><Link to={'/home'}>Quay lại</Link></div>
+-+            </form>
+-             </div>
+--            </div>
+-+            {/*</div>*/}
+-+        </Modal>
+-         </>
+-     );
+- 
+-Index: src/changepassword/changepassword.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>.container1 {\r\n    font-family: 'Montserrat', sans-serif;\r\n    background-color: #180F23;\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n\r\n}\r\n.main {\r\n    border-radius: 15px;\r\n    box-shadow: 20px 20px 80px rgb(206, 206, 206);\r\n    padding: 20px;\r\n    width: 600px;\r\n\r\n}\r\n.main h1 {\r\n    color: #8F46CE;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n\r\n}\r\np{\r\n    margin-top: 5px;\r\n    color: #400485;\r\n}\r\n.form-group{\r\n    margin-bottom: 0px;\r\n}\r\n\r\nlabel {\r\n    display: block;\r\n    margin-bottom: 5px;\r\n    color: #555;\r\n    font-weight: bold;\r\n}\r\n.input-field {\r\n    border-radius: 5px;\r\n    padding: 5px;\r\n    display: flex;\r\n    align-items: center;\r\n    cursor: pointer;\r\n    border: 1px solid #400485;\r\n    color: #400485;\r\n}\r\ninput[type=\"text\"],\r\ninput[type=\"email\"],\r\ninput[type=\"password\"],\r\nselect {\r\n    width: 100%;\r\n    margin-bottom: 0px;\r\n    padding: 10px;\r\n    box-sizing: border-box;\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\nbutton[type=\"submit\"] {\r\n    padding: 15px;\r\n    border-radius: 10px;\r\n    border: none;\r\n    background-color: #8F46CE;\r\n    color: white;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    font-size: 16px;\r\n}\r\n\r\n\r\nbutton[type=\"submit\"]:hover {\r\n    padding: 15px;\r\n    border-radius: 10px;\r\n    border: none;\r\n    background-color: #975EDE;\r\n    color: white;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    font-size: 16px;\r\n}\r\n.col-form-label{\r\n    color: white;\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/changepassword/changepassword.css b/src/changepassword/changepassword.css
+---- a/src/changepassword/changepassword.css	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/changepassword/changepassword.css	(date 1713775116735)
+-@@ -11,7 +11,6 @@
+- }
+- .main {
+-     border-radius: 15px;
+--    box-shadow: 20px 20px 80px rgb(206, 206, 206);
+-     padding: 20px;
+-     width: 600px;
+- 
+-@@ -58,6 +57,7 @@
+- }
+- 
+- button[type="submit"] {
+-+    font-family: 'Montserrat', sans-serif;
+-     padding: 15px;
+-     border-radius: 10px;
+-     border: none;
+-@@ -70,6 +70,7 @@
+- 
+- 
+- button[type="submit"]:hover {
+-+    font-family: 'Montserrat', sans-serif;
+-     padding: 15px;
+-     border-radius: 10px;
+-     border: none;
+-@@ -81,4 +82,4 @@
+- }
+- .col-form-label{
+-     color: white;
+--}
+-\ No newline at end of file
+-+}
+-Index: src/user/UpdateUser.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import './update-user.css'\r\nimport {Field, Form, Formik, useFormik} from \"formik\";\r\nimport axios from \"axios\";\r\nimport {useContext, useEffect, useState} from \"react\";\r\nimport React from 'react';\r\nimport {Modal} from 'antd';\r\nimport {toast} from \"react-toastify\";\r\nimport {useNavigate} from \"react-router-dom\";\r\nimport {AppContext} from \"../Context/AppContext\";\r\nimport {storage} from \"../fireBase/FirebaseConfig\";\r\nimport {getDownloadURL,ref,uploadBytes} from \"firebase/storage\";\r\n\r\nexport default function UpdateUser() {\r\n    const navigate = useNavigate()\r\n    const {toggleFlag} = useContext(AppContext);\r\n    const id = localStorage.getItem(\"idUser\")\r\n    const [user, setUser] = useState({})\r\n    const [uploadedImageUrl, setUploadedImageUrl] = useState(undefined);\r\n    const [isModalOpen, setIsModalOpen] = useState(true);\r\n\r\n\r\n    const showModal = () => {\r\n        setIsModalOpen(true);\r\n    };\r\n\r\n    const handleOk = () => {\r\n        setIsModalOpen(false);\r\n    };\r\n\r\n    const handleCancel = () => {\r\n        setIsModalOpen(false);\r\n        navigate(\"/\")\r\n    };\r\n    useEffect(() => {\r\n        if(id != null) {\r\n            axios.get('http://localhost:8080/users/' + id).then((res) => {\r\n                console.log(res.data)\r\n                setUser(res.data)\r\n            })\r\n        }\r\n    }, [])\r\n    const uploadFile = (image) => {\r\n        if (image === null) return\r\n        const imageRef = ref(storage, `IMG-AVATAR/${image.name}`);\r\n        uploadBytes(imageRef, image).then((snapshot) => {\r\n            getDownloadURL(snapshot.ref).then((url) => {\r\n                setUploadedImageUrl(url); // Lưu URL sau khi upload thành công vào state mới\r\n                console.log(\"image uploaded successfully\", url);\r\n                console.log(\"image uploaded successfully\", uploadedImageUrl);\r\n                user.avatar = url;\r\n                if (id != null){\r\n                    axios.put(\"http://localhost:8080/users/update/infor/\" + id, user).then((res) => {\r\n                        toast.success(\"Upload image successfully!!\")\r\n                    })\r\n                }\r\n            });\r\n        });\r\n    };\r\n\r\n    if (id != null){\r\n        return (\r\n            <>\r\n                <Modal width={1000} title=\"Cập nhật thông tin cá nhân\" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}\r\n                       footer={null}>\r\n                    <Formik\r\n                        initialValues={\r\n                           user\r\n                        }\r\n                        enableReinitialize={true}\r\n                        onSubmit={(user1) => {\r\n                            axios.put(\"http://localhost:8080/users/update/infor/\" + id, user1).then((res) => {\r\n                                localStorage.setItem(\"user\", res.data.username)\r\n                                toast.success(\"Cập nhật thành công!\")\r\n                                navigate(\"/\")\r\n                            }).catch(() => {\r\n                                toast.error(\"Cập nhật không thành công!\")\r\n                            })\r\n                            toggleFlag()\r\n                        }}\r\n                    >\r\n                        <Form>\r\n                            <div className=\"card\">\r\n                                <div className=\"row align-items-center no-gutters\">\r\n                                    <div className=\"col-md-5 upload-img\">\r\n                                        <label htmlFor=\"photo-upload\" className=\"custom-file-upload fas\">\r\n                                            <div className=\"img-wrap img-upload\">\r\n                                                {user.avatar == null ? <img\r\n                                                        src=\"https://shc-p-001.sitecorecontenthub.cloud/api/public/content/9cf0b7b0242b4acbaf6a4a3f5b468a63?v=6b97dab5\"\r\n                                                        className=\"img-fluid\"/> :\r\n                                                    <img src={user.avatar}\r\n                                                         alt=\"login form\" className=\"img-fluid\"/>}\r\n                                            </div>\r\n                                            <input id=\"photo-upload\" type=\"file\" onChange={(event) => {\r\n                                                uploadFile(event.target.files[0])\r\n                                            }}/>\r\n                                        </label>\r\n                                    </div>\r\n\r\n                                    <div className=\"col-md-7\">\r\n                                        <div className=\"card-body\">\r\n                                            <div className=\"form-group mb-2\">\r\n                                                <label className=\"form-label\" htmlFor=\"userName\">Tên đăng nhập(<span\r\n                                                    className=\"text-danger\">*</span>)</label>\r\n                                                <div className=\"input-field\"><span className=\"far fa-user p-2\"></span>\r\n                                                    <Field name=\"username\" type=\"text\" id=\"userName\" className=\"form-control\"/>\r\n                                                </div>\r\n                                            </div>\r\n                                            <div className=\"form-group mb-2\">\r\n                                                <label className=\"form-label\" htmlFor=\"email\">Email (<span\r\n                                                    className=\"text-danger\">*</span>)</label>\r\n                                                <div className=\"input-field\"><span\r\n                                                    className=\"fas fa-envelope p-2\"></span>\r\n                                                    <Field name=\"email\" type=\"email\" id=\"email\" className=\"form-control\"/>\r\n                                                </div>\r\n                                            </div>\r\n                                            <div className=\"form-group mb-2\">\r\n                                                <label className=\"form-label\" htmlFor=\"phoneNumber\">Số điện thoại (<span\r\n                                                    className=\"text-danger\">*</span>)</label>\r\n                                                <div className=\"input-field\"><span className=\"fas fa-phone p-2\"></span>\r\n                                                    <Field name=\"phoneNumber\" type=\"text\" id=\"phoneNumber\" className=\"form-control\"/>\r\n                                                </div>\r\n                                            </div>\r\n                                            <div className=\"form-group mb-2\">\r\n                                                <label className=\"form-label\" htmlFor=\"address\">Địa chỉ (<span\r\n                                                    className=\"text-danger\">*</span>)</label>\r\n                                                <div className=\"input-field\"><span className=\"fas fa-house p-2\"></span>\r\n                                                    <Field name=\"address\" type=\"text\" id=\"address\" className=\"form-control\"/>\r\n                                                </div>\r\n                                            </div>\r\n\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <div className=\"my-4 text-center\">\r\n                                    <button type=\"button\" className=\"btn btn-default\" onClick={handleCancel}>Quay lại\r\n                                    </button>\r\n                                    <button type=\"submit\" className=\"btn btn-primary\">Cập nhật</button>\r\n                                </div>\r\n                            </div>\r\n                        </Form>\r\n                    </Formik>\r\n                </Modal>\r\n            </>\r\n        )\r\n    } else {\r\n        navigate(\"/\")\r\n    }\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/user/UpdateUser.js b/src/user/UpdateUser.js
+---- a/src/user/UpdateUser.js	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/user/UpdateUser.js	(date 1713775383279)
+-@@ -50,7 +50,7 @@
+-                 user.avatar = url;
+-                 if (id != null){
+-                     axios.put("http://localhost:8080/users/update/infor/" + id, user).then((res) => {
+--                        toast.success("Upload image successfully!!")
+-+                        toast.success("Tải ảnh lên thành công!!!")
+-                     })
+-                 }
+-             });
+-@@ -60,7 +60,7 @@
+-     if (id != null){
+-         return (
+-             <>
+--                <Modal width={1000} title="Cập nhật thông tin cá nhân" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+-+                <Modal width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+-                        footer={null}>
+-                     <Formik
+-                         initialValues={
+-@@ -80,6 +80,7 @@
+-                     >
+-                         <Form>
+-                             <div className="card">
+-+                                <div className="h2 text-center">Cập nhật thông tin tài khoản</div>
+-                                 <div className="row align-items-center no-gutters">
+-                                     <div className="col-md-5 upload-img">
+-                                         <label htmlFor="photo-upload" className="custom-file-upload fas">
+-@@ -102,7 +103,8 @@
+-                                                 <label className="form-label" htmlFor="userName">Tên đăng nhập(<span
+-                                                     className="text-danger">*</span>)</label>
+-                                                 <div className="input-field"><span className="far fa-user p-2"></span>
+--                                                    <Field name="username" type="text" id="userName" className="form-control"/>
+-+                                                    <Field name="username" type="text" id="userName"
+-+                                                           className="form-control"/>
+-                                                 </div>
+-                                             </div>
+-                                             <div className="form-group mb-2">
+-@@ -110,21 +112,24 @@
+-                                                     className="text-danger">*</span>)</label>
+-                                                 <div className="input-field"><span
+-                                                     className="fas fa-envelope p-2"></span>
+--                                                    <Field name="email" type="email" id="email" className="form-control"/>
+-+                                                    <Field name="email" type="email" id="email"
+-+                                                           className="form-control"/>
+-                                                 </div>
+-                                             </div>
+-                                             <div className="form-group mb-2">
+-                                                 <label className="form-label" htmlFor="phoneNumber">Số điện thoại (<span
+-                                                     className="text-danger">*</span>)</label>
+-                                                 <div className="input-field"><span className="fas fa-phone p-2"></span>
+--                                                    <Field name="phoneNumber" type="text" id="phoneNumber" className="form-control"/>
+-+                                                    <Field name="phoneNumber" type="text" id="phoneNumber"
+-+                                                           className="form-control"/>
+-                                                 </div>
+-                                             </div>
+-                                             <div className="form-group mb-2">
+-                                                 <label className="form-label" htmlFor="address">Địa chỉ (<span
+-                                                     className="text-danger">*</span>)</label>
+-                                                 <div className="input-field"><span className="fas fa-house p-2"></span>
+--                                                    <Field name="address" type="text" id="address" className="form-control"/>
+-+                                                    <Field name="address" type="text" id="address"
+-+                                                           className="form-control"/>
+-                                                 </div>
+-                                             </div>
+- 
+-Index: src/user/update-user.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>.card{\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 15px;\r\n    margin-top: 40px;\r\n    border-radius: 25px;\r\n    display: flex;\r\n    justify-content: center;\r\n    /*box-shadow: 15px 10px 25px 0px  rgba(164,139,244,0.54);*/\r\n    background: #fff;\r\n    background-repeat: no-repeat, no-repeat;\r\n    background-position: 120% -5%, 200% -40%;\r\n    /*background-size: 40%, 80%;*/\r\n    animation: open .5s;\r\n}\r\n@keyframes open {\r\n    0%  {background-position: 166% -25%, 220% -69%;}\r\n    100%{background-position: 120% -5%, 200% -40%;}\r\n}\r\n.custom-file-upload {\r\n    border-radius: 50%;\r\n    display: inline-block;\r\n    position: relative;\r\n    padding: 6px;\r\n    cursor: pointer;\r\n    background: linear-gradient(270deg, #3fa1a9, #79f1a4);\r\n    text-align: center;\r\n    margin:0px;\r\n}\r\n.upload-img{\r\n    text-align: center;\r\n    vertical-align:center;\r\n}\r\n.img-wrap{\r\n    position: relative;\r\n    width: 300px;\r\n    height: 300px;\r\n    overflow: hidden;\r\n    border-radius: 50%;\r\n    /*margin-left:50px;*/\r\n}\r\n\r\nlabel{\r\n    text-transform: uppercase;\r\n    font-weight: 700;\r\n    color: #676767;\r\n}\r\nimg {\r\n    width: auto;\r\n    height: 100%;\r\n}\r\n.img-fluid{\r\n    width: auto;\r\n    height: 100%;\r\n}\r\n.img-upload:before{\r\n    content: \"\\f093\";\r\n    font-size: 90px;\r\n    position: absolute;\r\n    padding-top: 80px;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: center;\r\n    color: #63d3a6;\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    opacity: 0;\r\n    transition: .5s ease;\r\n    background-color: #fff;\r\n}\r\n.img-upload:hover:before{\r\n    opacity: 1;\r\n}\r\ninput[type=\"file\"] {\r\n    display: none;\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/user/update-user.css b/src/user/update-user.css
+---- a/src/user/update-user.css	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/user/update-user.css	(date 1713774715722)
+-@@ -75,4 +75,28 @@
+- }
+- input[type="file"] {
+-     display: none;
+-+}
+-+button[type="submit"] {
+-+    font-family: 'Montserrat', sans-serif;
+-+    padding: 15px;
+-+    border-radius: 10px;
+-+    border: none;
+-+    background-color: #8F46CE;
+-+    color: white;
+-+    cursor: pointer;
+-+    width: 100%;
+-+    font-size: 16px;
+-+}
+-+
+-+
+-+button[type="submit"]:hover {
+-+    font-family: 'Montserrat', sans-serif;
+-+    padding: 15px;
+-+    border-radius: 10px;
+-+    border: none;
+-+    background-color: #975EDE;
+-+    color: white;
+-+    cursor: pointer;
+-+    width: 100%;
+-+    font-size: 16px;
+- }
+-\ No newline at end of file
+-Index: src/home/Home.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import {Link} from \"react-router-dom\";\r\n\r\nexport default function Home(){\r\n    return(\r\n        <>\r\n            <h1>Home</h1>\r\n            <Link to={\"modal\"}>Update</Link>\r\n        </>\r\n    )\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/home/Home.js b/src/home/Home.js
+---- a/src/home/Home.js	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/home/Home.js	(date 1713776108791)
+-@@ -1,10 +1,20 @@
+--import {Link} from "react-router-dom";
+-+import {Link, useNavigate} from "react-router-dom";
+- 
+- export default function Home(){
+-+    const id = localStorage.getItem("idUser");
+-+    const navigate = useNavigate()
+-+    function handleLogout() {
+-+        localStorage.clear();
+-+        navigate("/login")
+-+    }
+-     return(
+-         <>
+-             <h1>Home</h1>
+--            <Link to={"modal"}>Update</Link>
+-+            <Link to={"/modal"}>Update</Link>
+-+            <br/>
+-+            <Link to={`/users/update/pass/${id}`}>Update pass</Link>
+-+            <br/>
+-+            <button onClick={handleLogout}>Log out</button>
+-         </>
+-     )
+- }
+-\ No newline at end of file
+-Index: src/login/Login.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import './login.css'\r\nimport {Link, useNavigate} from \"react-router-dom\";\r\nimport {useFormik} from \"formik\";\r\nimport axios from \"axios\";\r\nimport {useState} from \"react\";\r\nexport default function Login(){\r\n    const navigate = useNavigate();\r\n    const [user, setUser] = useState({});\r\n    const formik = useFormik({\r\n        initialValues: {user},\r\n        onSubmit: values => {\r\n            // console.log(values)\r\n            axios.post(\" http://localhost:8080/login\", values).then(\r\n                res =>{\r\n                    if (res.data === false){\r\n                        alert(\"Account not available\");\r\n                    }\r\n                    else{\r\n                        localStorage.setItem(\"idUser\", res.data.id)\r\n                        localStorage.setItem(\"user\", res.data.username)\r\n                        localStorage.setItem(\"role\", res.data.authorities[0].authority)\r\n                        localStorage.setItem(\"token\", res.data.token)\r\n                        console.log(\"user:\",localStorage.getItem(\"user\"))\r\n                        navigate(\"/home\")\r\n\r\n                    }\r\n                }).catch(() => {\r\n                alert(\"Thông tin sai!!!!\")\r\n                })\r\n        }\r\n    });\r\n    return(\r\n        <>\r\n            <div className={\"container1\"}>\r\n            <div className=\"wrapper bg-white\">\r\n                <div className=\"h2 text-center\">MP3</div>\r\n                <div className=\"h4 text-muted text-center pt-2\">Điền thông tin đăng nhập</div>\r\n                <form className=\"pt-3\">\r\n                    <div className=\"form-group py-2\">\r\n                        <div className=\"input-field\"><span className=\"far fa-user p-2\"></span>\r\n                            <input id=\"login-name\" name={\"username\"} type=\"text\" placeholder=\"Tên đăng nhập\" required className=\"\"\r\n                            value={formik.values.user.username} onInput={formik.handleChange}/>\r\n                        </div>\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input id=\"login-pass\" type=\"password\" name={\"password\"} placeholder=\"Mật khẩu\" required className=\"\"\r\n                            value={formik.values.user.password} onInput={formik.handleChange}/>\r\n                            <button className=\"btn bg-white text-muted\"><span className=\"far fa-eye-slash\"></span>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                    <div className=\"d-flex align-items-start\">\r\n                        <div className=\"ml-auto\"><a href=\"#\" id=\"forgot\">Quên mật khẩu?</a></div>\r\n                    </div>\r\n                    <button className=\"btn btn-block text-center my-3\" onClick={formik.handleSubmit}>Đăng nhập</button>\r\n                    <div className=\"text-center pt-3 text-muted\">Not a member?<Link to={'/register'}>Đăng ký tài khoản</Link></div>\r\n                </form>\r\n            </div>\r\n            </div>\r\n        </>\r\n    )\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/login/Login.js b/src/login/Login.js
+---- a/src/login/Login.js	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/login/Login.js	(date 1713772471546)
+-@@ -54,7 +54,7 @@
+-                         <div className="ml-auto"><a href="#" id="forgot">Quên mật khẩu?</a></div>
+-                     </div>
+-                     <button className="btn btn-block text-center my-3" onClick={formik.handleSubmit}>Đăng nhập</button>
+--                    <div className="text-center pt-3 text-muted">Not a member?<Link to={'/register'}>Đăng ký tài khoản</Link></div>
+-+                    <div className="text-center pt-3 text-muted"><Link to={'/register'}>Đăng ký tài khoản</Link></div>
+-                 </form>
+-             </div>
+-             </div>
+-Index: src/register/Register.js
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import  './register.css';\r\nimport {useFormik} from \"formik\";\r\nimport {useEffect, useState} from \"react\";\r\nimport axios from \"axios\";\r\nimport {useNavigate} from \"react-router-dom\";\r\nimport * as Yup from 'yup';\r\nexport default function Register() {\r\n\r\n    const [user, setUser] = useState({});\r\n    const [listUserCheck, setListUserCheck] = useState([]);\r\n    const navigate = useNavigate();\r\n    const yup = require(\"yup\");\r\n    useEffect(() => {\r\n        axios.get('http://localhost:8080/users').then(res => {\r\n            setListUserCheck(findUser(res.data)) ;\r\n        })\r\n    }, []);\r\n\r\n    function findUser(data){\r\n        let a = [];\r\n        for (let i=0; i <data.length; i++){\r\n            a.push(data[i].username)\r\n        }\r\n        return a;\r\n    }\r\n\r\n    const formik = useFormik({\r\n        initialValues: {user},\r\n        validationSchema: Yup.object({\r\n            username: Yup.string().min(1, 'Tên đăng nhập không được để trống')\r\n                .required('Không được để trống!').test('unique', 'Account already exists', (value) =>{\r\n                    return !listUserCheck.includes(value);\r\n                }),\r\n            password: Yup.string().matches(/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, \"Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ số, chữ hoa và chữ thường\")\r\n                .required(\"Không được để trống!\"),\r\n            confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Mật khẩu không khớp!')\r\n                .required('Không được để trống!'),\r\n            phoneNumber: Yup.string().matches(/((^(\\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, \"Số điện thoại không đúng\")\r\n                .required(\"Số điện thoại không đúng!\")\r\n\r\n        }),\r\n        onSubmit: values => {\r\n\r\n            axios.post(\" http://localhost:8080/users/create\", values).then(\r\n                res =>{\r\n                    alert(\"Tạo tài khoản thành công!!!\");\r\n                    navigate(\"/login\")\r\n                })\r\n        }\r\n    });\r\n\r\n    return (\r\n        <>\r\n            <div className={\"container1\"}>\r\n            <div className=\"main bg-white\">\r\n                <div className=\"h2 text-center\">Register</div>\r\n                <br/>\r\n                <br/>\r\n                <form onSubmit={formik.handleSubmit}>\r\n                    <div className=\"form-group py-2\">\r\n                        <div className=\"input-field\"><span className=\"far fa-user p-2\"></span>\r\n                            <input type=\"text\" className=\"form-control\" name={\"username\"}\r\n                                   placeholder={\"Tên đăng nhập\"}\r\n                                   value={formik.values.user.username} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.username && formik.touched.username && (<p>{formik.errors.username}</p>)}\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input type=\"password\" className=\"form-control\" name={\"password\"}\r\n                                   placeholder={\"Mật khẩu\"}\r\n                                   value={formik.values.password} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-lock p-2\"></span>\r\n                            <input type=\"password\" className=\"form-control\" name={\"confirmPassword\"}\r\n                                   placeholder={\"Nhập lại mật khẩu\"}\r\n                                   value={formik.values.confirmPassword} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.confirmPassword && formik.touched.confirmPassword && (\r\n                            <p>{formik.errors.confirmPassword}</p>)}\r\n                    </div>\r\n                    <div className=\"form-group py-1 pb-2\">\r\n                        <div className=\"input-field\"><span className=\"fas fa-phone p-2\"></span>\r\n                            <input type=\"text\" className=\"form-control\" name={\"phoneNumber\"}\r\n                                   placeholder={\"Số điện thoại\"}\r\n                                   value={formik.values.phoneNumber} onInput={formik.handleChange}/>\r\n                        </div>\r\n                        {formik.errors.phoneNumber && formik.touched.phoneNumber && (\r\n                            <p>{formik.errors.phoneNumber}</p>)}\r\n                    </div>\r\n\r\n                    <br/>\r\n                    <br/>\r\n                    <button type=\"submit\" className=\"btn btn-primary\">Đăng ký tại khoản</button>\r\n                </form>\r\n            </div>\r\n            </div>\r\n        </>\r\n    );\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/register/Register.js b/src/register/Register.js
+---- a/src/register/Register.js	(revision 9502805497a0e098ccacbad2936e9b6bfa92bfee)
+-+++ b/src/register/Register.js	(date 1713772557597)
+-@@ -2,7 +2,7 @@
+- import {useFormik} from "formik";
+- import {useEffect, useState} from "react";
+- import axios from "axios";
+--import {useNavigate} from "react-router-dom";
+-+import {Link, useNavigate} from "react-router-dom";
+- import * as Yup from 'yup';
+- export default function Register() {
+- 
+-@@ -94,7 +94,8 @@
+- 
+-                     <br/>
+-                     <br/>
+--                    <button type="submit" className="btn btn-primary">Đăng ký tại khoản</button>
+-+                    <button type="submit" className="btn btn-primary">Đăng ký tài khoản</button>
+-+                    <div className="text-center pt-3 text-muted"><Link to={'/login'}>Quay lại</Link></div>
+-                 </form>
+-             </div>
+-             </div>
