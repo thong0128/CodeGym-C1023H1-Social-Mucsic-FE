@@ -12,8 +12,9 @@ import {useNavigate, useParams} from "react-router-dom";
 export default function UpdateSong(prop) {
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
-    const [songs,setSongs] = useState({})
-    const [songTypes, setSongTypes] = useState([])
+    const [songs,setSongs] = useState({});
+    const [songTypes, setSongTypes] = useState([]);
+    const [idUser, setIdUser] = useState(localStorage.getItem("idUser"));
     const idSong = useParams();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -68,6 +69,7 @@ export default function UpdateSong(prop) {
 
     useEffect(() => {
         axios.get("http://localhost:8080/songs/"+idSong.id).then((res)=>{
+            console.log(res.data)
             setSongs(res.data)
         })
     }, [idSong]);

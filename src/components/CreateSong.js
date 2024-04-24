@@ -96,12 +96,12 @@ const ModalCreateSong = () => {
                         id: ""
                     },
                     appUser: {
-                        id:"1"
+                        id:""
                     }
                 }} onSubmit={(value) => {
                     value.img_url = localStorage.getItem("img_url");
                     value.song_url = localStorage.getItem("song_url");
-                    // value.user.id = localStorage.getItem("idUser");
+                    value.appUser.id = localStorage.getItem("idUser")
                     if (value.songTypes.id === ""){
                         value.songTypes.id = 1
                     }
