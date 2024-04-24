@@ -5,27 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa5fd528-91a0-49df-9250-5fd129872798" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css_component/updateUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UpdateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fireBase/FirebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FireBase/FirebaseConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/public/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/public/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/public/UpdateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdateUser.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -46,20 +49,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "temp1",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;temp1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,7 +73,9 @@
       <option name="presentableId" value="Default" />
       <updated>1713859845173</updated>
       <workItem from="1713859846381" duration="312000" />
-      <workItem from="1713860174506" duration="2914000" />
+      <workItem from="1713860174506" duration="7080000" />
+      <workItem from="1713883343330" duration="635000" />
+      <workItem from="1713920305313" duration="13075000" />
     </task>
     <servers />
   </component>

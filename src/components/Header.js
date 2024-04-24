@@ -21,23 +21,22 @@ const Header = () => {
     let [user, setUser] = useState({})
     let [img,setImg] = useState('');
 
-
-
-        // useEffect(() => {
-        //     if (id !== null){
-        //     axios.get('http://localhost:8080/users/' + id).then((res) => {
-        //         setUser(res.data)
-        //         setImg(res.data.url_img);
-        //     })}else {
-        //         navigate("/")
-        //     }
-        // }, [isFlag])
-    const dataUser = {}
-
-    useEffect(() => {
-        setUser(dataUser)
-        setImg(dataUser.url_img)
-    }, [isFlag]);
+        useEffect(() => {
+            if (id !== null){
+            axios.get('http://localhost:8080/users/' + id).then((res) => {
+                console.log(res.data)
+                setUser(res.data)
+                setImg(localStorage.getItem("avatar"));
+            })}else {
+                navigate("/")
+            }
+        }, [isFlag])
+    // const dataUser = {}
+    //
+    // useEffect(() => {
+    //     setUser(dataUser)
+    //     setImg(dataUser.avatar)
+    // }, [isFlag]);
 
 
     const [check, setCheck] = useState(false)

@@ -3,70 +3,105 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
+import * as Yup from "yup";
 
 
 export default function UpdatePass() {
     const navigate = useNavigate()
-    const id = useState(localStorage.getItem("idUser"));
-    const [check , setCheck] = useState(false)
-    useEffect(() => {
+    const id = localStorage.getItem("idUser");
+    // const [check , setCheck] = useState(false)
+    // const [user, setUser] = useState({})
+    const handleCancel = () => {
+        navigate("/")
+    };
+    const token = localStorage.getItem('token'); // Lấy token từ Local Storage
 
-    },[check])
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
+        }
+    };
+    // useEffect(() => {
+    //     // if(id != null) {
+    //     //     axios.get('http://localhost:8080/users/' + id, config).then((res) => {
+    //     //         console.log(res.data)
+    //     //         setUser(res.data)
+    //     //     })
+    //     // }
+    // }, [check])
     return (
         <>
             <Formik
                 initialValues={{}}
                 validationSchema={
                     require("yup").object().shape({
-                        newpassword: require("yup")
+                        // oldPassword: Yup.string().matches(`${user.oldPassword}`, "Mật khẩu sai!!!")
+                        //     .required("Không được để trống!"),
+                        password: require("yup")
                             .string()
                             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm số, chữ thường và chữ hoa")
                             .required("Vui lòng nhập mật khẩu mới."),
+                        confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Mật khẩu không khớp!')
+                            .required('Vui lòng nhập lại mật khẩu mới.')
 
                     })
                 }
-                onSubmit={(user1) => {
-                    updatePassword(user1)
+                onSubmit={(values) => {
+                    updatePassword(values)
+                    }
                 }
-            }
                 enableReinitialize={true}>
                 <Form>
-                    <div className="d-flex justify-content-center">
-                        <div className="card mt-5 w-25">
-                            <div className="card-header">Đổi mật khẩu</div>
-                            <div className="card-body">
-                                <div className="form-outline mb-4">
-                                    <label htmlFor="oldpassword">Mật khẩu cũ</label>
-                                    <Field className="form-control" id="oldpassword" name={'oldpassword'} type='password' placeholder="Nhập mật khẩu cũ" required/>
+
+                        <div className="d-flex justify-content-center">
+                            <div className="card mt-5 w-50">
+                                <div className="card-header">Đổi mật khẩu</div>
+                                <div className="card-body">
+                                    <div className="form-outline mb-4">
+                                        <label htmlFor="oldPassword">Mật khẩu cũ</label>
+                                        <Field className="form-control" id="oldPassword" name={'oldPassword'}
+                                               type='password' placeholder="Nhập mật khẩu cũ" required/>
+                                        {/*<ErrorMessage className={'text-danger'} name="oldPassword" component="div"/>*/}
+                                    </div>
+                                    <div className="form-outline mb-4">
+                                        <label htmlFor="password">Mật khẩu mới</label>
+                                        <Field className="form-control" id="password" name={'password'}
+                                               type='password' placeholder="Nhập mật khẩu mới"/>
+                                        <ErrorMessage className={'text-danger'} name="password" component="div"/>
+                                    </div>
+                                    <div className="form-outline mb-4">
+                                        <label htmlFor="confirmPassword">Nhập lại mật khẩu</label>
+                                        <Field className="form-control" id="confirmPassword"
+                                               name={'confirmPassword'}
+                                               placeholder="Nhập lại mật khẩu" type='password'/>
+                                        <ErrorMessage className={'text-danger'} name="confirmPassword" component="div"/>
+                                    </div>
+                                    <div className="container-login100-form-btn">
+                                        <button className="login100-form-btn">
+                                            Đổi mật khẩu
+                                        </button>
+                                        <button type="button" className="btn btn-default"
+                                                onClick={handleCancel}>Quay lại
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="form-outline mb-4">
-                                    <label htmlFor="newpassword">Mật khẩu mới</label>
-                                    <Field className="form-control" id="newpassword" name={'newpassword'} type='password' placeholder="Nhập mật khẩu mới"/>
-                                    <ErrorMessage className={'text-danger'} name="newpassword" component="div"/>
-                                </div>
-                                <div className="form-outline mb-4">
-                                    <label htmlFor="newpassword">Nhập lại mật khẩu</label>
-                                    <Field className="form-control" id="confirmedPassword" name={'confirmedPassword'}  placeholder="Nhập lại mật khẩu" type='password'/>
-                                </div>
-                                <button className="btn btn-primary btn-block" type={"submit"}>Cập nhật</button>
                             </div>
                         </div>
-                    </div>
                 </Form>
             </Formik>
         </>
     )
 
-    function updatePassword(user1) {
+    function updatePassword(values) {
 
-        console.log(id[0])
-        if (user1.newpassword === user1.confirmedPassword  ) {
+
+        if (values.password === values.confirmPassword) {
             let userPass = {
-                id: id[0],
-                password: user1.oldpassword,
-                confirmedPassword : user1.newpassword ,
+                password: values.password,
+                confirmPassword : values.confirmPassword
             }
-            axios.put('http://localhost:8080/users/changePassword/' + id[0], userPass).then((res) => {
+            axios.put('http://localhost:8080/users/update/pass/' + id, userPass).then((res) => {
                 toast.success("Cập nhật thành công")
                 navigate('/')
             }).catch(() => {
