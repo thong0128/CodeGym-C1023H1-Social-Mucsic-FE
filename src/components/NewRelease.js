@@ -50,7 +50,7 @@ const NewRelease = () => {
                         sid={item.id}
                         key = {item.id}
                         thumbnail={item.img_url}
-                        title={item.nameSong}
+                        title={item.title}
                         artists={item.singer}
                         releaseDate={new Date()}
 

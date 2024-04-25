@@ -1,6 +1,6 @@
 import moment from "moment";
 import 'moment/locale/vi'
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {findSongById} from "../service/SongService";
 import {BiDotsVerticalRounded} from "react-icons/bi";
@@ -27,7 +27,7 @@ const SongItem = ({thumbnail, title, artists, sid, releaseDate, order, percent, 
                     <div>
                         <div className="flex justify-between text-base font-medium">
                             <h3>
-                                <a href="#" className="text-slate-900 group-hover:text-black font-semibold">{title}</a>
+                                <Link to={`/detailSong/${sid}`} className="text-slate-900 group-hover:text-black font-semibold">{title}</Link>
                             </h3>
                         </div>
                         <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{artists}</p>

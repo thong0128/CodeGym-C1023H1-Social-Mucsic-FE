@@ -38,7 +38,7 @@ const ModalCreateSong = () => {
                 setSongUrl(url);
                 console.log("song uploaded successfully", url);
                 console.log("song uploaded successfully", songUrl);
-                // songs.song_url = url;
+                songs.song_url = url;
                 localStorage.setItem("song_url", url);
             });
         });
@@ -107,7 +107,6 @@ const ModalCreateSong = () => {
                         });
                         dispatch(actions.getHome()); // Cập nhật lại danh sách bài hát mới
                     })
-                    setIsModalOpen(false);
                 }}>
                     <Form>
                         <div className="card">
@@ -144,7 +143,7 @@ const ModalCreateSong = () => {
                                         <div className="form-group mb-2">
                                             <label className="form-label" htmlFor="type">Thể loại</label>
                                             <Field className="form-control form-control-sm" placeholder="Chọn thể loại"
-                                                   as="select" name="songTypes.id" id="type">
+                                                   as="select" name="id_SongTypes.id" id="type">
                                                 {songTypes.map((i, key) => {
                                                     return (
                                                         <option key={key} value={i.id}>{i.name}</option>
