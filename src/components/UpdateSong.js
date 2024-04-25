@@ -1,11 +1,12 @@
 import {Field, Form, Formik} from "formik";
 import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {storage} from "../FireBase/FirebaseConfig";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
 import {Modal} from "antd";
+import {AppContext} from "../Context/AppContext";
 export default function UpdateSong() {
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
@@ -15,6 +16,7 @@ export default function UpdateSong() {
     const idSong = useParams();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(true);
+    const {toggleFlag} = useContext(AppContext);
 
 
     const uploadFileImg = (image) => {
@@ -83,6 +85,7 @@ export default function UpdateSong() {
                         value.img_url = localStorage.getItem("img_url");
                         value.song_url = localStorage.getItem("song_url");
                         axios.put("http://localhost:8080/songs/user/update", value).then((res)=>{
+                            toggleFlag();
                             toast.success(" Cập nhật hát thành công ", {
                                 position: toast.POSITION.BOTTOM_RIGHT
                             })

@@ -4,6 +4,7 @@ import {SongItem} from "./index";
 import store from "../store/Store";
 import {findAllSong} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
+import {CiHeart} from "react-icons/ci";
 
 const NewRelease = () => {
     const [isActive, setisActive] = useState(0)
@@ -57,6 +58,7 @@ const NewRelease = () => {
                         releaseDate={new Date()}
 
                     />
+
                 ))}
             </div>
         </div>

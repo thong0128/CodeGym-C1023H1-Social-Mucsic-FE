@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShowListSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowListSong.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UpdateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714015263629</updated>
       <workItem from="1714015265976" duration="7219000" />
-      <workItem from="1714033886710" duration="3773000" />
+      <workItem from="1714033886710" duration="6386000" />
     </task>
     <servers />
   </component>

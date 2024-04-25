@@ -209,7 +209,7 @@ const Player = (prop) => {
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
                                     <Typography variant="h6" color="text.secondary" fontWeight={500}>
-                                        {currentSong?.nameSong === null ? "Điều ước giáng sinh" : currentSong?.nameSong}
+                                        {currentSong?.title === null ? "Unknown" : currentSong?.title}
                                     </Typography>
                                     <Typography>
                                         <b>{currentSong?.singer === null ? "Ca sĩ" : currentSong?.singer}</b>
