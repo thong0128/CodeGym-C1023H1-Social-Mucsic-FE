@@ -3,23 +3,30 @@ import {Field, Form, Formik} from "formik";
 import axios from "axios";
 import {toast} from "react-toastify";
 import "../../modalLogin.css"
-import React from "react";
+import React, {useContext} from "react";
+import {AppContext} from "../../Context/AppContext";
 
 export default function Login() {
     let navigate = useNavigate();
+    const {toggleFlag} = useContext(AppContext);
     function setAcc(value) {
         axios.post('http://localhost:8080/users/login', value).then((res) => {
             console.log(res.data);
+
             if (res.data === false){
                 alert("Tài khoản của bạn đã bị khóa");
             }
             else{
+                toggleFlag();
                 localStorage.setItem("idUser", res.data.id)
-                localStorage.setItem("user", res.data.username)
-                localStorage.setItem("user_img", res.data.url_img)
-                localStorage.setItem("role", res.data.roles[0].authority)
+                localStorage.setItem("user", res.data.userName)
+                localStorage.setItem("avatar", res.data.avatar)
+                localStorage.setItem("role", res.data.authorities[0].authority)
+                localStorage.setItem("token", res.data.token)
                 console.log("role:",localStorage.getItem("role"))
+
                 navigate("/")
+
                 toast.success("Đăng nhập thành công", {
                     position: toast.POSITION.BOTTOM_RIGHT
                 })

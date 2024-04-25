@@ -8,11 +8,11 @@ export default function SongDetail (){
     const {id} = useParams()
     const [detailSong,setdetailSong] = useState({})
     const dispatch = useDispatch()
-    useEffect(()=>{
-        axios.get("http://localhost:8080/songs/"+id).then(res => {
-            setdetailSong(res.data)
-        }).catch(Error => console.log(Error))
-    }, [])
+    // useEffect(()=>{
+    //     axios.get("http://localhost:8080/songs/"+id).then(res => {
+    //         setdetailSong(res.data)
+    //     }).catch(Error => console.log(Error))
+    // }, [])
 
     return(
         <>
@@ -20,7 +20,7 @@ export default function SongDetail (){
            <div className={'flex justify-center items-center'}>
                <img style={{width: 350, height:350}} onClick={() =>{
                    dispatch(findSongById(id))
-               }} src={detailSong.url_img} />
+               }} src={detailSong.img_url} />
                <div className={'flex flex-col text-white ml-4'}>
                    <div>Tên bài hát: {detailSong.nameSong}</div>
                    <div>Ca sĩ: {detailSong.singer}</div>

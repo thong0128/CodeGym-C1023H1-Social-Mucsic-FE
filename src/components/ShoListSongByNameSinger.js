@@ -14,12 +14,13 @@ function ShoListSongByNameSinger(props) {
     const nameSinger = useParams();
     const [list, setList] = useState([]);
     const navigate = useNavigate()
-    useEffect(() => {
-        console.log(":uparam", nameSinger)
-        axios.get("http://localhost:8080/songs/findAllByNameSinger/" + nameSinger.name).then((res) => {
-            setList(res.data);
-        })
-    }, [isFlag]);
+    // useEffect(() => {
+    //     console.log(":uparam", nameSinger)
+    //     axios.get("http://localhost:8080/songs/findAllByNameSinger/" + nameSinger.name).then((res) => {
+    //         setList(res.data);
+    //     })
+    // }, [isFlag]);
+
     return (
         <>
             <div style={{backgroundColor: "#3c2452", color:"white"}}>

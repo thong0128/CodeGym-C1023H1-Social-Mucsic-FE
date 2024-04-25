@@ -5,11 +5,16 @@ import {useEffect, useState} from "react";
 function ShowSearchBySongName(){
     let idSong = useParams();
     let [songs , setSongs] = useState({})
+    // useEffect(() => {
+    //     console.log("pẩm", idSong)
+    //     axios.get('http://localhost:8080/songs/'+idSong.id).then((res)=>{
+    //         setSongs(res.data)
+    //     })
+    // }, []);
+
+    const songs1 = {}
     useEffect(() => {
-        console.log("pẩm", idSong)
-        axios.get('http://localhost:8080/songs/'+idSong.id).then((res)=>{
-            setSongs(res.data)
-        })
+        setSongs(songs1)
     }, []);
     return(
         <>

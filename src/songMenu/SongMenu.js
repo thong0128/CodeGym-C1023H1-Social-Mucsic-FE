@@ -8,40 +8,39 @@ import swal from "sweetalert";
 import {AppContext} from "../Context/AppContext";
 import {useNavigate} from "react-router-dom";
 
-const Dropdown_listSong = ({idSong}) => {
+const SongMenu = ({idSong}) => {
     let [checkDelete, setCheckDelete] = useState(false)
     const [playlists, setPlaylist] = useState([])
     const idUser = localStorage.getItem("idUser")
-    // useEffect(() => {
-    //     if(idUser != null){
-    //         axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
-    //             setPlaylist(res.data)
-    //         })
-    //     }
-    // }, []);
-
+    useEffect(() => {
+        if(idUser != null){
+            axios.get("http://localhost:8080/songs/findUserSongs/" + idUser).then((res) => {
+                setPlaylist(res.data)
+            })
+        }
+    }, []);
     const navigate = useNavigate()
     const {toggleFlag} = useContext(AppContext);
     const items = [
-        {
-            key: '1',
-            label: (
-                <dev>
-                    <select onChange={(e) => {
-                        console.log("taget", e.target.value)
-                        addPlayList(e.target.value)
-                    }}>
-                        <option>Thêm vào PlayList</option>
-                        {playlists.map((i,key) => {
-                            return(
-                                <option value={i.id}>{i.namePlayList}</option>
-                            )
-                        })}
-                    </select>
-                </dev>
-
-            ),
-        },
+        // {
+        //     key: '1',
+        //     label: (
+        //         <dev>
+        //             <select onChange={(e) => {
+        //                 console.log("taget", e.target.value)
+        //                 addPlayList(e.target.value)
+        //             }}>
+        //                 <option>Thêm vào PlayList</option>
+        //                 {playlists.map((i,key) => {
+        //                     return(
+        //                         <option value={i.id}>{i.namePlayList}</option>
+        //                     )
+        //                 })}
+        //             </select>
+        //         </dev>
+        //
+        //     ),
+        // },
         {
             key: '2',
             label: (
@@ -79,15 +78,15 @@ const Dropdown_listSong = ({idSong}) => {
 
 
     function addPlayList(idPlaylist) {
-            if (idUser != null) {
-                axios.put("http://localhost:8080/songs/addPlayList/" + idSong + "/" + idPlaylist).then((res) => {
-                    toast.success("Thêm thành công vào playlist")
-                })
-            }
+        if (idUser != null) {
+            axios.put("http://localhost:8080/songs/addPlayList/" + idSong + "/" + idPlaylist).then((res) => {
+                toast.success("Thêm thành công vào playlist")
+            })
+        }
     }
 
     function edit(id) {
-        navigate("/update/" + id)
+        navigate("/songs/" + id)
     }
 
     function deleteSong(id) {
@@ -113,4 +112,4 @@ const Dropdown_listSong = ({idSong}) => {
     }
 }
 
-export default Dropdown_listSong;
+export default SongMenu;

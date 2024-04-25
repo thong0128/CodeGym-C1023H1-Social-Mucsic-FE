@@ -4,17 +4,19 @@ import {useSelector} from "react-redux";
 import {SongItem} from "./index";
 import {apiGetDetailPlaylist} from "../apis";
 import axios from "axios";
+import {data} from "autoprefixer";
 
 const SidebarRight = () => {
     const [songs, setSongs] = useState([])
     const [isRecent, setisRecent] = useState(false)
     const {playlist, setPlaylist} = useState()
-    useEffect(() => {
-        axios.get("http://localhost:8080/songs/searchByIdPll/" + 1).then((res)=>{
-            setSongs(res.data);
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/songs/searchByIdPll/" + 1).then((res)=>{
+    //         setSongs(res.data);
+    //
+    //     })
+    // }, []);
 
-        })
-    }, []);
     return (
         <div className={'flex flex-col text-xs w-full'}>
             <div className={'h-[70px] w-full flex-none py-[14px] px-2 gap-8 flex items-center justify-between'}>

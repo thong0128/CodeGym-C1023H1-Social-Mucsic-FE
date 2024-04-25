@@ -9,11 +9,12 @@ function UpdatePlayList(props) {
     const navigate = useNavigate();
     const [playList, setPlayList] = useState({})
     const idPlayList = useParams()
-    useEffect(() => {
-        axios.get("http://localhost:8080/playLists/" + idPlayList.id).then((res)=>{
-            setPlayList(res.data);
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/playLists/" + idPlayList.id).then((res)=>{
+    //         setPlayList(res.data);
+    //     })
+    // }, []);
+
     return (
         <>
             <Formik initialValues={{

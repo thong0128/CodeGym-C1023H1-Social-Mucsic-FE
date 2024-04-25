@@ -26,12 +26,12 @@ const RightSidebar = () => {
     const {curSongData, curAlbumId} = useSelector(state => state.music)
     const {playlist, setPlaylist} = useState()
     const [songs, setSongs] = useState([])
-    useEffect(() => {
-        axios.get("http://localhost:8080/songs/searchByIdPll/" + 1).then((res)=>{
-            setSongs(res.data);
-
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/songs/searchByIdPll/" + 1).then((res)=>{
+    //         setSongs(res.data);
+    //
+    //     })
+    // }, []);
 
     return (
         <>

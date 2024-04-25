@@ -21,27 +21,28 @@ const Header = () => {
     let [user, setUser] = useState({})
     let [img,setImg] = useState('');
 
-
-
-        useEffect(() => {
-            if (id !== null){
+    useEffect(() => {
+        if (id !== null){
             axios.get('http://localhost:8080/users/' + id).then((res) => {
+                console.log(res.data)
                 setUser(res.data)
-                setImg(res.data.url_img);
+                setImg(localStorage.getItem("avatar"));
             })}else {
-                navigate("/")
-            }
-        }, [isFlag])
+            navigate("/")
+        }
+    }, [isFlag])
+
+
 
 
     const [check, setCheck] = useState(false)
     const [checkSetting, setChecksetting] = useState(false)
 
     const handleCheck = (isCheck) => {
-            setChecksetting(false);
+        setChecksetting(false);
         setCheck(isCheck);
     }
-    console.log(localStorage.getItem("role"))
+    // console.log(localStorage.getItem("role"))
     if (localStorage.getItem("idUser") !== null) {
         if (localStorage.getItem("role") === "ROLE_ADMIN") {
             return (
@@ -73,7 +74,7 @@ const Header = () => {
 
                             }>
                                 <img src={img === null ? "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg":
-                                 img} style={{
+                                    img} style={{
                                     width: 40,
                                     height: 40,
                                     marginTop: 5,
@@ -108,7 +109,7 @@ const Header = () => {
                             <div className="dev_setting" >
                                 <button type="button text-white" onClick={() => {
                                     setChecksetting(!checkSetting)
-                                        setCheck(false)
+                                    setCheck(false)
                                 }}>
                                     <CiSettings style={{width: 40, height: 40, marginTop: 5, marginRight:20, fill: "white"}}/>
                                 </button>

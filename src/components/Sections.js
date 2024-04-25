@@ -16,6 +16,11 @@ const Sections = ({data}) => {
         })
     }, [check])
 
+    const dataListSong = {}
+    useEffect(() => {
+        return dataListSong;
+    }, [check]);
+
     function listNew(list) {
         let listNe = [];
         for (let i = 0; i < list.length; i++) {

@@ -28,11 +28,12 @@ const ModalCreatePlayList = () => {
     const {isFlag} = useContext(AppContext);
     const {toggleFlag} = useContext(AppContext);
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/playLists').then(res => {
-            setPlaylistCheck(findPlaylist(res.data)) ;
-        })
-    }, [ isFlag]);
+    // useEffect(() => {
+    //     axios.get('http://localhost:8080/playLists').then(res => {
+    //         setPlaylistCheck(findPlaylist(res.data)) ;
+    //     })
+    // }, [ isFlag]);
+
     function findPlaylist (data) {
         let a = [];
         for (let i = 0; i < data.length; i++) {

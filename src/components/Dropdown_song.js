@@ -11,13 +11,14 @@ function DropdownSong({idSong}) {
 
     const [playlists, setPlaylist] = useState([])
     const idUser = localStorage.getItem("idUser")
-    useEffect(() => {
-        if(idUser != null){
-            axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
-                setPlaylist(res.data)
-            })
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(idUser != null){
+    //         axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
+    //             setPlaylist(res.data)
+    //         })
+    //     }
+    // }, []);
+
     const navigate = useNavigate()
     const {toggleFlag} = useContext(AppContext);
     const items = [

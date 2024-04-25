@@ -1,31 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
-import Dropdown_listSong from "./dropdown_listSong";
+import SongMenu from "../songMenu/SongMenu";
 import {AppContext} from "../Context/AppContext";
-import {findSongById} from "../service/SongService";
+// import {findSongById} from "../service/SongService";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-const ShowListSong = () => {
-    const {isFlag } = useContext(AppContext);
-    const dispatch = useDispatch()
-    const [idUser, setIdUser] = useState(localStorage.getItem("idUser"))
+export default function UserSongList() {
+    const [idUser, setidUser] = useState(localStorage.getItem("idUser"))
+    console.log(idUser);
     const [list, setList] = useState([]);
-    const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`http://localhost:8080/songs/findUserSongs/${idUser}`).then((res) => {
+        axios.get("http://localhost:8080/songs/findUserSongs/" + idUser).then((res) => {
             setList(res.data);
-            // setIdUser(1)
+            console.log(list);
         })
-    }, [isFlag]);
-
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs/findUserSongs/1").then((res) => {
-    //         setList(res.data);
-    //         console.log(list);
-    //     })
-    // }, [isFlag]);
-
+    },[]);
     return (
         <>
             <div style={{backgroundColor: "#3c2452", color:"white"}}>
@@ -35,24 +25,18 @@ const ShowListSong = () => {
                         {list.map((i, key) => {
                             return (
                                 <div
-                                    onClick={()=>{
-                                        dispatch(findSongById(i.id))
-                                    }}
                                     className={'w-[30%] flex-auto flex  p-[10px] gap-10 hover:bg-main-200 rounded-md cursor-pointer hover:text-black'}>
                                     <img
-                                        onClick={()=>{
-                                            navigate("/detailSong/"+ i.id)
-                                        }}
                                         src={i.img_url == null ? "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/a/3/6/a/a36a7d1fecd4333c96def2d3f71a6b9b.jpg"
                                             : i.img_url}
                                         alt='' className={'w-[60px] h-[60px]'}/>
                                     <div className={'flex flex-col'}>
-                                        <span className={'text-sm font-semibold'}>{i.nameSong}</span>
+                                        <span className={'text-sm font-semibold'}>{i.title}</span>
                                         <span className={'text-xs text-gray-400'}>{i.singer}</span>
                                         <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.listen_count}</span>
                                     </div>
                                     <div className={'flex flex-col'}>
-                                        <Dropdown_listSong idSong={i.id}/>
+                                        <SongMenu idSong={i.id}/>
                                     </div>
                                 </div>
                             )
@@ -62,5 +46,4 @@ const ShowListSong = () => {
             </div>
         </>
     );
-};
-export default ShowListSong;
+}

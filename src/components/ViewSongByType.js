@@ -15,22 +15,24 @@ function ViewPlaylist(props) {
     const idType = useParams()
     const [type, setType] = useState({})
     const dispatch = useDispatch()
-    useEffect(() => {
-        axios.get("http://localhost:8080/songs/showListSongByType/" + idType.id).then((res) =>{
-            if (res.data === []){
-                toast.success("Danh sách chưa có bài hát")
-            } else {
-                setListSOng(res.data)
-            }
-        }).catch(() => {
-            toast.error('bux')
-        })
-    }, []);
-    useEffect(() => {
-        axios.get("http://localhost:8080/songTypes/" + idType.id).then((res) =>{
-            setType(res.data)
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/songs/showListSongByType/" + idType.id).then((res) =>{
+    //         if (res.data === []){
+    //             toast.success("Danh sách chưa có bài hát")
+    //         } else {
+    //             setListSOng(res.data)
+    //         }
+    //     }).catch(() => {
+    //         toast.error('bux')
+    //     })
+    // }, []);
+
+    // useEffect(() => {
+    //     axios.get("http://localhost:8080/songTypes/" + idType.id).then((res) =>{
+    //         setType(res.data)
+    //     })
+    // }, []);
+
     return (
         <>
             <div style={{color:"white", marginTop:30}}>
