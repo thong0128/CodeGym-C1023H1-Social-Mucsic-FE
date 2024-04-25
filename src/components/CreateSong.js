@@ -38,7 +38,7 @@ const ModalCreateSong = () => {
                 setSongUrl(url);
                 console.log("song uploaded successfully", url);
                 console.log("song uploaded successfully", songUrl);
-                songs.song_url = url;
+                // songs.song_url = url;
                 localStorage.setItem("song_url", url);
             });
         });
@@ -114,8 +114,8 @@ const ModalCreateSong = () => {
                             <div className="row align-items-center no-gutters">
                                 <div className="col-md-5">
                                     <img name="url_img"
-                                         src= {songs.url_img == null? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                                             : songs.url_img}
+                                         src= {songs.img_url == null? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                                             : songs.img_url}
                                          className="img-fluid" alt=""/>
                                 </div>
                                 <div className="col-md-7">
@@ -144,7 +144,7 @@ const ModalCreateSong = () => {
                                         <div className="form-group mb-2">
                                             <label className="form-label" htmlFor="type">Thể loại</label>
                                             <Field className="form-control form-control-sm" placeholder="Chọn thể loại"
-                                                   as="select" name="id_SongTypes.id" id="type">
+                                                   as="select" name="songTypes.id" id="type">
                                                 {songTypes.map((i, key) => {
                                                     return (
                                                         <option key={key} value={i.id}>{i.name}</option>

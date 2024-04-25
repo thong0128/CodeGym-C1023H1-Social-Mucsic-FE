@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DetailSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ShowListSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowListSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/Album.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Node.js.CreateSong.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
@@ -63,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714015263629</updated>
-      <workItem from="1714015265976" duration="1771000" />
+      <workItem from="1714015265976" duration="5496000" />
     </task>
     <servers />
   </component>
