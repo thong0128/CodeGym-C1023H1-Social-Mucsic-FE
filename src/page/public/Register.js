@@ -3,6 +3,7 @@ import {Formik, Form, ErrorMessage, Field} from 'formik';
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import axios from "axios";
+import * as Yup from "yup";
 export default function Register() {
     const [listMailCheck, setListEmailCheck] = useState([]);
     const [listUserCheck, setListUserCheck] = useState([]);
@@ -72,7 +73,11 @@ export default function Register() {
                         password: require("yup")
                             .string()
                             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm số, chữ thường và chữ hoa")
-                            .required("Vui lòng nhập mật khẩu.")
+                            .required("Vui lòng nhập mật khẩu."),
+                        confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password does not match!')
+                            .required('You must fill in this section'),
+                        phoneNumber: Yup.string().matches(/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, "Not Vietnam's phone number")
+                            .required("Invalid phone number")
                         // email: require("yup")
                         //     .string()
                         //     .email("Email không hợp lệ.")
@@ -120,7 +125,7 @@ export default function Register() {
 							<i className="fa fa-lock" aria-hidden="true"></i>
 						</span>
                                                                 </div>
-                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="password" component="div"/>
+                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="confirmPassword" component="div"/>
                                                                 <div className="wrap-input100 validate-input">
                                                                     <Field className="input100" type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>
                                                                     <span className="focus-input100"></span>
