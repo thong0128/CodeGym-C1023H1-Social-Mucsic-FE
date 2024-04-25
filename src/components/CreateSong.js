@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Modal} from 'antd';
 import {Field, Form, Formik} from "formik";
 import {toast} from "react-toastify";
@@ -8,9 +8,11 @@ import {storage} from "../FireBase/FirebaseConfig"
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import * as actions from "../store/actions";
+import {AppContext} from "../Context/AppContext";
 
 const ModalCreateSong = () => {
     const dispatch = useDispatch();
+    const {toggleFlag} = useContext(AppContext);
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
     const [songs,setSongs] = useState({});
@@ -102,11 +104,14 @@ const ModalCreateSong = () => {
                     console.log("idSOngtype: ", value)
                     axios.post("http://localhost:8080/songs/user/create", value).then((res)=>{
                         console.log(res.data)
+                        toggleFlag()
                         toast.success("Tạo bài hát thành công", {
                             position: toast.POSITION.BOTTOM_RIGHT
                         });
                         dispatch(actions.getHome()); // Cập nhật lại danh sách bài hát mới
                     })
+                    setIsModalOpen(false);
+                    navigate("/")
                 }}>
                     <Form>
                         <div className="card">

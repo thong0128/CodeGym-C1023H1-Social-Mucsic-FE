@@ -5,6 +5,7 @@ import {storage} from "../FireBase/FirebaseConfig";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
+import {Modal} from "antd";
 export default function UpdateSong() {
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
@@ -14,6 +15,7 @@ export default function UpdateSong() {
     const idSong = useParams();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(true);
+
 
     const uploadFileImg = (image) => {
         if (image === null) return
@@ -72,6 +74,7 @@ export default function UpdateSong() {
 
     return (
         <>
+            <Modal width={1000} title="Tạo bài hát mới" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
             <Formik initialValues={
                 songs
             }
@@ -84,6 +87,9 @@ export default function UpdateSong() {
                                 position: toast.POSITION.BOTTOM_RIGHT
                             })
                         })
+                        setIsModalOpen(false);
+                        navigate("/showList")
+
                     }}>
                 <Form>
                     <div className="card">
@@ -155,6 +161,7 @@ export default function UpdateSong() {
                     </div>
                 </Form>
             </Formik>
+            </Modal>
         </>
     )
 }
