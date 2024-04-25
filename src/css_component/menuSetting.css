@@ -1,0 +1,53 @@
+.menu_setting{
+    /*float: right;*/
+    z-index: 1000;
+    display: block;
+    margin-top: 120px;
+    margin-right: 30px;
+    width: 300px;
+    height: auto;
+    background-color: #34224f;
+    border-radius: 8px;
+}
+/*.form_menu{*/
+/*    padding-top: 0px;*/
+
+/*}*/
+.menu_setting li {
+    color: #FFFFFF;
+    display: flex;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+.menu_setting li:hover{
+    background-color: #f8f8e3;
+    color: #0e0404;
+}
+
+.menu_setting .icon{
+    width: 20px;
+    height: 20px;
+}
+.menu_setting .content{
+    width: auto;
+    height: auto;
+}
+.vach{
+    background-color: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    color: rgb(236, 232, 232);
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 1px;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 10px;
+    text-rendering: optimizelegibility;
+    width: 264px;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased
+}
