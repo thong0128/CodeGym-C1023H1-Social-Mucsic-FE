@@ -5,7 +5,7 @@ import {toast} from "react-toastify";
 import axios from "axios";
 import * as Yup from "yup";
 export default function Register() {
-    const [listMailCheck, setListEmailCheck] = useState([]);
+    // const [listMailCheck, setListEmailCheck] = useState([]);
     const [listUserCheck, setListUserCheck] = useState([]);
     const [user, setUser] = useState({})
     const navigate = useNavigate();
@@ -16,6 +16,11 @@ export default function Register() {
         })
     }, []);
 
+    // const users1 = {}
+    // useEffect(() => {
+    //     // setListEmailCheck(findEmail(users1.data)) ;
+    //     setListUserCheck(findUser(users1.data)) ;
+    // }, []);
     function findUser (data) {
         let a = [] ;
         for (let i = 0; i < data.length; i++) {
@@ -23,34 +28,34 @@ export default function Register() {
         }
         return a ;
     }
-    function findEmail (data) {
-        let a = [] ;
-        for (let i = 0; i < data.length; i++) {
-            a.push(data[i].email)
-        }
-        return a ;
-    }
+    // function findEmail (data) {
+    //     let a = [] ;
+    //     for (let i = 0; i < data.length; i++) {
+    //         a.push(data[i].email)
+    //     }
+    //     return a ;
+    // }
 
     const handleButtonClick = (values) => {
         if(values !== null) {
             axios.post('http://localhost:8080/users/register', values)
-            .then((res) => {
-                toast.success('Đăng kí thành công', {autoClose : 700})
-                console.log(values)
+                .then((res) => {
+                    toast.success('Đăng kí thành công', {autoClose : 700})
+                    console.log(values)
 
-                // toast.success('Đăng kí thành công vui lòng đăng nhập lại', {autoClose : 700})
-                navigate('/login')
-            })
+                    // toast.success('Đăng kí thành công vui lòng đăng nhập lại', {autoClose : 700})
+                    navigate('/login')
+                })
         }else {
             toast.warning('Vui lòng điền đủ thông tin', {autoClose : 700})
         }
     };
     const onSubmit = (values) => {
-       let user = {
-           userName : values.userName ,
-           password : values.password,
-           confirmPassword : values.confirmPassword
-       }
+        let user = {
+            userName : values.userName ,
+            password : values.password,
+            confirmPassword : values.confirmPassword
+        }
         // console.log(user)
         handleButtonClick(user) ;
     };
@@ -75,9 +80,9 @@ export default function Register() {
                             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm số, chữ thường và chữ hoa")
                             .required("Vui lòng nhập mật khẩu."),
                         confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password does not match!')
-                            .required('You must fill in this section'),
-                        phoneNumber: Yup.string().matches(/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, "Not Vietnam's phone number")
-                            .required("Invalid phone number")
+                            .required('You must fill in this section')
+                        // phoneNumber: Yup.string().matches(/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, "Not Vietnam's phone number")
+                        //     .required("Invalid phone number")
                         // email: require("yup")
                         //     .string()
                         //     .email("Email không hợp lệ.")
@@ -144,7 +149,7 @@ export default function Register() {
                                                                 <div>
                                                                     <button onClick={back} className="txt2">
                                                                         <i className="fa fa-long-arrow-left m-l-5"
-                                                                           ></i>
+                                                                        ></i>
                                                                         Quay lại
                                                                     </button>
                                                                 </div>
@@ -165,8 +170,8 @@ export default function Register() {
 
         </div>
     );
-function back(){
-    navigate("/login")
-}
+    function back(){
+        navigate("/login")
+    }
 }
 

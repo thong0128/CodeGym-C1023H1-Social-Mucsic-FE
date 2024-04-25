@@ -10,18 +10,25 @@ export default function UserList() {
     const [roles, setRoles] = useState(localStorage.getItem("role"))
     const navigate = useNavigate()
 
-    useEffect(() => {
-        axios.get('http://localhost:8080/users').then(res => {
-            for (let i = 0; i < res.data.length; i++) {
-                if (res.data[i].roles.id != "ROLE_ADMIN"){
-                    listUser.push(res.data[i])
-                }
-            }
-            setList(listUser)
-            console.log("list ne:", list)
-        })
-    }, [])
+    // useEffect(() => {
+    //     axios.get('http://localhost:8080/users').then(res => {
+    //         for (let i = 0; i < res.data.length; i++) {
+    //             if (res.data[i].roles.id != "ROLE_ADMIN"){
+    //                 listUser.push(res.data[i])
+    //             }
+    //         }
+    //         setList(listUser)
+    //         console.log("list ne:", list)
+    //     })
+    // }, [])
 
+    const users1 = {}
+    useEffect(() => {
+        for (let i = 0; i < users1.data.length; i++) {
+        }
+        setList(listUser)
+        console.log("list ne:", list)
+    }, []);
 
     function changeStatus(email) {
         axios.put('http://localhost:8080/users/account_lockout/'+ email).then(()=>{})

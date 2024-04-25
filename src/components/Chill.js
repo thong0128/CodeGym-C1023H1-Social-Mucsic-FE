@@ -19,6 +19,7 @@ const Chill = () => {
     //         setSongType(res.data)
     //     })
     // }, []);
+
     return (
         <div className={'mt-12 px-[59px] flex flex-col gap-5'}>
             <div className={'flex items-center justify-between'}>

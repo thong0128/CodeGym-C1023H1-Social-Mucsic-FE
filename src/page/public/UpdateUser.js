@@ -1,4 +1,4 @@
-
+import '../../css_component/updateUser.css'
 import {Field, Form, Formik} from "formik";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
@@ -103,7 +103,7 @@ export default function UpdateUser() {
                                 toast.success("Cập nhật thành công", {autoClose : 1000})
                                 navigate("/")
                             }).catch(() => {
-                                toast.error("Cập nhật không thành công")
+                                toast.error("Cập nhật không thành công", {autoClose : 1000})
                             })
                             toggleFlag()
                         }}
@@ -156,13 +156,6 @@ export default function UpdateUser() {
                                                 <Field name="address" type="text" id="address"
                                                        placeholder="Nhập địa chỉ của bạn"
                                                        className="form-control"/>
-                                            </div>
-                                            <div>
-                                                <input name="img" type="file" id="form2Example27"
-                                                       className="form-control form-control-lg"
-                                                       onChange={(event) => {
-                                                           uploadFile(event.target.files[0], id)
-                                                       }}/>
                                             </div>
                                         </div>
                                         <div className="container-login100-form-btn">

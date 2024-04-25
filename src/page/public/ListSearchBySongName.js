@@ -5,13 +5,17 @@ import {useEffect, useState} from "react";
 function ShowSearchBySongName(){
     let idSong = useParams();
     let [songs , setSongs] = useState({})
-    useEffect(() => {
-        console.log("pẩm", idSong)
-        axios.get('http://localhost:8080/songs/'+idSong.id).then((res)=>{
-            setSongs(res.data)
-        })
-    }, []);
+    // useEffect(() => {
+    //     console.log("pẩm", idSong)
+    //     axios.get('http://localhost:8080/songs/'+idSong.id).then((res)=>{
+    //         setSongs(res.data)
+    //     })
+    // }, []);
 
+    const songs1 = {}
+    useEffect(() => {
+        setSongs(songs1)
+    }, []);
     return(
         <>
             <div className='mt-12 px-[59px] flex flex-col gap-5'>

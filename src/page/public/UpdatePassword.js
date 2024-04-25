@@ -9,8 +9,8 @@ import * as Yup from "yup";
 export default function UpdatePass() {
     const navigate = useNavigate()
     const id = localStorage.getItem("idUser");
-    // const [check , setCheck] = useState(false)
-    // const [user, setUser] = useState({})
+    const [check , setCheck] = useState(false)
+    const [user, setUser] = useState({})
     const handleCancel = () => {
         navigate("/")
     };
@@ -22,22 +22,22 @@ export default function UpdatePass() {
             'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
         }
     };
-    // useEffect(() => {
-    //     // if(id != null) {
-    //     //     axios.get('http://localhost:8080/users/' + id, config).then((res) => {
-    //     //         console.log(res.data)
-    //     //         setUser(res.data)
-    //     //     })
-    //     // }
-    // }, [check])
+    useEffect(() => {
+        if(id != null) {
+            axios.get('http://localhost:8080/users/' + id, config).then((res) => {
+                console.log(res.data)
+                setUser(res.data)
+            })
+        }
+    }, [check])
     return (
         <>
             <Formik
                 initialValues={{}}
                 validationSchema={
                     require("yup").object().shape({
-                        // oldPassword: Yup.string().matches(`${user.oldPassword}`, "Mật khẩu sai!!!")
-                        //     .required("Không được để trống!"),
+                        oldPassword: Yup.string().matches(`${user.oldPassword}`, "Mật khẩu sai!!!")
+                            .required("Không được để trống!"),
                         password: require("yup")
                             .string()
                             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm số, chữ thường và chữ hoa")
@@ -62,7 +62,7 @@ export default function UpdatePass() {
                                         <label htmlFor="oldPassword">Mật khẩu cũ</label>
                                         <Field className="form-control" id="oldPassword" name={'oldPassword'}
                                                type='password' placeholder="Nhập mật khẩu cũ" required/>
-                                        {/*<ErrorMessage className={'text-danger'} name="oldPassword" component="div"/>*/}
+                                        <ErrorMessage className={'text-danger'} name="oldPassword" component="div"/>
                                     </div>
                                     <div className="form-outline mb-4">
                                         <label htmlFor="password">Mật khẩu mới</label>
@@ -94,21 +94,19 @@ export default function UpdatePass() {
     )
 
     function updatePassword(values) {
-
-
         if (values.password === values.confirmPassword) {
             let userPass = {
                 password: values.password,
                 confirmPassword : values.confirmPassword
             }
-            axios.put('http://localhost:8080/users/update/pass/' + id, userPass).then((res) => {
-                toast.success("Cập nhật thành công")
+            axios.put('http://localhost:8080/users/update/pass/' + id, userPass, config).then((res) => {
+                toast.success("Cập nhật thành công", {autoClose : 1500})
                 navigate('/')
             }).catch(() => {
-                toast.error("Cập nhật thất bại")
+                toast.error("Cập nhật thất bại", {autoClose : 1500})
             })
         }else {
-            toast.error("Không thành công")
+            toast.error("Không thành công", {autoClose : 1500})
         }
     }
 

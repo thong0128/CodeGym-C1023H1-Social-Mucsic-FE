@@ -5,8 +5,7 @@ import {TbPasswordUser} from "react-icons/tb";
 import {HiOutlinePlus} from "react-icons/hi";
 import {AiOutlineLogout} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
-import UpdatePass from "../page/public/UpdatePassword";
-import ModalCreateSong from "./CreateSong";
+
 const MenuLogOut = ({handler}) => {
     const navigate = useNavigate()
     function logOut() {

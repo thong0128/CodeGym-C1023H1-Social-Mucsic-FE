@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Modal} from 'antd';
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {Modal} from 'antd';
+import {Field, Form, Formik} from "formik";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "firebase/storage";
-import {storage} from "../FireBase/FirebaseConfig";
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import {storage} from "../FireBase/FirebaseConfig"
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import * as actions from "../store/actions";
@@ -17,14 +13,15 @@ const ModalCreateSong = () => {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
-    const [songs,setSongs] = useState({})
-    const [songTypes, setSongTypes] = useState([])
+    const [songs,setSongs] = useState({});
+    const [songTypes, setSongTypes] = useState([]);
+    const navigate = useNavigate();
     const uploadFileImg = (image) => {
         if (image === null) return
         const imageRef = ref(storage, `IMG/${image.name}`);
         uploadBytes(imageRef, image).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setImageUrl(url); // Lưu URL sau khi upload thành công vào state mới
+                setImageUrl(url);
                 console.log("image uploaded successfully", url);
                 console.log("image uploaded successfully", imageUrl);
                 songs.img_url = url;
@@ -38,7 +35,7 @@ const ModalCreateSong = () => {
         const urlRef = ref(storage, `Music/${music.name}`);
         uploadBytes(urlRef, music).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setSongUrl(url); // Lưu URL sau khi upload thành công vào state mới
+                setSongUrl(url);
                 console.log("song uploaded successfully", url);
                 console.log("song uploaded successfully", songUrl);
                 songs.song_url = url;
@@ -53,12 +50,12 @@ const ModalCreateSong = () => {
         })
     }, []);
 
-    const token = localStorage.getItem('token'); // Lấy token từ Local Storage
+    const token = localStorage.getItem('token');
 
     const config = {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Thêm token vào Authorization header
+            'Authorization': `Bearer ${token}`
         }
     };
 
@@ -77,9 +74,6 @@ const ModalCreateSong = () => {
         navigate("/")
     };
 
-    const navigate = useNavigate();
-    const id_user = localStorage.getItem("idUser")
-    const [listPlaylistCheck, setPlaylistCheck] = useState([]);
 
     return (
         <>
@@ -120,7 +114,7 @@ const ModalCreateSong = () => {
                                 <div className="col-md-5">
                                     <img name="url_img"
                                          src= {songs.url_img == null? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                                    : songs.url_img}
+                                             : songs.url_img}
                                          className="img-fluid" alt=""/>
                                 </div>
                                 <div className="col-md-7">
@@ -163,7 +157,7 @@ const ModalCreateSong = () => {
                                                    className="form-control"/>
                                         </div>
                                         <div className="form-group mb-2">
-                                            <label className="form-label" htmlFor="url_img">Ảnh</label>
+                                            <label className="form-label" htmlFor="img_url">Ảnh</label>
                                             <input type="file" id="img_url" className="form-control" onChange={(event)=>{
                                                 uploadFileImg(event.target.files[0])
                                             }}/>

@@ -6,8 +6,6 @@ import {LiaAddressBook} from "react-icons/lia";
 import {GoArrowUpRight} from "react-icons/go";
 import {IoShieldCheckmarkOutline} from "react-icons/io5";
 import {PiFlag} from "react-icons/pi";
-import {CiStopSign1} from "react-icons/ci";
-import {FiPhone} from "react-icons/fi";
 import {SlArrowRight} from "react-icons/sl";
 import "../css_component/menuSetting.css"
 import {useNavigate} from "react-router-dom";

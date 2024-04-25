@@ -20,12 +20,12 @@ const ShowPlaylist = () => {
             navigate("/login")
         } else {
             axios.get("http://localhost:8080/playLists/findByIdUser/" + idUser).then((res) => {
-                if (res.data !== []){
-                    setList(res.data);
-                } else {
-                    toast.success("Bạn chưa có PlayList nào")
+                    if (res.data !== []){
+                        setList(res.data);
+                    } else {
+                        toast.success("Bạn chưa có PlayList nào")
+                    }
                 }
-            }
             )
         }
     }, [isFlag]);

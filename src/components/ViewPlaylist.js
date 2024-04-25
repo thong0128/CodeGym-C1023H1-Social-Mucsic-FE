@@ -18,7 +18,6 @@ function ViewPlaylist(props) {
     //     })
     // },[listSong]);
 
-
     // useEffect(() => {
     //     axios.get("http://localhost:8080/playLists/" + idPlaylist.id).then((res)=>{
     //         setPlayList(res.data);

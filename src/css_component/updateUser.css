@@ -73,7 +73,7 @@ img {
 .img-upload:hover:before{
     opacity: 1;
 }
-input[type="file"] {
+#photo-upload{
     display: none;
 }
 button[type="submit"] {

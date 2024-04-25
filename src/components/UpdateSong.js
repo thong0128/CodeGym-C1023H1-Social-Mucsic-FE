@@ -1,15 +1,11 @@
 import {Field, Form, Formik} from "formik";
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "firebase/storage";
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
 import React, {useEffect, useState} from 'react';
 import {storage} from "../FireBase/FirebaseConfig";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
-export default function UpdateSong(prop) {
+export default function UpdateSong() {
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
     const [songs,setSongs] = useState({});
@@ -24,7 +20,7 @@ export default function UpdateSong(prop) {
         const imageRef = ref(storage, `IMG/${image.name}`);
         uploadBytes(imageRef, image).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setImageUrl(url); // Lưu URL sau khi upload thành công vào state mới
+                setImageUrl(url);
                 console.log("image uploaded successfully", url);
                 console.log("image uploaded successfully", imageUrl);
                 songs.img_url = url;
@@ -38,7 +34,7 @@ export default function UpdateSong(prop) {
         const urlRef = ref(storage, `Music/${music.name}`);
         uploadBytes(urlRef, music).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setSongUrl(url); // Lưu URL sau khi upload thành công vào state mới
+                setSongUrl(url);
                 console.log("song uploaded successfully", url);
                 console.log("song uploaded successfully", songUrl);
                 songs.song_url = url;
@@ -83,12 +79,12 @@ export default function UpdateSong(prop) {
                     onSubmit={(value) => {
                         value.img_url = localStorage.getItem("img_url");
                         value.song_url = localStorage.getItem("song_url");
-                axios.put("http://localhost:8080/songs/user/update", value).then((res)=>{
-                    toast.success(" Cập nhật hát thành công ", {
-                        position: toast.POSITION.BOTTOM_RIGHT
-                    })
-                })
-            }}>
+                        axios.put("http://localhost:8080/songs/user/update", value).then((res)=>{
+                            toast.success(" Cập nhật hát thành công ", {
+                                position: toast.POSITION.BOTTOM_RIGHT
+                            })
+                        })
+                    }}>
                 <Form>
                     <div className="card">
                         <div className="row align-items-center no-gutters">
