@@ -13,9 +13,9 @@ const ShowListSong = () => {
     const [list, setList] = useState([]);
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get("http://localhost:8080/songs/findUserSongs/1").then((res) => {
+        axios.get(`http://localhost:8080/songs/findUserSongs/${idUser}`).then((res) => {
             setList(res.data);
-            setIdUser(1)
+            // setIdUser(1)
         })
     }, [isFlag]);
 
@@ -43,8 +43,8 @@ const ShowListSong = () => {
                                         onClick={()=>{
                                             navigate("/detailSong/"+ i.id)
                                         }}
-                                        src={i.url_img == null ? "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/a/3/6/a/a36a7d1fecd4333c96def2d3f71a6b9b.jpg"
-                                            : i.url_img}
+                                        src={i.img_url == null ? "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/a/3/6/a/a36a7d1fecd4333c96def2d3f71a6b9b.jpg"
+                                            : i.img_url}
                                         alt='' className={'w-[60px] h-[60px]'}/>
                                     <div className={'flex flex-col'}>
                                         <span className={'text-sm font-semibold'}>{i.nameSong}</span>

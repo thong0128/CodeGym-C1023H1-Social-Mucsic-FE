@@ -55,7 +55,7 @@ const Album = () => {
                         <SongItem
                             sid={item.id}
                             key = {item.id}
-                            thumbnail={item.url_img}
+                            thumbnail={item.img_url}
                             title={item.nameSong}
                             artists={item.singer}
                             releaseDate={new Date()}

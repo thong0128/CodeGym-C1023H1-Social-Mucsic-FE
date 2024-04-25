@@ -107,6 +107,7 @@ const ModalCreateSong = () => {
                         });
                         dispatch(actions.getHome()); // Cập nhật lại danh sách bài hát mới
                     })
+                    setIsModalOpen(false);
                 }}>
                     <Form>
                         <div className="card">

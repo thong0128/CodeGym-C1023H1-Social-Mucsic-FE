@@ -90,8 +90,8 @@ const Player = (prop) => {
         return store.songStore.song;
     })
     const [listSong, setListSong] = useState([])
-    const [url, setUrl] = useState(currentSong?.file_song);
-    const [urlImg, setUrlImg] = useState(currentSong?.url_img);
+    const [url, setUrl] = useState(currentSong?.song_url);
+    const [urlImg, setUrlImg] = useState(currentSong?.img_url);
     const [volume, setVolume] = useState(0.8);
     const [playing, setPlaying] = useState(true);
     const [seeking, setSeeking] = useState(false);
@@ -107,28 +107,24 @@ const Player = (prop) => {
     console.log('---> seeking', seeking);
     console.log('---> played', played);
     console.log('---> duration', duration);
-    const dataListSong = {};
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs").then((res) => {
-    //         setListSong(res.data);
-    //     })
-    // }, []);
-
     useEffect(() => {
-        setListSong(dataListSong)
+        axios.get("http://localhost:8080/songs").then((res) => {
+            setListSong(res.data);
+        })
     }, []);
+
 
     useEffect(() => {
         console.log("current: ", currentSong)
         console.log("img:", urlImg)
-        setUrl(currentSong.file_song);
-        setUrlImg(currentSong.url_img);
+        setUrl(currentSong.song_url);
+        setUrlImg(currentSong.img_url);
     }, [currentSong])
     const transferNextSong = () => {
         if (indexSong < listSong.length && indexSong >= 0) {
             setIndexSong(indexSong + 1)
-            setUrl(listSong[indexSong].file_song);
-            setUrlImg(listSong[indexSong].url_img);
+            setUrl(listSong[indexSong].song_url);
+            setUrlImg(listSong[indexSong].img_url);
         } else {
             setIndexSong(3)
         }
@@ -137,8 +133,8 @@ const Player = (prop) => {
     const reverseNextSong = () => {
         if (indexSong < listSong.length && indexSong >= 0) {
             setIndexSong(indexSong - 1)
-            setUrl(listSong[indexSong].file_song);
-            setUrlImg(listSong[indexSong].url_img);
+            setUrl(listSong[indexSong].song_url);
+            setUrlImg(listSong[indexSong].img_url);
         } else {setIndexSong(3)}
         console.log(indexSong);
     }
@@ -252,19 +248,19 @@ const Player = (prop) => {
                             </Box>
                             <input style={{
                                 palette: {
-                                primary: {
-                                main: '#c8e6c9',
-                            },
-                                secondary: "red",
-                            },
+                                    primary: {
+                                        main: '#c8e6c9',
+                                    },
+                                    secondary: "red",
+                                },
                             }}
 
-                                className="form-control-range"
-                                type='range' min={0} max={0.999999} step='any'
-                                value={played}
-                                onMouseDown={handleSeekMouseDown}
-                                onChange={handleSeekChange}
-                                onMouseUp={handleSeekMouseUp}
+                                   className="form-control-range"
+                                   type='range' min={0} max={0.999999} step='any'
+                                   value={played}
+                                   onMouseDown={handleSeekMouseDown}
+                                   onChange={handleSeekChange}
+                                   onMouseUp={handleSeekMouseUp}
                             />
                             {/*<Slider*/}
                             {/*    aria-label="time-indicator"*/}
@@ -371,4 +367,3 @@ const Player = (prop) => {
     );
 }
 export default Player
-
