@@ -15,6 +15,8 @@ import { RiPlayListLine } from "react-icons/ri";
 import { IoSettings } from "react-icons/io5";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
+import { IoHeartOutline } from "react-icons/io5";
+import { IoHeartSharp } from "react-icons/io5";
 
 const icons = {
     MdOutlineLibraryMusic,
@@ -33,7 +35,9 @@ const icons = {
     RiPlayListLine,
     IoSettings,
     IoArrowBackOutline,
-    FaHeart
+    FaHeart,
+    IoHeartOutline,
+    IoHeartSharp
 
 
 }

@@ -35,3 +35,10 @@ export const searchByName = createAsyncThunk(
         return res.data
     }
 )
+// export const likeSongById = createAsyncThunk(
+//     'songs/likeSongById',
+//     async (id) => {
+//         const res = await axios.put('http://localhost:8080/songs/likes/' + id);
+//         return res.data
+//     }
+// )

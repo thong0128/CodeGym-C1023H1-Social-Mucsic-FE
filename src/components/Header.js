@@ -73,8 +73,8 @@ const Header = () => {
                             }
 
                             }>
-                                <img src={img === null ? "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg":
-                                    img} style={{
+                                <img src={img}
+                                     style={{
                                     width: 40,
                                     height: 40,
                                     marginTop: 5,
@@ -119,8 +119,7 @@ const Header = () => {
                                     setCheck(!check)
                                     setChecksetting(false);
                                 }}>
-                                    <img src={img === null ? "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg":
-                                        img} style={{
+                                    <img src={img} style={{
                                         width: 40,
                                         height: 40,
                                         marginTop: 5,
@@ -157,11 +156,12 @@ const Header = () => {
                             setChecksetting(!checkSetting)
                             setCheck(false)
                         }}>
-                            <span className={'text-white'}><CiSettings size={35}/></span>
+                            <span className={'text-white'}><CiSettings size={35}/>  </span>
+
                         </button>
                     </div>
                     <div className="dev_logout items-center mt-2 ml-2">
-                        <button onClick={() =>{
+                        <button onClick={() => {
                             setCheck(!check)
                             setChecksetting(false);
                         }

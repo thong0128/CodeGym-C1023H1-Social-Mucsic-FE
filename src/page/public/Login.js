@@ -8,6 +8,7 @@ import {AppContext} from "../../Context/AppContext";
 
 export default function Login() {
     let navigate = useNavigate();
+    let avaDefault = 'https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png'
     const {toggleFlag} = useContext(AppContext);
     function setAcc(value) {
         axios.post('http://localhost:8080/users/login', value).then((res) => {
@@ -20,7 +21,11 @@ export default function Login() {
                 toggleFlag();
                 localStorage.setItem("idUser", res.data.id)
                 localStorage.setItem("user", res.data.userName)
-                localStorage.setItem("avatar", res.data.avatar)
+                if (res.data.avatar != null) {localStorage.setItem("avatar", res.data.avatar)}
+                else {
+                    localStorage.setItem("avatar", avaDefault);
+                }
+
                 localStorage.setItem("role", res.data.authorities[0].authority)
                 localStorage.setItem("token", res.data.token)
                 console.log("role:",localStorage.getItem("role"))

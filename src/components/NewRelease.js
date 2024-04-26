@@ -55,6 +55,8 @@ const NewRelease = () => {
                         thumbnail={item.img_url}
                         title={item.title}
                         artists={item.singer}
+                        likes={item.likes}
+                        countLikes = {item.countLikes}
                         releaseDate={new Date()}
 
                     />
