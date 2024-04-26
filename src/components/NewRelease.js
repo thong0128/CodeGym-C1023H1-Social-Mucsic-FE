@@ -8,7 +8,7 @@ const NewRelease = () => {
     const [isActive, setisActive] = useState(0)
     const dispatch = useDispatch()
     const songs = useSelector((store)=>{
-        console.log("lisst song: ", store.songStore.songs)
+        console.log("list song: ", store.songStore.songs)
         return store.songStore.songs
     })
     useEffect(() => {
@@ -50,10 +50,9 @@ const NewRelease = () => {
                         sid={item.id}
                         key = {item.id}
                         thumbnail={item.img_url}
-                        title={item.nameSong}
+                        title={item.title}
                         artists={item.singer}
                         releaseDate={new Date()}
-
                     />
                 ))}
             </div>

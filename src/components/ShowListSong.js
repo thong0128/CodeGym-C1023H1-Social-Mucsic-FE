@@ -15,7 +15,6 @@ const ShowListSong = () => {
     useEffect(() => {
         axios.get(`http://localhost:8080/songs/findUserSongs/${idUser}`).then((res) => {
             setList(res.data);
-            // setIdUser(1)
         })
     }, [isFlag]);
 
@@ -47,7 +46,7 @@ const ShowListSong = () => {
                                             : i.img_url}
                                         alt='' className={'w-[60px] h-[60px]'}/>
                                     <div className={'flex flex-col'}>
-                                        <span className={'text-sm font-semibold'}>{i.nameSong}</span>
+                                        <span className={'text-sm font-semibold'}>{i.title}</span>
                                         <span className={'text-xs text-gray-400'}>{i.singer}</span>
                                         <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.listen_count}</span>
                                     </div>
