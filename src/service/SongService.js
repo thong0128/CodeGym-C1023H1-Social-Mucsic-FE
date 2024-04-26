@@ -3,7 +3,6 @@ import axios from "axios";
 import {useState} from "react";
 
 
-const songsId1 = {}
 export const findSongById = createAsyncThunk(
     'songs/findSongById',
     async (id) => {
@@ -21,17 +20,16 @@ export const findAllSong = createAsyncThunk(
 )
 export const findAllByNameSinger = createAsyncThunk(
     'songs/findAllByNameSinger',
-    async (nameSinger) =>{
-        const res = await axios.get('http://localhost:8080/songs/findAllByNameSinger/' + nameSinger);
+    async (singer) =>{
+        const res = await axios.get("http://localhost:8080/songs/findSongBySinger/" + singer);
         return res.data
     }
 )
 
 export const searchByName = createAsyncThunk(
-    'songs/searchByName',
-    async (nameSong) => {
-        const res = await axios.get("http://localhost:8080/songs/searchByName/" + nameSong);
-
+    'songs/findSongByTitle',
+    async (title) => {
+        const res = await axios.get("http://localhost:8080/songs/findSongByTitle/" + title);
         return res.data
     }
 )
