@@ -6,10 +6,19 @@ import {findSongById} from "../service/SongService";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import Dropdown_song from "./Dropdown_song";
 import {CiHeart} from "react-icons/ci";
-import React from "react";
+import React, {useState} from "react";
+import {handleBlur} from "react-modal/lib/helpers/focusManager";
+import {FaHeart} from "react-icons/fa";
+
 const SongItem = ({thumbnail, title, artists, sid, releaseDate, order, percent, style, sm}) => {
     const navigate = useNavigate();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [isLike, setIsLike] = useState(false)
+    const handleLike = ()=>{
+        setIsLike(!isLike)
+        console.log(isLike)
+
+    }
     return (
         <div className="col-md-4 song-item">
             <div
@@ -36,8 +45,8 @@ const SongItem = ({thumbnail, title, artists, sid, releaseDate, order, percent, 
                         <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{artists}</p>
                     </div>
                 </div>
-                <div className={'flex flex-col'}>
-                    <CiHeart size={24}/>
+                <div className={'flex flex-col'} onClick={handleLike}>
+                    {isLike? <FaHeart size={18}/>:  <CiHeart size={24}/> }
                 </div>
                 <div className="flex">
                     <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song

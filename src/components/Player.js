@@ -96,6 +96,7 @@ const Player = (prop) => {
     const [playing, setPlaying] = useState(true);
     const [seeking, setSeeking] = useState(false);
     const [nameSong, setNameSong] = useState(currentSong?.nameSong);
+    const [singer, setSinger] = useState(currentSong?.singer);
 
     const [loaded, setLoaded] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -119,14 +120,18 @@ const Player = (prop) => {
         console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
+        setNameSong(currentSong.title);
+        setSinger(currentSong.singer)
     }, [currentSong])
     const transferNextSong = () => {
         if (indexSong < listSong.length && indexSong >= 0) {
             setIndexSong(indexSong + 1)
             setUrl(listSong[indexSong].song_url);
             setUrlImg(listSong[indexSong].img_url);
+            setNameSong(listSong[indexSong].title);
+            setSinger(listSong[indexSong].singer);
         } else {
-            setIndexSong(3)
+            setIndexSong(0)
         }
         console.log(indexSong);
     }
@@ -135,7 +140,9 @@ const Player = (prop) => {
             setIndexSong(indexSong - 1)
             setUrl(listSong[indexSong].song_url);
             setUrlImg(listSong[indexSong].img_url);
-        } else {setIndexSong(3)}
+            setNameSong(listSong[indexSong].title);
+            setSinger(listSong[indexSong].singer);
+        } else {setIndexSong(0)}
         console.log(indexSong);
     }
     const handlePlay = () => {
@@ -209,10 +216,10 @@ const Player = (prop) => {
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
                                     <Typography variant="h6" color="text.secondary" fontWeight={500}>
-                                        {currentSong?.title === null ? "Unknown" : currentSong?.title}
+                                        {nameSong === null ? "Unknown" : nameSong}
                                     </Typography>
                                     <Typography>
-                                        <b>{currentSong?.singer === null ? "Ca sĩ" : currentSong?.singer}</b>
+                                        <b>{singer === null ? "Ca sĩ" : singer}</b>
                                     </Typography>
                                 </Box>
                             </Box>
