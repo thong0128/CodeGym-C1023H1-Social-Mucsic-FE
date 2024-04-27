@@ -54,7 +54,10 @@ const SongItem = ({thumbnail, title, artists, sid, countLikes, releaseDate, orde
                     </div>
                 </div>
                 <div className={'flex flex-col'} onClick={handleLike}>
-                    {checkLike? <IoHeartSharp size={24}/> : <IoHeartOutline size={24}/>}
+                    {checkLike ? <IoHeartSharp size={24}/> : <IoHeartOutline size={24}/>}
+                </div>
+                <div className={'flex flex-col mx-2'}>
+                    <span>{countLikes}</span>
                 </div>
                 <div className="flex">
                     <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song

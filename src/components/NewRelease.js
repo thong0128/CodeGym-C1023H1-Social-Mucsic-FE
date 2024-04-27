@@ -1,11 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
-import store from "../store/Store";
 import {findAllSong} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
-import {CiHeart} from "react-icons/ci";
-import axios from "axios";
 
 const NewRelease = () => {
     const [isActive, setisActive] = useState(0)
@@ -54,7 +51,7 @@ const NewRelease = () => {
                         thumbnail={item.img_url}
                         title={item.title}
                         artists={item.singer}
-                        countLikes = {item.countLikes}
+                        countLikes = {item.countLike}
                         releaseDate={new Date()}
                     />
 

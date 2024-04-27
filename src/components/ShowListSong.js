@@ -1,17 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {AppContext} from "../Context/AppContext";
-import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
 import {SongItem} from "./index";
 
 
 const ShowListSong = () => {
     const {isFlag } = useContext(AppContext);
-    const dispatch = useDispatch()
     const [idUser, setIdUser] = useState(localStorage.getItem("idUser"))
     const [list, setList] = useState([]);
-    const navigate = useNavigate()
     useEffect(() => {
         axios.get(`http://localhost:8080/songs/findUserSongs/${idUser}`).then((res) => {
             setList(res.data);
@@ -30,7 +26,7 @@ const ShowListSong = () => {
                                 thumbnail={item.img_url}
                                 title={item.title}
                                 artists={item.singer}
-                                countLikes={item.countLikes}
+                                countLikes={item.countLike}
                                 releaseDate={new Date()}
                             />
                         ))}
