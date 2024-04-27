@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,8 @@
       <workItem from="1714015265976" duration="7219000" />
       <workItem from="1714033886710" duration="6575000" />
       <workItem from="1714093980911" duration="10295000" />
-      <workItem from="1714115917007" duration="1332000" />
+      <workItem from="1714115917007" duration="10544000" />
+      <workItem from="1714182490348" duration="9473000" />
     </task>
     <servers />
   </component>

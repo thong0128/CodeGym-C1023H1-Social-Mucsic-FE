@@ -1,32 +1,30 @@
-import moment from "moment";
 import 'moment/locale/vi'
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {findAllSong, findSongById} from "../service/SongService";
-import {BiDotsVerticalRounded} from "react-icons/bi";
+import { findSongById} from "../service/SongService";
 import Dropdown_song from "./Dropdown_song";
-import React, {useEffect, useState} from "react";
-import {handleBlur} from "react-modal/lib/helpers/focusManager";
+import React, {useContext, useEffect, useState} from "react";
 import {IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import axios from "axios";
+import {AppContext} from "../Context/AppContext";
 
-const SongItem = ({thumbnail, title, artists, sid, likes, countLikes, releaseDate, order, percent, style, sm}) => {
+
+const SongItem = ({thumbnail, title, artists, sid, countLikes, releaseDate, order, percent, style, sm}) => {
+    let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [isLike, setIsLike] = useState(false);
-    // useEffect(() => {
-    //     axios.get(`http://localhost:8080/songs/likes`).then((res) => {
-    //         console.log("like song");
-    //     })
-    // }, []);
-    const handleLike = (values)=>{
-        // setIsLike(!isLike);
-        // values.id_Songs = sid;
-        // values.id_Users = localStorage.getItem("idUser");
-        // values.likeStatus = isLike;
-        // axios.post(`http://localhost:8080/songs/likes`, values).then((res) => {
-            console.log("like song");
-        // })
+    const {toggleFlag} = useContext(AppContext);
+    const [checkLike, setCheckLike] = useState()
+    useEffect(() => {
+        userId?
+        axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
+            setCheckLike(res.data)
+        }) : setCheckLike(false)
+    });
+    const handleLike = ()=>{
+        axios.post(`http://localhost:8080/songs/likes/${userId}/${sid}`).then((res) => {
+            toggleFlag();
+        })
 
     }
     return (
@@ -56,7 +54,7 @@ const SongItem = ({thumbnail, title, artists, sid, likes, countLikes, releaseDat
                     </div>
                 </div>
                 <div className={'flex flex-col'} onClick={handleLike}>
-                    {likes? <IoHeartSharp size={24} />:  <IoHeartOutline size={24} /> }
+                    {checkLike? <IoHeartSharp size={24}/> : <IoHeartOutline size={24}/>}
                 </div>
                 <div className="flex">
                     <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song

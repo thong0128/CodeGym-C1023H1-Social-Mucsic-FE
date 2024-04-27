@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {useEffect, useState, useRef} from "react";
+import {useEffect, useState, useRef, useContext} from "react";
 import ReactPlayer from "react-player";
 import axios from "../axios";
 import Box from '@mui/material/Box';
@@ -16,6 +16,7 @@ import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
+import {AppContext} from "../Context/AppContext";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -97,6 +98,7 @@ const Player = (prop) => {
     const [seeking, setSeeking] = useState(false);
     const [nameSong, setNameSong] = useState(currentSong?.nameSong);
     const [singer, setSinger] = useState(currentSong?.singer);
+    const {isFlag} = useContext(AppContext);
 
     const [loaded, setLoaded] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -112,7 +114,7 @@ const Player = (prop) => {
         axios.get("http://localhost:8080/songs").then((res) => {
             setListSong(res.data);
         })
-    }, []);
+    }, [isFlag]);
 
 
     useEffect(() => {

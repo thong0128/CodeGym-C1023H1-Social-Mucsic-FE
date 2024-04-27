@@ -3,7 +3,6 @@ import axios from "axios";
 import {useState} from "react";
 
 
-const songsId1 = {}
 export const findSongById = createAsyncThunk(
     'songs/findSongById',
     async (id) => {
