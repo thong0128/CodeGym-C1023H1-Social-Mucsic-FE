@@ -15,28 +15,10 @@ const NewRelease = () => {
         console.log("list song: ", store.songStore.songs)
         return store.songStore.songs
     })
-    // const [likes, setLikes] = useState(false)
-    let userId = localStorage.getItem("idUser");
-    const [check, setCheck] = useState(false)
-
-
 
     useEffect(() => {
         dispatch(findAllSong())
     }, [isFlag]);
-    // useEffect(() => {
-    //     axios.get(`http://localhost:8080/songs/users/likes/${userId}/${}`).then((res) => {
-    //                 console.log("Array like: "+res.data);
-    //                setLikes(res.data)
-    //             })
-    // });
-    // const handlerCheckLike = (sid)=>{
-    //     axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
-    //         console.log("check like: "+sid+" LA " +res.data);
-    //         return res.data;
-    //     })
-    // }
-
     return (
         <div className='mt-12 px-[59px] flex flex-col gap-5' style={{color: "white"}}>
             <div className='flex items-center justify-between'>
