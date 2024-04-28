@@ -1,15 +1,7 @@
-import banner1 from "../accsets/banner-1.jpg";
-import banner2 from "../accsets/banner-2.jpg";
-import banner3 from "../accsets/banner-3.jpg";
 import {useNavigate} from "react-router-dom";
-import ban1 from "../accsets/BannerAlbumHot/banner-album-hot-nhac-edm.jpg"
-import ban2 from "../accsets/BannerAlbumHot/banner-album-hot-nhac-han.jpg"
-import ban3 from "../accsets/BannerAlbumHot/banner-album-hot-nhac-pop-au-my.jpg"
-import ban4 from "../accsets/BannerAlbumHot/banner-album-hot-nhac-tre.jpg"
-import ban5 from "../accsets/BannerAlbumHot//banner-album-hot-rap-viet.jpg"
+
 import {useEffect, useState} from "react";
-import axios from "axios";
-import {keys} from "lodash";
+
 
 const Chill = () => {
     const navigate = useNavigate()

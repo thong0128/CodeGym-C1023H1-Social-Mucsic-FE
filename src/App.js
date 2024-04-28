@@ -16,7 +16,7 @@ import Register from "./page/public/Register";
 import CreateSong from "./components/CreateSong";
 import UpdateSong from "./components/UpdateSong";
 import ShowListSong from "./components/ShowListSong";
-import {DetailSong} from "./components";
+import {DetailSong, NewRelease} from "./components";
 import ListSearchBySongName from "./page/public/ListSearchBySongName";
 import ShowPlaylist from "./components/ShowPlaylist";
 import ViewPlaylist from "./components/ViewPlaylist";
@@ -24,8 +24,7 @@ import {AppProvider} from "./Context/AppContext";
 import UpdatePlayList from "./components/UpdatePlayList";
 import ViewSongByType from "./components/ViewSongByType";
 import ShoListSongByNameSinger from "./components/ShoListSongByNameSinger";
-import CreatePlayList from "./components/CreatePlayList";
-
+import SearchResult from "./components/SearchResult";
 
 function App() {
     const dispatch = useDispatch()
@@ -39,6 +38,7 @@ function App() {
               <Routes>
                   <Route path={path.PUBLIC} element={<Public/>}>
                       <Route path={path.HOME} element={<Home/>}></Route>
+                      <Route path={path.FILL} element={<SearchResult/>}></Route>
                       <Route path={path.LOGIN} element={<Login/>}></Route>
                       <Route path={path.CREATESONG} element={<CreateSong></CreateSong>}></Route>
                       <Route path={path.REGISTER} element={<Register/>}></Route>

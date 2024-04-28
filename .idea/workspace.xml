@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chill.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hot.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/ListSearchBySongName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/ListSearchBySongName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ViewSongByType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ViewSongByType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="features/listen-music" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -100,6 +110,7 @@
       <workItem from="1714103546171" duration="13000" />
       <workItem from="1714104762776" duration="1624000" />
       <workItem from="1714116817157" duration="8392000" />
+      <workItem from="1714307155456" duration="1050000" />
     </task>
     <servers />
   </component>

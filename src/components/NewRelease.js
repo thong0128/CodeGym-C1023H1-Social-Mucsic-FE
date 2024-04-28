@@ -2,19 +2,19 @@ import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
 import store from "../store/Store";
-import {findAllSong} from "../service/SongService";
+import {findAllSong, newSongsList} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
 
 const NewRelease = () => {
     const [isActive, setisActive] = useState(0);
     const {isFlag } = useContext(AppContext);
     const dispatch = useDispatch();
-    const songs = useSelector((store)=>{
-        console.log("list song: ", store.songStore.songs)
-        return store.songStore.songs
+    const songsLates = useSelector((store)=>{
+        console.log("list song: ", store.songStore.songsLates)
+        return store.songStore.songsLates
     })
     useEffect(() => {
-        dispatch(findAllSong())
+        dispatch(newSongsList())
     }, [isFlag]);
 
     return (
@@ -47,13 +47,14 @@ const NewRelease = () => {
                 </button>
             </div>
             <div className={'row'}>
-                {songs?.map(item => (
+                {songsLates?.map(item => (
                     <SongItem
                         sid={item.id}
                         key = {item.id}
                         thumbnail={item.img_url}
                         title={item.title}
                         artists={item.singer}
+                        author={item.author}
                         releaseDate={new Date()}
                     />
                 ))}

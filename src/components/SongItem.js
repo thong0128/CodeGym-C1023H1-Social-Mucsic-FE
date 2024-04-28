@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {findSongById} from "../service/SongService";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import Dropdown_song from "./Dropdown_song";
-const SongItem = ({thumbnail, title, artists, sid, releaseDate, order, percent, style, sm}) => {
+const SongItem = ({thumbnail, title, artists, sid,author,releaseDate, order, percent, style, sm}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     return (
@@ -27,10 +27,11 @@ const SongItem = ({thumbnail, title, artists, sid, releaseDate, order, percent, 
                     <div>
                         <div className="flex justify-between text-base font-medium">
                             <h3>
-                                <a href="#" className="text-slate-900 group-hover:text-black font-semibold">{title}</a>
+                                <p className="text-slate-900 group-hover:text-black font-semibold">{title}</p>
                             </h3>
                         </div>
                         <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{artists}</p>
+                        <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{author}</p>
                     </div>
                 </div>
                 <div className="flex">
