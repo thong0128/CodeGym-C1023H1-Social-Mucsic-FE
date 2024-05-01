@@ -1,6 +1,7 @@
 const path = {
     PUBLIC :"/*",
     HOME: "",
+    FILL:"fill",
     LOGIN: "login",
     REGISTER: "register",
     LISTUSER: "userList",

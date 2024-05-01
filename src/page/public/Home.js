@@ -2,8 +2,6 @@ import Slider from "../../components/Slider";
 import {Chill, NewRelease} from "../../components";
 import Hot from "../../components/Hot";
 
-
-
 const Home = () =>{
     return (
         <div className={'overflow-y-auto w-full'}>

@@ -1,6 +1,3 @@
-import banner1 from "../accsets/banner-1.jpg";
-import banner2 from "../accsets/banner-2.jpg";
-import banner3 from "../accsets/banner-3.jpg";
 import {useNavigate} from "react-router-dom";
 import cs1 from "../accsets/BannerSinger/banner-g5-squad.jpg"
 import cs2 from "../accsets/BannerSinger/banner-jack-97.jpg"

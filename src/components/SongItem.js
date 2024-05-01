@@ -9,7 +9,7 @@ import axios from "axios";
 import {AppContext} from "../Context/AppContext";
 
 
-const SongItem = ({thumbnail, title, artists, sid, countLikes, releaseDate, order, percent, style, sm}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDate, order, percent, style, sm}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -51,6 +51,7 @@ const SongItem = ({thumbnail, title, artists, sid, countLikes, releaseDate, orde
                             </h3>
                         </div>
                         <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{artists}</p>
+                        <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{author}</p>
                     </div>
                 </div>
                 <div className={'flex flex-col'} onClick={handleLike}>

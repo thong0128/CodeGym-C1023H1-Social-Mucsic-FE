@@ -1,21 +1,23 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
-import {findAllSong} from "../service/SongService";
+import store from "../store/Store";
+import {findAllSong, newSongsList} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
 
 const NewRelease = () => {
-    const [isActive, setisActive] = useState(0)
+    const [isActive, setisActive] = useState(0);
     const {isFlag} = useContext(AppContext);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const songs = useSelector((store)=>{
         console.log("list song: ", store.songStore.songs)
         return store.songStore.songs
     })
 
     useEffect(() => {
-        dispatch(findAllSong())
+        dispatch(newSongsList())
     }, [isFlag]);
+
     return (
         <div className='mt-12 px-[59px] flex flex-col gap-5' style={{color: "white"}}>
             <div className='flex items-center justify-between'>
@@ -51,7 +53,8 @@ const NewRelease = () => {
                         thumbnail={item.img_url}
                         title={item.title}
                         artists={item.singer}
-                        countLikes = {item.countLike}
+                        author={item.author}
+                        countLikes = {item.countLikes}
                         releaseDate={new Date()}
                     />
 
