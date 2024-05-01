@@ -15,7 +15,7 @@ const NewRelease = () => {
     })
 
     useEffect(() => {
-        dispatch(newSongsList())
+        dispatch(findAllSong())
     }, [isFlag]);
 
     return (
@@ -54,7 +54,7 @@ const NewRelease = () => {
                         title={item.title}
                         artists={item.singer}
                         author={item.author}
-                        countLikes = {item.countLikes}
+                        countLikes = {item.countLike}
                         releaseDate={new Date()}
                     />
 
