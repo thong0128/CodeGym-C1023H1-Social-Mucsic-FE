@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {useEffect, useState, useRef} from "react";
+import {useEffect, useState, useRef, useContext} from "react";
 import ReactPlayer from "react-player";
 import axios from "../axios";
 import Box from '@mui/material/Box';
@@ -16,6 +16,7 @@ import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
+import {AppContext} from "../Context/AppContext";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -96,6 +97,8 @@ const Player = (prop) => {
     const [playing, setPlaying] = useState(true);
     const [seeking, setSeeking] = useState(false);
     const [nameSong, setNameSong] = useState(currentSong?.nameSong);
+    const [singer, setSinger] = useState(currentSong?.singer);
+    const {isFlag} = useContext(AppContext);
 
     const [loaded, setLoaded] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -111,7 +114,7 @@ const Player = (prop) => {
         axios.get("http://localhost:8080/songs").then((res) => {
             setListSong(res.data);
         })
-    }, []);
+    }, [isFlag]);
 
 
     useEffect(() => {
@@ -119,14 +122,18 @@ const Player = (prop) => {
         console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
+        setNameSong(currentSong.title);
+        setSinger(currentSong.singer)
     }, [currentSong])
     const transferNextSong = () => {
         if (indexSong < listSong.length && indexSong >= 0) {
             setIndexSong(indexSong + 1)
             setUrl(listSong[indexSong].song_url);
             setUrlImg(listSong[indexSong].img_url);
+            setNameSong(listSong[indexSong].title);
+            setSinger(listSong[indexSong].singer);
         } else {
-            setIndexSong(3)
+            setIndexSong(0)
         }
         console.log(indexSong);
     }
@@ -135,7 +142,9 @@ const Player = (prop) => {
             setIndexSong(indexSong - 1)
             setUrl(listSong[indexSong].song_url);
             setUrlImg(listSong[indexSong].img_url);
-        } else {setIndexSong(3)}
+            setNameSong(listSong[indexSong].title);
+            setSinger(listSong[indexSong].singer);
+        } else {setIndexSong(0)}
         console.log(indexSong);
     }
     const handlePlay = () => {
@@ -209,10 +218,10 @@ const Player = (prop) => {
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
                                     <Typography variant="h6" color="text.secondary" fontWeight={500}>
-                                        {currentSong?.nameSong === null ? "Điều ước giáng sinh" : currentSong?.nameSong}
+                                        {nameSong === null ? "Unknown" : nameSong}
                                     </Typography>
                                     <Typography>
-                                        <b>{currentSong?.singer === null ? "Ca sĩ" : currentSong?.singer}</b>
+                                        <b>{singer === null ? "Ca sĩ" : singer}</b>
                                     </Typography>
                                 </Box>
                             </Box>

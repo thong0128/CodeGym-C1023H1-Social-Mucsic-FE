@@ -1,22 +1,21 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
-import store from "../store/Store";
 import {findAllSong} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
 
 const NewRelease = () => {
-    const [isActive, setisActive] = useState(0);
-    const {isFlag } = useContext(AppContext);
-    const dispatch = useDispatch();
+    const [isActive, setisActive] = useState(0)
+    const {isFlag} = useContext(AppContext);
+    const dispatch = useDispatch()
     const songs = useSelector((store)=>{
         console.log("list song: ", store.songStore.songs)
         return store.songStore.songs
     })
+
     useEffect(() => {
         dispatch(findAllSong())
     }, [isFlag]);
-
     return (
         <div className='mt-12 px-[59px] flex flex-col gap-5' style={{color: "white"}}>
             <div className='flex items-center justify-between'>
@@ -32,8 +31,6 @@ const NewRelease = () => {
                     className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 0 && 'bg-[#0E8080] text-white'}`}
                 >
                     VIỆT NAM
-
-
                 </button>
                 <button
                     onClick={() =>{
@@ -54,8 +51,10 @@ const NewRelease = () => {
                         thumbnail={item.img_url}
                         title={item.title}
                         artists={item.singer}
+                        countLikes = {item.countLike}
                         releaseDate={new Date()}
                     />
+
                 ))}
             </div>
         </div>

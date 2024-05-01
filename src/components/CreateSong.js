@@ -12,13 +12,12 @@ import {AppContext} from "../Context/AppContext";
 
 const ModalCreateSong = () => {
     const dispatch = useDispatch();
+    const {toggleFlag} = useContext(AppContext);
     const [imageUrl, setImageUrl] = useState(undefined);
     const [songUrl, setSongUrl] = useState(undefined);
     const [songs,setSongs] = useState({});
     const [songTypes, setSongTypes] = useState([]);
     const navigate = useNavigate();
-    const {toggleFlag}  = useContext(AppContext);
-
     const uploadFileImg = (image) => {
         if (image === null) return
         const imageRef = ref(storage, `IMG/${image.name}`);
@@ -41,7 +40,7 @@ const ModalCreateSong = () => {
                 setSongUrl(url);
                 console.log("song uploaded successfully", url);
                 console.log("song uploaded successfully", songUrl);
-                // songs.song_url = url;
+                songs.song_url = url;
                 localStorage.setItem("song_url", url);
             });
         });
@@ -77,6 +76,7 @@ const ModalCreateSong = () => {
         navigate("/")
     };
 
+
     return (
         <>
             <Modal width={1000} title="Tạo bài hát mới" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
@@ -111,7 +111,7 @@ const ModalCreateSong = () => {
                         dispatch(actions.getHome()); // Cập nhật lại danh sách bài hát mới
                     })
                     setIsModalOpen(false);
-                    navigate('/')
+                    navigate("/")
                 }}>
                     <Form>
                         <div className="card">
@@ -148,7 +148,7 @@ const ModalCreateSong = () => {
                                         <div className="form-group mb-2">
                                             <label className="form-label" htmlFor="type">Thể loại</label>
                                             <Field className="form-control form-control-sm" placeholder="Chọn thể loại"
-                                                   as="select" name="songTypes.id" id="type">
+                                                   as="select" name="id_SongTypes.id" id="type">
                                                 {songTypes.map((i, key) => {
                                                     return (
                                                         <option key={key} value={i.id}>{i.name}</option>
