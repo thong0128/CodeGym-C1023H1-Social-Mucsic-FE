@@ -38,11 +38,12 @@ const SearchResult = () => {
                     {songsByTitle?.map(item => (
                         <SongItem
                             sid={item.id}
-                            key={item.id}
+                            key = {item.id}
                             thumbnail={item.img_url}
                             title={item.title}
                             artists={item.singer}
                             author={item.author}
+                            countLikes = {item.countLike}
                             releaseDate={new Date()}
                         />
                     ))}
