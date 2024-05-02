@@ -1,9 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
 import store from "../store/Store";
 import {findAllSong, newSongsList} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
+import Dropdown_song from "./Dropdown_song";
 
 const NewRelease = () => {
     const [isActive, setisActive] = useState(0);
@@ -47,17 +48,17 @@ const NewRelease = () => {
             </div>
             <div className={'row'}>
                 {songsLates?.map(item => (
-                    <SongItem
-                        sid={item.id}
-                        key = {item.id}
-                        thumbnail={item.img_url}
-                        title={item.title}
-                        artists={item.singer}
-                        author={item.author}
-                        countLikes = {item.countLike}
-                        releaseDate={new Date()}
-                    />
-
+                        <SongItem
+                            sid={item.id}
+                            key = {item.id}
+                            thumbnail={item.img_url}
+                            title={item.title}
+                            artists={item.singer}
+                            author={item.author}
+                            countLikes = {item.countLike}
+                            releaseDate={new Date()}
+                            check = {false}
+                        />
                 ))}
             </div>
         </div>

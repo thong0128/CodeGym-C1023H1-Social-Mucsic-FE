@@ -1,5 +1,5 @@
 import 'moment/locale/vi'
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { findSongById} from "../service/SongService";
 import Dropdown_song from "./Dropdown_song";
@@ -7,14 +7,16 @@ import React, {useContext, useEffect, useState} from "react";
 import {IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import axios from "axios";
 import {AppContext} from "../Context/AppContext";
+import SongMenu from "../songMenu/SongMenu";
 
 
-const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDate, order, percent, style, sm}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDate, order, percent, style, sm, check}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {toggleFlag} = useContext(AppContext);
     const [checkLike, setCheckLike] = useState()
+
     useEffect(() => {
         userId?
         axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
@@ -61,8 +63,9 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
                     <span>{countLikes}</span>
                 </div>
                 <div className="flex">
-                    <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song
-                        idSong={sid}/></button>
+                    <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        {check? <SongMenu idSong={sid}/>: <Dropdown_song idSong={sid}/>}
+                    </button>
                 </div>
             </div>
         </div>
