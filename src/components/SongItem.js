@@ -68,8 +68,7 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
                         <span>{countLikes}</span>
                     </div>
                     <div className="flex">
-                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                            <Dropdown_song
+                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song
                                 idSong={sid}/></button>
                     </div>
                 </div>

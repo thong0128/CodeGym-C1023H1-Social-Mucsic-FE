@@ -25,6 +25,7 @@ import UpdatePlayList from "./components/UpdatePlayList";
 import ViewSongByType from "./components/ViewSongByType";
 import ShoListSongByNameSinger from "./components/ShoListSongByNameSinger";
 import SearchResult from "./components/SearchResult";
+import UserSongList from "./userSongList/UserSongList";
 
 function App() {
     const dispatch = useDispatch()
@@ -47,7 +48,7 @@ function App() {
                       <Route path={'album/:id'} element={<Album/>}></Route>
                       <Route path={path.UPDATEPASS} element={<UpdatePass/>}></Route>
                       <Route path={"update/:id"} element={<UpdateSong></UpdateSong>}></Route>
-                      <Route path={"showList"} element={<ShowListSong></ShowListSong>}></Route>
+                      <Route path={"showList"} element={<UserSongList></UserSongList>}></Route>
                       <Route path={path.DETAILSONG} element={<DetailSong/>}></Route>
                       <Route path={path.SEARCHBYSONGNAME} element={<ListSearchBySongName/>}></Route>
                       <Route path={"showPlaylist"} element={<ShowPlaylist/>}></Route>
