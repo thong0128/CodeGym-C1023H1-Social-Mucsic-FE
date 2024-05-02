@@ -86,7 +86,7 @@ const SongMenu = ({idSong}) => {
     }
 
     function edit(id) {
-        navigate("/songs/" + id)
+        navigate("/update/" + id)
     }
 
     function deleteSong(id) {
