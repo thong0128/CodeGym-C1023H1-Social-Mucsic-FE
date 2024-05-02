@@ -44,14 +44,11 @@ const ShowPlaylist = () => {
                 },
             }).then(r => {
                 if (r) {
-                    axios.delete("http://localhost:8080/songs/" + id)
-                        .then(() => {
-                                setCheckDelete(!checkDelete)
-                                toggleFlag()
-
-                                toast.success("Xóa thành công!", {autoClose: 700})
-                            }
-                        )
+                    axios.delete("http://localhost:8080/songs/" + id).then(() => {
+                        setCheckDelete(!checkDelete)
+                        toggleFlag()
+                        toast.success("Xóa thành công!", {autoClose: 700})
+                    })
                 }
             })
         })

@@ -33,7 +33,7 @@ export default function UserSongList() {
                                     <div className={'flex flex-col'}>
                                         <span className={'text-sm font-semibold'}>{i.title}</span>
                                         <span className={'text-xs text-gray-400'}>{i.singer}</span>
-                                        <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.listen_count}</span>
+                                        <span className={'text-xs text-gray-700'} style={{color: 'white'}}>{i.listenCount}</span>
                                     </div>
                                     <div className={'flex flex-col'}>
                                         <SongMenu idSong={i.id}/>
