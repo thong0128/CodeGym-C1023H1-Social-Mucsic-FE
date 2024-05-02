@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/demo.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/songMenu/SongMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/songMenu/SongMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="devFix" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,10 +55,11 @@
   "keyToString": {
     "Node.js.App.js.executor": "Run",
     "Node.js.CreateSong.js.executor": "Run",
+    "Node.js.SongMenu.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "devFix",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE",
     "list.type.of.created.stylesheet": "CSS",
@@ -105,9 +105,22 @@
       <workItem from="1714116817157" duration="8392000" />
       <workItem from="1714307155456" duration="1050000" />
     </task>
+    <task id="LOCAL-00001" summary="userSongList fix">
+      <option name="closed" value="true" />
+      <created>1714622786345</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714622786345</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="userSongList fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="userSongList fix" />
   </component>
 </project>
