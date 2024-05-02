@@ -54,10 +54,10 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
                         <p className="mb-2 text-slate-500 group-hover:text-black text-sm">{author}</p>
                     </div>
                 </div>
-                <div className={'flex flex-col'} onClick={handleLike}>
+                <div className={'flex flex-col group-hover:text-black'} onClick={handleLike}>
                     {checkLike ? <IoHeartSharp size={24}/> : <IoHeartOutline size={24}/>}
                 </div>
-                <div className={'flex flex-col mx-2'}>
+                <div className={'flex flex-col mx-2 group-hover:text-black'}>
                     <span>{countLikes}</span>
                 </div>
                 <div className="flex">

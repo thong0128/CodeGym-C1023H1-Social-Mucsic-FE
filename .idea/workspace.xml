@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "hotfix",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE",
     "list.type.of.created.stylesheet": "CSS",
