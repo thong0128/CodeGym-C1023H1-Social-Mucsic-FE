@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShowPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowPlaylist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userSongList/UserSongList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/userSongList/UserSongList.js" afterDir="false" />
-    </list>
+    <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714641513136</updated>
-      <workItem from="1714641515654" duration="1655000" />
+      <workItem from="1714641515654" duration="1999000" />
     </task>
     <servers />
   </component>
