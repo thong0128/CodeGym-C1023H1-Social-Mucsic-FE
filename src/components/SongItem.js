@@ -7,9 +7,10 @@ import React, {useContext, useEffect, useState} from "react";
 import {IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import axios from "axios";
 import {AppContext} from "../Context/AppContext";
+import {FaHeadphonesAlt} from "react-icons/fa";
 
 
-const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDate, order, percent, style, sm}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,releaseDate, order, percent, style, sm}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -62,10 +63,12 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
                         </div>
                     </div>
                     <div className={'flex flex-col'} onClick={handleLike}>
-                        {checkLike ? <IoHeartSharp size={24}/> : <IoHeartOutline size={24}/>}
+                        {checkLike ? <IoHeartSharp size={20}/> : <IoHeartOutline size={24}/>}
+                        <FaHeadphonesAlt size={20}/>
                     </div>
                     <div className={'flex flex-col mx-2'}>
                         <span>{countLikes}</span>
+                        <span>{countListen}</span>
                     </div>
                     <div className="flex">
                         <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500"><Dropdown_song

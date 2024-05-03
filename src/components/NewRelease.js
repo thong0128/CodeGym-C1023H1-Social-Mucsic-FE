@@ -61,6 +61,7 @@ const NewRelease = () => {
                             artists={item.singer}
                             author={item.author}
                             countLikes={item.countLike}
+                            countListen={item.listenCount}
                             releaseDate={new Date()}
                         />
 
@@ -103,6 +104,7 @@ const NewRelease = () => {
                             artists={item.singer}
                             author={item.author}
                             countLikes={item.countLike}
+                            countListen={item.listenCount}
                             releaseDate={new Date()}
                         />
                     ))}

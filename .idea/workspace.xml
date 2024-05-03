@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;features/hot-song&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/0_WebFullStack/7_Module5/Session04/bt1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -65,7 +69,9 @@
       <updated>1714641513136</updated>
       <workItem from="1714641515654" duration="1999000" />
       <workItem from="1714643693316" duration="213000" />
-      <workItem from="1714702851884" duration="1957000" />
+      <workItem from="1714702851884" duration="2241000" />
+      <workItem from="1714724614518" duration="1125000" />
+      <workItem from="1714728470148" duration="1413000" />
     </task>
     <servers />
   </component>
