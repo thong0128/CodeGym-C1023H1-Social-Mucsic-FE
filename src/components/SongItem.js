@@ -52,7 +52,7 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
                 </div>
                 <div className={'ml-4 flex flex-1 flex-col'}>
                     <div>
-                        <div className="flex justify-between text-base font-medium">
+                        <div className="flex justify-between text-base font-medium mb-2">
                             <h3>
                                 <Link to={`/detailSong/${sid}`}
                                       className="text-slate-900 group-hover:text-black font-semibold">{title}</Link>
