@@ -25,7 +25,6 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
         axios.post(`http://localhost:8080/songs/likes/${userId}/${sid}`).then((res) => {
             toggleFlag();
         })
-
     }
 
     const handleCount = ()=>{
@@ -33,14 +32,14 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
             console.log("success")
         })
     }
+    const handleClick = () => {
+        handleCount();
+        dispatch(findSongById(sid));
+    };
     return (
         <div className="col-md-4 song-item">
-            <div onClick={handleCount}>
+            <div onClick={handleClick}>
                 <div
-                    onClick={() => {
-                        console.log("sid:", sid)
-                        dispatch(findSongById(sid))
-                    }}
                     className={'group flex p-3 rounded-md hover:bg-main-200 hover:border border-gray-200'}>
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
                         <img
