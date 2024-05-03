@@ -35,6 +35,7 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, releaseDa
     const handleClick = () => {
         handleCount();
         dispatch(findSongById(sid));
+        toggleFlag();
     };
     return (
         <div className="col-md-4 song-item">
