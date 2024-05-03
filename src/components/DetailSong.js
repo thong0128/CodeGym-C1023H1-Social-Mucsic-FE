@@ -1,13 +1,14 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {findSongById} from "../service/SongService";
 import {useDispatch} from "react-redux";
 import {useFormik} from "formik";
+import {AppContext} from "../Context/AppContext";
 
 export default function SongDetail (){
     const {id} = useParams()
-    const navigate = useNavigate();
+    const {isFlag, toggleFlag} = useContext(AppContext);
     const [detailSong,setDetailSong] = useState({})
     const dispatch = useDispatch()
     const [commentList, setCommentList] = useState([])
@@ -22,16 +23,17 @@ export default function SongDetail (){
         axios.get("http://localhost:8080/comments/"+id).then(res => {
             setCommentList(res.data)
         }).catch(Error => console.log(Error))
-    }, [])
+    }, [isFlag])
 
     const formik = useFormik({
         initialValues: {comment},
-        onSubmit: values => {
+        onSubmit: (values) => {
             axios.post(` http://localhost:8080/comments/create/${userId}/${id}`, values).then(
                 res => {
                     // alert("Them moi thanh cong!!!");
-                    console.log(values)
-                    navigate(`/detailSong/${id}`)
+                    console.log(values);
+                    document.getElementById("comment").value = '';
+                    toggleFlag();
                 })
         }
     })
@@ -40,8 +42,8 @@ export default function SongDetail (){
         <>
             <div className="grid grid-cols-3 gap-4 h-screen">
                 <div className="mx-3 mt-5">
-                        <div className="flex justify-center">
-                            <img style={{width: 350, height: 350}} onClick={() => {
+                        <div className="flex justify-center rounded-xl">
+                            <img className="rounded-xl" style={{width: 350, height: 350}} onClick={() => {
                                 dispatch(findSongById(id))
                             }} src={detailSong.img_url}/>
                         </div>
@@ -55,18 +57,23 @@ export default function SongDetail (){
                 </div>
                 <div className="col-span-2 mt-5 mx-3 pt-6 justify-center rounded-xl">
                     <div className="w-8/12 text-white mx-auto">
-                        <div className="bg-[#8c4bae] p-6 bg-opacity-10  rounded-xl ">
+                        {commentList.length>0?
+                            <div className="bg-[#8c4bae] p-6 bg-opacity-10  rounded-xl ">
                             <h2 className="text-lg font-bold mb-4 text-white">Comments</h2>
                             {commentList?.map((item) => (
                                 <div className="flex flex-col space-y-4 mb-2">
                                     <div className="bg-white p-3 rounded-xl shadow-md">
                                         <h3 className="text-gray-700 text-lg font-bold">{item.user.userName}</h3>
-                                        <p className="text-gray-700 text-xs mb-2">Posted on {item.createDate.substring(0,19)}</p>
+                                        <p className="text-gray-700 text-xs mb-2">Posted
+                                            on {item.createDate.substring(0, 19)}</p>
                                         <p className="text-gray-700 text-base">{item.textCom}</p>
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                             </div> :
+                            <div></div>
+                        }
+
                     </div>
                     {userId ?
                         <form className="w-8/12 mx-auto rounded-xl bg-[#8c4bae] bg-opacity-10 mt-4 px-4 py-4 "
@@ -74,10 +81,12 @@ export default function SongDetail (){
                             <div className="rounded-t-lg">
                                 <label htmlFor="comment" className="sr-only">Your comment</label>
                                 <textarea id="comment" rows="4"
-                                          className="w-full px-0 text-sm text-gray-600 bg-white rounded-md focus:ring-0 dark:text-gray-600 dark:placeholder-gray-500 p-2"
+                                          className="w-full px-0 text-sm text-gray-600 bg-white rounded-xl focus:ring-0 dark:text-gray-600 dark:placeholder-gray-500 p-2"
                                           placeholder="Write a comment..." required
+                                          name={"textCom"}
                                           value={formik.values.comment.textCom}
-                                          onInput={formik.handleChange}>
+                                          onInput={formik.handleChange}
+                                >
                             </textarea>
                             </div>
                             <button className="login100-form-btn w-25 " type={"submit"}>
