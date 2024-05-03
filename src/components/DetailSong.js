@@ -5,6 +5,7 @@ import {findSongById} from "../service/SongService";
 import {useDispatch} from "react-redux";
 import {useFormik} from "formik";
 import {AppContext} from "../Context/AppContext";
+import {MdClear} from "react-icons/md";
 
 export default function SongDetail (){
     const {id} = useParams()
@@ -37,6 +38,12 @@ export default function SongDetail (){
                 })
         }
     })
+    const handleDeleteComment = (cid)=>{
+        axios.delete(` http://localhost:8080/comments/delete/${cid}`).then(
+            res => {
+                toggleFlag();
+            })
+    }
 
     return(
         <>
@@ -63,10 +70,16 @@ export default function SongDetail (){
                             {commentList?.map((item) => (
                                 <div className="flex flex-col space-y-4 mb-2">
                                     <div className="bg-white p-3 rounded-xl shadow-md">
-                                        <h3 className="text-gray-700 text-lg font-bold">{item.user.userName}</h3>
-                                        <p className="text-gray-700 text-xs mb-2">Posted
-                                            on {item.createDate.substring(0, 19)}</p>
+                                        <div className="flex flex-row space-y-4 mb-2">
+                                            <h3 className="flex-grow text-gray-700 text-lg font-bold">{item.user.userName}</h3>
+                                            {item.user.id == userId?    <MdClear size={20} className="text-gray-400 m-0" style={{display: "block"}} onClick={()=>{handleDeleteComment(item.id)}}/> :
+                                                <MdClear size={20} className="text-gray-400 m-0" style={{display: "none"}}/>}
+
+                                        </div>
+
+                                        <p className="text-gray-700 text-xs mb-2">Posted on {item.createDate.substring(0, 19)}</p>
                                         <p className="text-gray-700 text-base">{item.textCom}</p>
+
                                     </div>
                                 </div>
                             ))}
