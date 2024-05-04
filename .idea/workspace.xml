@@ -7,9 +7,8 @@
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,8 @@
       <workItem from="1714643693316" duration="213000" />
       <workItem from="1714702851884" duration="2241000" />
       <workItem from="1714724614518" duration="1125000" />
-      <workItem from="1714728470148" duration="1413000" />
+      <workItem from="1714728470148" duration="1507000" />
+      <workItem from="1714784662428" duration="2617000" />
     </task>
     <servers />
   </component>
