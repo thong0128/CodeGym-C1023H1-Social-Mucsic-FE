@@ -10,7 +10,7 @@ import "../css_component/menuSetting.css"
 import {useNavigate} from "react-router-dom";
 import {HiOutlinePlus} from "react-icons/hi";
 import {RiSlideshow2Line} from "react-icons/ri";
-import ModalCreatePlayList from "./ModalCreatePlayList";
+import ModalCreatePlayList from "./ModanCreatePlayList";
 
 
 const MenuSetting = ({handler}) => {

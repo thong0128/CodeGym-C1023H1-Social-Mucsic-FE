@@ -2,7 +2,7 @@ import React from 'react';
 import "../css_component/menuLogin.css"
 import {useNavigate} from "react-router-dom";
 
-const MenuLogin = ({ handler }) => {
+const MenuLogin = ({handler}) => {
     const navigate = useNavigate()
     function login() {
         handler(false);

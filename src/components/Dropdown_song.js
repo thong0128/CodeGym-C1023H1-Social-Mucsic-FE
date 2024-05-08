@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import {AiOutlineEllipsis} from "react-icons/ai";
 import {Dropdown} from "antd";
-import {AiOutlineEllipsis,} from "react-icons/ai";
+import axios from "axios";
 import {toast} from "react-toastify";
-import {Field, Form, Formik} from "formik";
-
 
 function DropdownSong({idSong}) {
-
-    const [playlists, setPlaylist] = useState([])
+    const [playlist, setPlaylist] = useState([])
     const idUser = localStorage.getItem("idUser")
+
     useEffect(() => {
         if(idUser != null){
             axios.get("http://localhost:8080/playlists/findByUserId/" + idUser).then((res) => {
@@ -18,78 +16,62 @@ function DropdownSong({idSong}) {
         }
     }, []);
 
-
-    const items = [
+    const items= [
         {
-            key: '1',
+            key: '#',
             label: (
-                <div>
-                    <select onChange={(e) => {
-                        addPlayList(e.target.value)
-                    }}>
-                        <option>Thêm vào PlayList</option>
-                        {playlists.map((i,key) => {
-                            return(
-                                <option key={key} value={i.id}>{i.name}</option>
-                            )
-                        })}
-                    </select>
-                </div>
+                <p>
+                    Thêm vào playlist
+                </p>
             ),
         },
     ];
 
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    playlist.map((Pll) => {
+        let item = {
+            key: Pll.id,
+            label: (
+                <button onClick={()=>{
+                    checkSongToPll(idSong,Pll.id);
+                }}>
+                    {Pll.name}
+                </button>
+            ),
+        }
+        items.push(item)
+    })
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const  handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-        // navigate("/")
-    };
     return (
         <>
-
-            {/*<Dropdown*/}
-            {/*    menu={{*/}
-            {/*        items,*/}
-            {/*    }}*/}
-            {/*    placement="top"*/}
-            {/*    arrow*/}
-            {/*>*/}
+            <Dropdown
+                menu={{
+                    items,
+                }}
+                placement="topLeft"
+                arrow
+            >
                 <AiOutlineEllipsis size={20} className="text-white"/>
-            {/*</Dropdown>*/}
+            </Dropdown>
         </>
     )
-
-    function addPlayList({idPlaylist}) {
-        return (
-            <Formik
-                initialValues={{
-                    song: {
-                        id: idSong
-                    },
-                    playList: {
-                        id: idPlaylist
-                    }
-                }}
-                onSubmit={(values) => {
-                    axios.put("http://localhost:8080/playlists/song/create/",values).then(() => {
-                        toast.success("Thêm thành công vào playlist");
-                    })
-                }}>
-                <Form>
-                    <Field type="hidden" name="song.id" />
-                    <Field type="hidden" name="playList.id" />
-                </Form>
-            </Formik>
-        );
+    function addSongToPll(idSong,idPll) {
+        if (idUser != null) {
+            axios.post("http://localhost:8080/playlists/create/" + idPll + "/" + idSong).then(() => {
+                toast.success("Thêm thành công vào playlist")
+            })
+        }
     }
+
+    function checkSongToPll(idSong, idPll) {
+        axios.get("http://localhost:8080/playlists/check/" + idPll + "/" + idSong).then((response) => {
+            const isSongInPll = response.data;
+            if (isSongInPll == false) {
+                addSongToPll(idSong, idPll);
+            } else {
+                toast.error("Bài hát đã có trong playlist")
+            }
+        })
+    }
+
 }
 export default DropdownSong;
