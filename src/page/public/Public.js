@@ -26,7 +26,7 @@ const Public = () => {
 
                 </div>
             </div>
-            <div className='fixed bottom-0 left-0 right-0 h-[108px]'>
+            <div className='fixed bottom-0 left-0 right-0 h-[100px]'>
                 <Player idSong={idSong}/>
             </div>
         </div>

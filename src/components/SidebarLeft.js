@@ -7,6 +7,7 @@ import React, {useState} from "react";
 import {Modal} from "antd";
 import ModalCreatePlayList from "./ModanCreatePlayList";
 import {HiOutlinePlus} from "react-icons/hi";
+import {IoCloseOutline} from "react-icons/io5";
 const notActiveStyle = 'py-2 px-[25px] font-bold text-[#32323D] text-[13px]  flex gap-[12px] items-center'
 const activeStyle ='py-2 px-[25px] font-bold text-[#0F7070] text-[13px]  flex gap-[12px] items-center'
 const SidebarLeft = () => {
@@ -44,9 +45,9 @@ const SidebarLeft = () => {
                     </NavLink>
                 ))}
             </div>
-            {id ? <div className="w-full h-[800px] py-[15px] px-[25px] grid grid-rows-4 items-center cursor-pointer">
-                <div className="h-[40px] p-2 row-start-4 " onClick={showModal}>
-                    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
+            {id ? <div className="w-full h-full py-[15px] px-[25px] grid grid-rows-4 items-center cursor-pointer">
+                <div className="h-[40px] p-2 " onClick={showModal}>
+                    <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"/>
                     <div className="flex-row">
                         <div className="items-center ml-2 text-slate-300 ">
                             <HiOutlinePlus style={{width: 20, height: 20}}/>
@@ -65,6 +66,7 @@ const SidebarLeft = () => {
                     onOk={handleOk}
                     onCancel={handleCancel}
                     footer={null}
+                    closeIcon={<IoCloseOutline size={24} style={{ color: 'white' }} />}
                 >
                     <ModalCreatePlayList handler={handleCheck}/>
                 </Modal>

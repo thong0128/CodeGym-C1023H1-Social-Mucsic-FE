@@ -24,33 +24,33 @@ const WallPaper = styled('div')({
     top: 0,
     left: 0,
     overflow: 'hidden',
-    background: 'linear-gradient(rgb(255, 38, 142) 0%, rgb(255, 105, 79) 100%)',
+    background: '#130c1c',
     transition: 'all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s',
     '&:before': {
         content: '""',
-        width: '140%',
-        height: '140%',
+        width: '100%',
+        height: '100%',
         position: 'absolute',
-        top: '-40%',
+        top: '-10%',
         right: '-50%',
         background:
-            'radial-gradient(at center center, rgb(62, 79, 249) 0%, rgba(62, 79, 249, 0) 64%)',
+            '#130c1c',
     },
     '&:after': {
         content: '""',
-        width: '140%',
-        height: '140%',
+        width: '100%',
+        height: '100%',
         position: 'absolute',
-        bottom: '-50%',
+        bottom: '-20%',
         left: '-30%',
         background:
-            'radial-gradient(at center center, rgb(247, 237, 225) 0%, rgba(247, 237, 225, 0) 70%)',
+            '#130c1c',
         transform: 'rotate(30deg)',
     },
 });
 
 const Widget = styled('div')(({theme}) => ({
-    padding: 4,
+    padding: 10,
     borderRadius: 0,
     width: '100%',
     maxWidth: '100%',
@@ -58,13 +58,13 @@ const Widget = styled('div')(({theme}) => ({
     position: 'relative',
     zIndex: 1,
     backgroundColor:
-        theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.4)',
+        theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.6)' : '#130c1c',
     backdropFilter: 'blur(40px)',
 }));
 
 const CoverImage = styled('div')({
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     objectFit: 'cover',
     overflow: 'hidden',
     flexShrink: 0,
@@ -77,7 +77,7 @@ const CoverImage = styled('div')({
 
 const TinyText = styled(Typography)({
     fontSize: '0.75rem',
-    opacity: 0.38,
+    opacity: 0.5,
     fontWeight: 500,
     letterSpacing: 0.2,
 });
@@ -198,14 +198,14 @@ const Player = (prop) => {
         return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     }
 
-    const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
-    const lightIconColor =
-        theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
+    // const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
+    // const lightIconColor =
+    //     theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
     return (
         <>
-            <Box sx={{width: '100%', overflow: 'hidden'}}>
-                <Widget>
+            <Box sx={{width: '100%', overflow: 'hidden', paddingBottom:'15px'}}>
+                <Widget style={{ borderTopColor: '#2b2533', borderTopWidth: '1px', borderTopStyle: 'solid' }}>
                     <Grid container spacing={{xs: 2, md: 20}} columns={{xs: 4, sm: 8, md: 12}}>
                         <Grid xs={2} sm={4} md={3}>
                             <Box sx={{display: 'flex', alignItems: 'center'}}>
@@ -216,10 +216,10 @@ const Player = (prop) => {
                                     />
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
-                                    <Typography variant="h6" color="text.secondary" fontWeight={500}>
+                                    <Typography className="text-white" fontSize={16}>
                                         {nameSong === null ? "Unknown" : nameSong}
                                     </Typography>
-                                    <Typography>
+                                    <Typography className="text-gray-500" fontSize={12}>
                                         <b>{singer === null ? "Ca sĩ" : singer}</b>
                                     </Typography>
                                 </Box>
@@ -232,35 +232,41 @@ const Player = (prop) => {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     mt: -1,
+                                    px:1,
                                 }}
                             >
-                                <IconButton aria-label="previous song" onClick={reverseNextSong}>
-                                    <FastRewindRounded fontSize="large" htmlColor={mainIconColor}/>
+                                <IconButton aria-label="previous song" onClick={reverseNextSong} size="medium">
+                                    <FastRewindRounded fontSize="medium" htmlColor={'#fff'}/>
                                 </IconButton>
                                 <IconButton
                                     aria-label={playing ? 'pause' : 'play'}
                                     onClick={handlePlayPause}
+                                    size="medium"
                                 >
                                     {playing ? (
-                                        <PauseRounded sx={{fontSize: '3rem'}} htmlColor={mainIconColor}/>
+                                        <PauseRounded sx={{fontSize: '2.5rem'}} htmlColor={'#fff'}/>
                                     ) : (
                                         <PlayArrowRounded
-                                            sx={{fontSize: '3rem'}}
-                                            htmlColor={mainIconColor}
+                                            sx={{fontSize: '2.5rem'}}
+                                            htmlColor={'#fff'}
                                         />
                                     )}
                                 </IconButton>
-                                <IconButton aria-label="next song" onClick={transferNextSong}>
-                                    <FastForwardRounded fontSize="large" htmlColor={mainIconColor}/>
+                                <IconButton aria-label="next song" onClick={transferNextSong} size="medium">
+                                    <FastForwardRounded fontSize="medium" htmlColor={'#fff'}/>
                                 </IconButton>
                             </Box>
                             <input style={{
-                                palette: {
-                                    primary: {
-                                        main: '#c8e6c9',
-                                    },
-                                    secondary: "red",
-                                },
+                                accentColor: 'white',
+                                outline: 'none',
+                                border: 'none',
+                                height: '5px'
+                                // palette: {
+                                //     primary: {
+                                //         main: '#c8e6c9',
+                                //     },
+                                //     secondary: "red",
+                                // }
                             }}
 
                                    className="form-control-range"
@@ -270,41 +276,6 @@ const Player = (prop) => {
                                    onChange={handleSeekChange}
                                    onMouseUp={handleSeekMouseUp}
                             />
-                            {/*<Slider*/}
-                            {/*    aria-label="time-indicator"*/}
-                            {/*    size="small"*/}
-                            {/*    value={played ?? 0}*/}
-                            {/*    min={0}*/}
-                            {/*    step={1}*/}
-                            {/*    max={duration}*/}
-                            {/*    onChange={(_, value) => handleSeekChange(value)}*/}
-                            {/*    sx={{*/}
-                            {/*        color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',*/}
-                            {/*        height: 4,*/}
-                            {/*        '& .MuiSlider-thumb': {*/}
-                            {/*            width: 8,*/}
-                            {/*            height: 8,*/}
-                            {/*            transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',*/}
-                            {/*            '&:before': {*/}
-                            {/*                boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',*/}
-                            {/*            },*/}
-                            {/*            '&:hover, &.Mui-focusVisible': {*/}
-                            {/*                boxShadow: `0px 0px 0px 8px ${*/}
-                            {/*                    theme.palette.mode === 'dark'*/}
-                            {/*                        ? 'rgb(255 255 255 / 16%)'*/}
-                            {/*                        : 'rgb(0 0 0 / 16%)'*/}
-                            {/*                }`,*/}
-                            {/*            },*/}
-                            {/*            '&.Mui-active': {*/}
-                            {/*                width: 20,*/}
-                            {/*                height: 20,*/}
-                            {/*            },*/}
-                            {/*        },*/}
-                            {/*        '& .MuiSlider-rail': {*/}
-                            {/*            opacity: 0.28,*/}
-                            {/*        },*/}
-                            {/*    }}*/}
-                            {/*/>*/}
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -313,13 +284,13 @@ const Player = (prop) => {
                                     mt: 1,
                                 }}
                             >
-                                <TinyText>{formatDuration(duration * played)}</TinyText>
-                                <TinyText>{formatDuration(duration)}</TinyText>
+                                <TinyText className="text-white">{formatDuration(duration * played)}</TinyText>
+                                <TinyText className="text-white">{formatDuration(duration)}</TinyText>
                             </Box>
                         </Grid>
                         <Grid xs={2} sm={4} md={3}>
-                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 1}} alignItems="center">
-                                <VolumeDownRounded htmlColor={lightIconColor}/>
+                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 4, mt:2}} alignItems="center">
+                                <VolumeDownRounded htmlColor={'#fff'} sx={{fontSize: '1.2rem'}}/>
                                 <Slider
                                     value={volume ?? 0.8}
                                     min={0}
@@ -328,13 +299,14 @@ const Player = (prop) => {
                                     onChange={handleVolumeChange}
                                     aria-label="Volume"
                                     sx={{
-                                        color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
+                                        width: 100,
+                                        color: theme.palette.mode === 'dark' ? '#fff' : '#fff',
                                         '& .MuiSlider-track': {
                                             border: 'none',
                                         },
                                         '& .MuiSlider-thumb': {
-                                            width: 24,
-                                            height: 24,
+                                            width: 12,
+                                            height: 12,
                                             backgroundColor: '#fff',
                                             '&:before': {
                                                 boxShadow: '0 4px 8px rgba(0,0,0,0.4)',
@@ -345,7 +317,7 @@ const Player = (prop) => {
                                         },
                                     }}
                                 />
-                                <VolumeUpRounded htmlColor={lightIconColor}/>
+                                <VolumeUpRounded htmlColor={'#fff'} sx={{fontSize: '1.2rem'}}/>
                             </Stack>
                         </Grid>
                     </Grid>
