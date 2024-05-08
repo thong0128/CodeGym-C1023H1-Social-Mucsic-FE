@@ -27,6 +27,22 @@ export const newSongsList = createAsyncThunk(
     }
 )
 
+export const hotSongsList = createAsyncThunk(
+    'songs/hotSongsList',
+    async () => {
+        const res = await axios.get('http://localhost:8080/songs/hotSongsList');
+        return res.data
+    }
+)
+
+export const favoriteSongs = createAsyncThunk(
+    'songs/favoriteSongs',
+    async () => {
+        const res = await axios.get('http://localhost:8080/songs/favoriteSongs');
+        return res.data
+    }
+)
+
 export const findSongBySinger = createAsyncThunk(
     'songs/findSongBySinger',
     async (singer) =>{

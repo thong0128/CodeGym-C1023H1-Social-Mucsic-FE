@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Dropdown} from 'antd';
-import {AiOutlineMore} from "react-icons/ai";
+import {AiOutlineEllipsis} from "react-icons/ai";
 import axios from "axios";
 import {toast} from "react-toastify";
 import "./hover.css"
@@ -71,7 +71,7 @@ const SongMenu = ({idSong}) => {
                 placement="topRight"
                 arrow
             >
-                <Button style={{backgroundColor: "#3C2C52", border: "none", color: "white"}} ><AiOutlineMore/></Button>
+                <AiOutlineEllipsis size={20} className="text-white"/>
             </Dropdown>
         </>
     )

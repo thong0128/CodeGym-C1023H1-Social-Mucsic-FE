@@ -22,7 +22,7 @@ export default function UserSongList() {
     return (
         <>
             <div className='mt-12 px-[59px] flex flex-col gap-5' style={{color: "white"}}>
-                <h1 className="font-weight-bold" style={{fontSize: 30}}>Danh sách bài hát</h1>
+                <p className="text-slate-200 font-semibold text-2xl">Danh sách bài hát</p>
                 <div className={'row'}>
                     {list?.map(item => (
                         <SongItem
@@ -33,6 +33,7 @@ export default function UserSongList() {
                             artists={item.singer}
                             author={item.author}
                             countLikes={item.countLike}
+                            countListen={item.listenCount}
                             releaseDate={new Date()}
                             check={true}
                         />

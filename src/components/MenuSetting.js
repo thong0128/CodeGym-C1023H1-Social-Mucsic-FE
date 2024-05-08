@@ -1,5 +1,4 @@
 import React from 'react';
-import {AiOutlinePlayCircle} from "react-icons/ai";
 import {GrCircleInformation} from "react-icons/gr";
 import {VscSymbolInterface} from "react-icons/vsc";
 import {LiaAddressBook} from "react-icons/lia";
@@ -11,7 +10,7 @@ import "../css_component/menuSetting.css"
 import {useNavigate} from "react-router-dom";
 import {HiOutlinePlus} from "react-icons/hi";
 import {RiSlideshow2Line} from "react-icons/ri";
-import ModalCreatePlayList from "./modanCreatePlayList";
+import ModalCreatePlayList from "./ModalCreatePlayList";
 
 
 const MenuSetting = ({handler}) => {
@@ -50,7 +49,7 @@ const MenuSetting = ({handler}) => {
                             <LiaAddressBook />
                         </div>
                         <div className="content">
-                            Tỏa thuận sử dụng
+                            Thỏa thuận sử dụng
                         </div>
                         <div className="icon" style={{marginLeft:"auto"}}>
                             <GoArrowUpRight />
