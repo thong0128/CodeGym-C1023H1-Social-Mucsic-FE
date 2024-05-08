@@ -26,8 +26,11 @@ const ShowListSong = () => {
                                 thumbnail={item.img_url}
                                 title={item.title}
                                 artists={item.singer}
+                                author={item.author}
                                 countLikes={item.countLike}
+                                countListen={item.listenCount}
                                 releaseDate={new Date()}
+                                check={true}
                             />
                         ))}
                     </div>

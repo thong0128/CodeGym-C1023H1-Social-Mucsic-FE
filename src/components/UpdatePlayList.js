@@ -9,17 +9,17 @@ function UpdatePlayList(props) {
     const navigate = useNavigate();
     const [playList, setPlayList] = useState({})
     const idPlayList = useParams()
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/playLists/" + idPlayList.id).then((res)=>{
-    //         setPlayList(res.data);
-    //     })
-    // }, []);
+    useEffect(() => {
+        axios.get("http://localhost:8080/playlists/" + idPlayList.id).then((res)=>{
+            setPlayList(res.data);
+        })
+    }, []);
 
     return (
         <>
             <Formik initialValues={{
-                namePlayList: playList.namePlayList,
-                id_user: {
+                name: playList.name,
+                appUser: {
                     id: localStorage.getItem("idUser")
                 }
             }}
@@ -27,7 +27,7 @@ function UpdatePlayList(props) {
                     onSubmit={(values)=>{
 
                         values.id = idPlayList.id;
-                        axios.put("http://localhost:8080/playLists", values).then((res)=>{
+                        axios.put("http://localhost:8080/playlists/update", values).then((res)=>{
                             toast.success("Sửa playlist thành công", {
                                 position: toast.POSITION.BOTTOM_RIGHT
                             })
@@ -39,10 +39,10 @@ function UpdatePlayList(props) {
                 <Form>
                     <div className="row g-3 align-items-center" style={{width:400, marginLeft: 20}}>
                         <div className="col-auto"  >
-                            <label htmlFor="inputPassword6" className="col-form-label"><IoAddOutline/></label>
+                            <label htmlFor="name" className="col-form-label"><IoAddOutline/></label>
                         </div>
                         <div className="col-auto">
-                            <Field name="namePlayList" type="text" id="inputPassword6" className="form-control" aria-describedby="passwordHelpInline"/>
+                            <Field name="name" type="text" id="name" className="form-control"/>
                         </div>
                         <div className="col-auto">
                             <button type="submit" className="btn btn-primary">Sửa</button>
@@ -50,7 +50,6 @@ function UpdatePlayList(props) {
                     </div>
                 </Form>
             </Formik>
-
         </>
     );
 }

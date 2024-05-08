@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import axios from "axios";
 import * as Yup from "yup";
+import {Modal} from "antd";
 export default function Register() {
     // const [listMailCheck, setListEmailCheck] = useState([]);
     const [listUserCheck, setListUserCheck] = useState([]);
@@ -59,10 +60,25 @@ export default function Register() {
         // console.log(user)
         handleButtonClick(user) ;
     };
+    const [isModalOpen, setIsModalOpen] = useState(true);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const  handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+        navigate("/")
+    };
+
 
     return (
-        <div className={'login-container col-12 col-sm-4 '}>
-            <div className={'title'}>Đăng Ký</div>
+        <div>
+            <Modal width={800} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
             <Formik
                 initialValues={{
                     user
@@ -96,81 +112,75 @@ export default function Register() {
             >
                 {({isSubmitting}) => (
                     <Form>
-                        <div className="modal" id="modal">
-                            <div className="modal_overlay">
-                            </div>
-                            <div className="modal_body">
-                                <div className="modal_inner">
-                                    <div className="auth_form">
-                                        <div className="auth_form_header">
-                                            <div style={{textAlign: "center"}}>
-                                                <div className="limiter">
-                                                    <div className="container-login100">
-                                                        <div className="wrap-login100">
-                                                            <div className="login100-pic js-tilt" data-tilt>
-                                                                <img src="images/img-01.png" alt="IMG"/>
-                                                            </div>
-                                                            <div className="login100-form validate-form">
+                        <div style={{textAlign: "center"}}>
+                                <div className="card mt-32 rounded-2xl">
+                                    <div className="wrap-login100">
+                                        <div className="login100-pic js-tilt">
+                                            <img src="images/img-01.png" alt="IMG"/>
+                                        </div>
+                                        <div className="login100-form validate-form">
 					<span className="login100-form-title">
 						Đăng ký Zingmp3
 					</span>
-                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="userName" component="div"/>
-                                                                <div className="wrap-input100 validate-input">
-                                                                    <Field className="input100" type="text" name="userName" placeholder="Tên tài khoản"/>
-                                                                    <span className="focus-input100"></span>
-                                                                    <span className="symbol-input100">
+                                            <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
+                                                          name="userName" component="div"/>
+                                            <div className="wrap-input100 validate-input">
+                                                <Field className="input100" type="text" name="userName"
+                                                       placeholder="Tên tài khoản"/>
+                                                <span className="focus-input100"></span>
+                                                <span className="symbol-input100">
 							<i className="fa fa-solid fa-user" aria-hidden="true"></i>
 						</span>
-                                                                </div>
-                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="password" component="div"/>
-                                                                <div className="wrap-input100 validate-input">
-                                                                    <Field className="input100" type="password" name="password" placeholder="Mật khẩu"/>
-                                                                    <span className="focus-input100"></span>
-                                                                    <span className="symbol-input100">
+                                            </div>
+                                            <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
+                                                          name="password" component="div"/>
+                                            <div className="wrap-input100 validate-input">
+                                                <Field className="input100" type="password" name="password"
+                                                       placeholder="Mật khẩu"/>
+                                                <span className="focus-input100"></span>
+                                                <span className="symbol-input100">
 							<i className="fa fa-lock" aria-hidden="true"></i>
 						</span>
-                                                                </div>
-                                                                <ErrorMessage style={{color:'red'}}  className={'formik-error-message'} name="confirmPassword" component="div"/>
-                                                                <div className="wrap-input100 validate-input">
-                                                                    <Field className="input100" type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu"/>
-                                                                    <span className="focus-input100"></span>
-                                                                    <span className="symbol-input100">
+                                            </div>
+                                            <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
+                                                          name="confirmPassword" component="div"/>
+                                            <div className="wrap-input100 validate-input">
+                                                <Field className="input100" type="password" name="confirmPassword"
+                                                       placeholder="Nhập lại mật khẩu"/>
+                                                <span className="focus-input100"></span>
+                                                <span className="symbol-input100">
 							<i className="fa fa-lock" aria-hidden="true"></i>
 						</span>
-                                                                </div>
-                                                                <div className="container-login100-form-btn">
-                                                                    <button className="login100-form-btn">
-                                                                        Đăng ký
-                                                                    </button>
-                                                                </div>
-                                                                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+                                            </div>
+                                            <div className="container-login100-form-btn">
+                                                <button className="login100-form-btn h-[40px]">
+                                                    Đăng ký
+                                                </button>
+                                            </div>
+                                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
     &client_id=80724656105-fg2ndheoujm7c7dd4ob1i9mq3ebdbjhb.apps.googleusercontent.com&approval_prompt=force">Login With
-                                                                    Gmail</a>
-                                                                <div>
-                                                                    <button onClick={back} className="txt2">
-                                                                        <i className="fa fa-long-arrow-left m-l-5"
-                                                                        ></i>
-                                                                        Quay lại
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                Gmail</a>
+                                            <div>
+                                                <button onClick={back} className="txt2">
+                                                    <i className="fa fa-long-arrow-left m-l-5"
+                                                    ></i>
+                                                    Quay lại
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </Form>
                 )}
             </Formik>
+            </Modal>
 
 
         </div>
     );
-    function back(){
+
+    function back() {
         navigate("/login")
     }
 }

@@ -1,13 +1,102 @@
 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 * {
     padding: 0;
     margin: 0;
 }
+.wrapper{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    .file-upload{
+        height:30px;
+        width:30px;
+        border-radius: 100%;
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        border:4px solid #FFFFFF;
+        overflow:hidden;
+        background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+        background-size: 100% 200%;
+        transition: all 1s;
+        color: #FFFFFF;
+        font-size:16px;
+
+        input[type='file']{
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0;
+            cursor:pointer;
+
+        }
+
+        &:hover{
+
+            background-position: 0 -100%;
+            cursor: pointer;
+            color:#2590EB;
+
+        }
+
+
+    }
+}
+.wrapper:hover{
+    cursor: pointer;
+}
+.file-uploader{
+    width: 100%;
+}
+
+input[type="file"]{
+    display: none;
+}
+.text-f{
+    font-family: 'Montserrat', sans-serif;
+}
 html {
     width: 100%;
     min-height: 100vh;
+}
+
+.ant-modal-content{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    margin: auto;
+    padding: 0px !important;
+}
+.like-item{
+    display: none;
+}
+.drop-menu{
+    display: none;
+}
+.song-item:hover .drop-menu{
+    display: inline-block;
+}
+.song-item:hover .like-item{
+    display: grid;
+}
+
+.glass{
+    /* From https://css.glass */
+    background: rgba(23, 15, 35, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(23, 15, 35, 0.05);
 }
 
 .App-header {
