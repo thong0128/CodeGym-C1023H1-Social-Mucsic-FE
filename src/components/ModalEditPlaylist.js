@@ -5,7 +5,7 @@ import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import {AppContext} from "../Context/AppContext";
 
-const ModalEditPlayList = ({handler}) => {
+const ModalEditPlayList = ({handler, pllId}) => {
     const navigate = useNavigate();
     const id_user = localStorage.getItem("idUser")
     const [playlistCheck, setPlaylistCheck] = useState([]);
@@ -13,7 +13,7 @@ const ModalEditPlayList = ({handler}) => {
     const {toggleFlag} = useContext(AppContext);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/playlists').then(res => {
+        axios.get('http://localhost:8080/playlist').then(res => {
             setPlaylistCheck(checkName(res.data));
         })
     }, [ isFlag]);
@@ -32,14 +32,15 @@ const ModalEditPlayList = ({handler}) => {
     return (
         <>
             <Formik initialValues={{
-                name: "",
+                id:pllId,
+                title: "",
                 appUser: {
                     id: id_user
                 }
             }}
                     validationSchema={
                         require("yup").object().shape({
-                            name: require("yup")
+                            title: require("yup")
                                 .string()
                                 .required("Vui lòng nhập tên Playlist").test('unique', 'Playlist đã tồn tại', (value) => {
                                     return !playlistCheck.includes(value);
@@ -48,8 +49,8 @@ const ModalEditPlayList = ({handler}) => {
                     }
                     enableReinitialize={true}
                     onSubmit={(values, {resetForm}) => {
-                        axios.post("http://localhost:8080/playlists/create", values).then(() => {
-                            toast.success("Tạo playlist thành công", {
+                        axios.put("http://localhost:8080/playlist/update", values).then(() => {
+                            toast.success("Cập nhật playlist thành công", {
                                 position: toast.POSITION.BOTTOM_RIGHT,
                                 autoClose:700
                             })
@@ -61,19 +62,19 @@ const ModalEditPlayList = ({handler}) => {
                     }}>
                 <Form>
                     <div className="card bg-[#34224f] rounded-xl mt-52">
-                        <p className="text-xl text-center text-white font-semibold mt-2">Sửa</p>
+                        <p className="text-xl text-center text-white font-semibold mt-2">Chỉnh sửa playlist</p>
                         <div className="col-auto mb-2 mt-4">
                             <ErrorMessage style={{color: 'red'}} className={'formik-error-message text-f text-white'}
-                                          name="name" component="div"/>
-                            <Field name="name" type="text" className={`h-[40px] mt-2 p-3 text-f text-white rounded-full w-full border-none outline-none ${isFocused? 'bg-[#493961]' : 'bg-[#493961]' }`}
+                                          name="title" component="div"/>
+                            <Field name="title" type="text" className={`h-[40px] mt-2 p-3 text-f text-white rounded-full w-full border-none outline-none ${isFocused? 'bg-[#493961]' : 'bg-[#493961]' }`}
                                    placeholder="Nhập tên playlist"
                                    id = "playlistText"
                                    onFocus={handleFocus}
                                    onBlur={handleBlur}
                             /><br/>
                         </div>
-                        <div className="text-center mt-2">
-                            <button type="submit" className="text-f rounded-full w-32 h-10">Tạo mới</button>
+                        <div className="text-center mt-2 p-3">
+                            <button type="submit" className="text-f rounded-full w-full h-10">LƯU</button>
                         </div>
                     </div>
 

@@ -4,35 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="">
+    <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dropdown_song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dropdown_song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuLogOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogOut.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MenuSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuSetting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ShowPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowPlaylist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SidebarLeft.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarLeft.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ViewPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ViewPlaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="features/comment" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -47,63 +32,58 @@
     &quot;accountId&quot;: &quot;de884fd3-227d-4465-bfb5-2cf27e268d57&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2fZiymPZUbF8AwFmpePjlR27DLd" />
+  <component name="ProjectId" id="2fuCK0SY86X21gy9lXQSVk8SO7P" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.CreateSong.js.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "features/comment",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Module 6/CodeGym-C1023H1-Social-Mucsic-FE",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/hot-song&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f4c7bd0d-1c59-4608-82f7-df132d48bc56" name="Changes" comment="" />
-      <created>1714015263629</created>
+      <changelist id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="" />
+      <created>1714641513136</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1714015263629</updated>
-      <workItem from="1714015265976" duration="5496000" />
-      <workItem from="1714095088937" duration="77000" />
-      <workItem from="1714095199551" duration="976000" />
-      <workItem from="1714096546887" duration="22000" />
-      <workItem from="1714096582027" duration="809000" />
-      <workItem from="1714097430331" duration="27000" />
-      <workItem from="1714097470121" duration="30000" />
-      <workItem from="1714097945864" duration="101000" />
-      <workItem from="1714098065016" duration="277000" />
-      <workItem from="1714098356651" duration="18000" />
-      <workItem from="1714098388852" duration="24000" />
-      <workItem from="1714100102165" duration="1689000" />
-      <workItem from="1714103546171" duration="13000" />
-      <workItem from="1714104762776" duration="1624000" />
-      <workItem from="1714116817157" duration="8392000" />
-      <workItem from="1714307155456" duration="1050000" />
-      <workItem from="1714958466785" duration="12000" />
-      <workItem from="1715137500050" duration="932000" />
+      <updated>1714641513136</updated>
+      <workItem from="1714641515654" duration="1999000" />
+      <workItem from="1714643693316" duration="213000" />
+      <workItem from="1714702851884" duration="2241000" />
+      <workItem from="1714724614518" duration="1125000" />
+      <workItem from="1714728470148" duration="1507000" />
+      <workItem from="1714784662428" duration="3003000" />
+      <workItem from="1714788181613" duration="9370000" />
+      <workItem from="1714809142733" duration="1492000" />
+      <workItem from="1714810816596" duration="562000" />
+      <workItem from="1714919402664" duration="954000" />
+      <workItem from="1714957720722" duration="2121000" />
+      <workItem from="1714961923325" duration="3023000" />
+      <workItem from="1714967422980" duration="599000" />
+      <workItem from="1714978685385" duration="629000" />
+      <workItem from="1714979506028" duration="95000" />
+      <workItem from="1715157102828" duration="17000" />
     </task>
     <servers />
   </component>

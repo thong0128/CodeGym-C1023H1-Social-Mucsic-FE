@@ -9,9 +9,11 @@ import {HiOutlinePencil} from "react-icons/hi";
 import {Modal} from "antd";
 import ModalCreatePlayList from "./ModanCreatePlayList";
 import ModalEditPlayList from "./ModalEditPlaylist";
+import {IoCloseOutline} from "react-icons/io5";
 
 const ShowPlaylist = () => {
     const [checkDelete, setCheckDelete] = useState(false);
+    const [playlistId, setPlaylistId] = useState(null);
     const [list, setList] = useState([]);
     const {toggleFlag} = useContext(AppContext);
     const {isFlag} = useContext(AppContext);
@@ -19,7 +21,7 @@ const ShowPlaylist = () => {
 
     const idUser = localStorage.getItem("idUser");
     useEffect(() => {
-        axios.get("http://localhost:8080/playlists/findByUserId/" + idUser).then((res) => {
+        axios.get("http://localhost:8080/playlist/user/" + idUser).then((res) => {
             if (res.data !== []){
                 setList(res.data);
             } else {
@@ -40,25 +42,27 @@ const ShowPlaylist = () => {
                     cancel: true,
                     confirm: true
                 },
-            }).then(r => {
-                if (r) {
-                    axios.delete("http://localhost:8080/songs/" + id)
-                        .then(() => {
-                                setCheckDelete(!checkDelete)
-                                toggleFlag()
-                                toast.success("Xóa thành công!", {autoClose: 700})
-                            }
-                        )
-                }
             })
+            //     .then(r => {
+            //     if (r) {
+            //         axios.delete("http://localhost:8080/songs/" + id)
+            //             .then(() => {
+            //                     setCheckDelete(!checkDelete)
+            //                     toggleFlag()
+            //                     toast.success("Xóa thành công!", {autoClose: 700})
+            //                 }
+            //             )
+            //     }
+            // })
         })
     }
     const handleCheck = (isCheck) => {
         setIsModalVisible(isCheck);
     }
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const showModal = () => {
+    const showModal = (pid) => {
         setIsModalVisible(true);  // Đặt trạng thái của modal là hiển thị
+        setPlaylistId(pid)
     };
     const handleOk = () => {
         setIsModalVisible(false);  // Đặt trạng thái của modal là ẩn khi nhấn OK
@@ -84,9 +88,9 @@ const ShowPlaylist = () => {
                                         alt=""/>
                                 </div>
                                 <div className="flex items-center justify-center mt-2">
-                                    <span className="text-xl text-f text-white font-semibold">{i.name}</span>
+                                    <span className="text-xl text-f text-white font-semibold">{i.title}</span>
                                     <div className="ml-2 h-[22px] text-f text-base rounded-lg text-white my-auto font-semibold"
-                                        onClick={showModal}>
+                                        onClick={()=>showModal(i.id)}>
                                         <HiOutlinePencil size={24}/>
                                     </div>
                                 </div>
@@ -103,13 +107,11 @@ const ShowPlaylist = () => {
                         onOk={handleOk}
                         onCancel={handleCancel}
                         footer={null}
+                        closeIcon={<IoCloseOutline size={24} style={{ color: 'white' }} />}
                     >
-                        <ModalEditPlayList handler={handleCheck}/>
+                        <ModalEditPlayList pllId={playlistId}   handler={handleCheck}/>
                     </Modal>
                 </div>
-
-                {/*    </tbody>*/}
-                {/*</table>*/}
             </div>
         </>
     );

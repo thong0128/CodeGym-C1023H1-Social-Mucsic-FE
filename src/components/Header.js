@@ -148,7 +148,8 @@ const Header = () => {
                 <div style={{display: "flex"}}>
                     <div className="dev_logout items-center mt-2 ml-2">
                         <button onClick={showModal}>
-                           <span className="bg-red-500"><BiUser className="rounded-full p-2 text-gradient bg-gradient-to-r from-purple-100  via-blue-100 to-pink-200 " size={40}/></span>
+                        <span className="bg-red-500"><BiUser className="rounded-full p-2 text-gradient bg-gradient-to-r from-purple-100  via-blue-100 to-pink-200 " size={40}/></span>
+                            <div/>
                         </button>
                     </div>
                 </div>
@@ -161,7 +162,6 @@ const Header = () => {
                             onOk={handleOk}
                             onCancel={handleCancel}
                             footer={null}
-                            closable={false}
                         >
                             <MenuLogin handler={handleCheck}/>
                         </Modal>

@@ -10,7 +10,7 @@ function DropdownSong({idSong}) {
 
     useEffect(() => {
         if(idUser != null){
-            axios.get("http://localhost:8080/playlists/findByUserId/" + idUser).then((res) => {
+            axios.get("http://localhost:8080/playlist/user/" + idUser).then((res) => {
                 setPlaylist(res.data)
             })
         }
@@ -34,7 +34,7 @@ function DropdownSong({idSong}) {
                 <button onClick={()=>{
                     checkSongToPll(idSong,Pll.id);
                 }}>
-                    {Pll.name}
+                    {Pll.title}
                 </button>
             ),
         }
@@ -56,14 +56,14 @@ function DropdownSong({idSong}) {
     )
     function addSongToPll(idSong,idPll) {
         if (idUser != null) {
-            axios.post("http://localhost:8080/playlists/create/" + idPll + "/" + idSong).then(() => {
+            axios.post("http://localhost:8080/playlist/song/create/" + idPll + "/" + idSong).then(() => {
                 toast.success("Thêm thành công vào playlist")
             })
         }
     }
 
     function checkSongToPll(idSong, idPll) {
-        axios.get("http://localhost:8080/playlists/check/" + idPll + "/" + idSong).then((response) => {
+        axios.get("http://localhost:8080/playlist/song/check/" + idPll + "/" + idSong).then((response) => {
             const isSongInPll = response.data;
             if (isSongInPll == false) {
                 addSongToPll(idSong, idPll);
