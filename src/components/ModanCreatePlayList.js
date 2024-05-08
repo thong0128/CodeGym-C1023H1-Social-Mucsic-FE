@@ -13,7 +13,7 @@ const ModalCreatePlayList = ({handler}) => {
     const {toggleFlag} = useContext(AppContext);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/playlist').then(res => {
+        axios.get('http://localhost:8080/playlist/user/'+id_user).then(res => {
             setPlaylistCheck(checkName(res.data));
         })
     }, [ isFlag]);
@@ -21,7 +21,7 @@ const ModalCreatePlayList = ({handler}) => {
     function checkName(data) {
         let namePlayList = [];
         for (let i = 0; i < data.length; i++) {
-            namePlayList.push(data[i].name)
+            namePlayList.push(data[i].title)
         }
         return namePlayList;
     }
