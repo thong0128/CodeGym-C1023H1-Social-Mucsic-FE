@@ -5,7 +5,7 @@ import {sidebarMenu} from "../untis/menu";
 import path from "../untis/path";
 import React, {useState} from "react";
 import {Modal} from "antd";
-import ModalCreatePlayList from "./ModalCreatePlayList";
+import ModalCreatePlayList from "./ModanCreatePlayList";
 import {HiOutlinePlus} from "react-icons/hi";
 const notActiveStyle = 'py-2 px-[25px] font-bold text-[#32323D] text-[13px]  flex gap-[12px] items-center'
 const activeStyle ='py-2 px-[25px] font-bold text-[#0F7070] text-[13px]  flex gap-[12px] items-center'

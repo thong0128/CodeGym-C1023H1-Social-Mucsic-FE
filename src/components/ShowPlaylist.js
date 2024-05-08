@@ -7,7 +7,8 @@ import swal from "sweetalert";
 import {AppContext} from "../Context/AppContext";
 import {HiOutlinePencil} from "react-icons/hi";
 import {Modal} from "antd";
-import ModalCreatePlayList from "./ModalCreatePlayList";
+import ModalCreatePlayList from "./ModanCreatePlayList";
+import ModalEditPlayList from "./ModalEditPlaylist";
 
 const ShowPlaylist = () => {
     const [checkDelete, setCheckDelete] = useState(false);
@@ -103,7 +104,7 @@ const ShowPlaylist = () => {
                         onCancel={handleCancel}
                         footer={null}
                     >
-                        <ModalCreatePlayList handler={handleCheck}/>
+                        <ModalEditPlayList handler={handleCheck}/>
                     </Modal>
                 </div>
 
