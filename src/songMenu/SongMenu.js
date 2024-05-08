@@ -103,7 +103,6 @@ const SongMenu = ({idSong}) => {
                     .then(() => {
                             setCheckDelete(!checkDelete)
                             toggleFlag()
-
                             toast.success("Xóa thành công!", {autoClose: 700})
                         }
                     )

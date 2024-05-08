@@ -11,18 +11,7 @@ function ViewPlaylist(props) {
     const idPlaylist = useParams();
     const [listSong, setListSong] = useState([])
     const [playList, setPlayList] = useState({})
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs/searchByIdPll/" + idPlaylist.id).then((res)=>{
-    //         setListSong(res.data);
-    //         console.log("lít r: ", listSong)
-    //     })
-    // },[listSong]);
 
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/playLists/" + idPlaylist.id).then((res)=>{
-    //         setPlayList(res.data);
-    //     })
-    // }, []);
 
     function deleteSong(idSong, idPlaylist) {
         axios.delete("http://localhost:8080/playLists/deleteSongInPlaylist/" + idSong + "/" + idPlaylist).then((res)=>{
