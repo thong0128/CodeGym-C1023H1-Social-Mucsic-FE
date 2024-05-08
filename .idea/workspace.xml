@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewRelease.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewRelease.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SongService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SongService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/SongSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuSetting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShowPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowPlaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SidebarLeft.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarLeft.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ViewPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ViewPlaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;features/hot-song&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/0_WebFullStack/7_Module5/Session04/bt1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -71,7 +73,17 @@
       <workItem from="1714702851884" duration="2241000" />
       <workItem from="1714724614518" duration="1125000" />
       <workItem from="1714728470148" duration="1507000" />
-      <workItem from="1714784662428" duration="2617000" />
+      <workItem from="1714784662428" duration="3003000" />
+      <workItem from="1714788181613" duration="9370000" />
+      <workItem from="1714809142733" duration="1492000" />
+      <workItem from="1714810816596" duration="562000" />
+      <workItem from="1714919402664" duration="954000" />
+      <workItem from="1714957720722" duration="2121000" />
+      <workItem from="1714961923325" duration="3023000" />
+      <workItem from="1714967422980" duration="599000" />
+      <workItem from="1714978685385" duration="629000" />
+      <workItem from="1714979506028" duration="95000" />
+      <workItem from="1715157102828" duration="17000" />
     </task>
     <servers />
   </component>

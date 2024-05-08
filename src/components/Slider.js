@@ -70,7 +70,6 @@ const Slider = () =>{
                     src={banner3}
                     className={'slider-item flex-1 object-contain w-[30%] rounded-lg cursor-pointer'}
                     alt=''/>
-                )
             </div>
         </div>
     )

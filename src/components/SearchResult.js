@@ -44,7 +44,6 @@ const SearchResult = () => {
                             artists={item.singer}
                             author={item.author}
                             countLikes = {item.countLike}
-                            countListen={item.listenCount}
                             releaseDate={new Date()}
                         />
                     ))}
@@ -65,7 +64,6 @@ const SearchResult = () => {
                             artists={item.singer}
                             author={item.author}
                             countLikes = {item.countLike}
-                            countListen={item.listenCount}
                             releaseDate={new Date()}
                         />
                     ))}
@@ -86,7 +84,6 @@ const SearchResult = () => {
                             artists={item.singer}
                             author={item.author}
                             countLikes = {item.countLike}
-                            countListen={item.listenCount}
                             releaseDate={new Date()}
                         />
                     ))}

@@ -70,6 +70,7 @@ const NewRelease = () => {
                             countLikes={item.countLike}
                             countListen={item.listenCount}
                             releaseDate={new Date()}
+                            check={false}
                         />
 
                     ))}
@@ -113,6 +114,7 @@ const NewRelease = () => {
                             countLikes={item.countLike}
                             countListen={item.listenCount}
                             releaseDate={new Date()}
+                            check={false}
                         />
                     ))}
                 </div>
@@ -155,6 +157,7 @@ const NewRelease = () => {
                             countLikes={item.countLike}
                             countListen={item.listenCount}
                             releaseDate={new Date()}
+                            check={false}
                         />
                     ))}
                 </div>

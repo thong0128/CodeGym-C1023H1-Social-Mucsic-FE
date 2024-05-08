@@ -1,13 +1,12 @@
 .card{
     width: 100%;
     height: 100%;
-    padding: 15px;
-    margin-top: 40px;
-    border-radius: 25px;
+    padding: 20px;
+    /*border-radius: 25px;*/
     display: flex;
     justify-content: center;
     /*box-shadow: 15px 10px 25px 0px  rgba(164,139,244,0.54);*/
-    background: #fff;
+    /*background: #fff;*/
     background-repeat: no-repeat, no-repeat;
     background-position: 120% -5%, 200% -40%;
     /*background-size: 40%, 80%;*/
@@ -41,7 +40,7 @@
 }
 
 label{
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-weight: 700;
     color: #676767;
 }
@@ -78,25 +77,19 @@ img {
 }
 button[type="submit"] {
     font-family: 'Montserrat', sans-serif;
-    padding: 15px;
-    border-radius: 10px;
     border: none;
     background-color: #8F46CE;
     color: white;
     cursor: pointer;
-    width: 100%;
     font-size: 16px;
 }
 
 
 button[type="submit"]:hover {
     font-family: 'Montserrat', sans-serif;
-    padding: 15px;
-    border-radius: 10px;
     border: none;
     background-color: #975EDE;
     color: white;
     cursor: pointer;
-    width: 100%;
     font-size: 16px;
 }
