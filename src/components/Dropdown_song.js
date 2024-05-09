@@ -72,7 +72,7 @@ function DropdownSong({idSong}) {
     function addSongToPll(idSong,idPll) {
         if (idUser != null) {
             axios.post("http://localhost:8080/playlist/song/create/" + idPll + "/" + idSong).then(() => {
-                toast.success("Thêm thành công vào playlist")
+                toast.success("Thêm thành công vào playlist", {position: toast.POSITION.BOTTOM_RIGHT,autoClose: 500})
             })
         }
     }
@@ -83,7 +83,10 @@ function DropdownSong({idSong}) {
             if (isSongInPll == false) {
                 addSongToPll(idSong, idPll);
             } else {
-                toast.error("Bài hát đã có trong playlist")
+                toast.error("Bài hát đã có trong playlist",
+                    {
+                        position: toast.POSITION.BOTTOM_RIGHT,
+                        autoClose: 500})
             }
         })
     }

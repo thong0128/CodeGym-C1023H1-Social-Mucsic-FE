@@ -9,6 +9,8 @@ import axios from "axios";
 import {AppContext} from "../Context/AppContext";
 import {FaHeadphonesAlt} from "react-icons/fa";
 import SongMenu from "../songMenu/SongMenu";
+import swal from "sweetalert";
+import {toast} from "react-toastify";
 
 const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll}) => {
     let userId = localStorage.getItem("idUser");
@@ -40,14 +42,27 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
     };
 
     const deleteSongInPll=(pllId,sId) =>{
-        axios.delete("http://localhost:8080/playlist/song/"+pllId+"&"+sId).then((res) => {
-            toggleFlag();
+        swal({
+            text: "Bạn có muốn xóa bài hát này không?",
+            icon: "info",
+            buttons: {
+                cancel: true,
+                confirm: true
+            },
+        }).then(r => {
+            if (r) {
+                axios.delete("http://localhost:8080/playlist/song/"+pllId+"&"+sId).then((res) => {
+                    toggleFlag();
+                    toast.success("Xóa thành công!", {position: toast.POSITION.BOTTOM_RIGHT,
+                        autoClose: 500})
+                })
+            }
         })
     }
 
 
     return (
-        <div className="col-md-4 song-item hover:cursor-pointer" onClick={()=>handleClick()}>
+        <div className=" song-item hover:cursor-pointer" onClick={()=>handleClick()}>
             <div >
                 <div
                     className={'group flex p-3 rounded-md hover:bg-white hover:bg-opacity-10'}>
@@ -80,9 +95,11 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                             <div>{countListen}</div>
                         </div>
                     </div>
-                    <div className="w-10">
-                        {removePll ? <button onClick={()=>{
-                            deleteSongInPll(pllId,sid)}}>Xóa</button> : <button
+                    <div className="w-16">
+                        {removePll ?
+                            <button className="drop-menu font-medium text-slate-600 hover:text-slate-400 py-3 px-2 ml-2"
+                                    onClick={()=>{deleteSongInPll(pllId,sid)}}>Xóa</button>
+                            : <button
                             className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
                             {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}
                         </button>}

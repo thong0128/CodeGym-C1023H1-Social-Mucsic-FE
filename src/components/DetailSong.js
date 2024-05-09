@@ -32,7 +32,7 @@ export default function SongDetail (){
             axios.post(` http://localhost:8080/comments/create/${userId}/${id}`, values).then(
                 res => {
                     // alert("Them moi thanh cong!!!");
-                    console.log(values);
+                    // console.log(values);
                     document.getElementById("comment").value = '';
                     toggleFlag();
                 })

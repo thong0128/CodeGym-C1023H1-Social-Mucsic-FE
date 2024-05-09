@@ -60,18 +60,21 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songsLates?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4">
+                            <SongItem
+                                sid={item.id}
+                                key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                            />
+                        </div>
+
 
                     ))}
                 </div>
@@ -104,18 +107,21 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songHot?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4">
+                            <SongItem
+                                sid={item.id}
+                                key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                            />
+                        </div>
+
                     ))}
                 </div>
             </div>
@@ -147,18 +153,21 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {favoriteSong?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4">
+                            <SongItem
+                                sid={item.id}
+                                key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                            />
+                        </div>
+
                     ))}
                 </div>
             </div>

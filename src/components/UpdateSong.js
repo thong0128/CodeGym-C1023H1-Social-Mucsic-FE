@@ -82,7 +82,7 @@ export default function UpdateSong() {
                         axios.put("http://localhost:8080/songs/user/update", value).then((res)=>{
                             toggleFlag();
                             toast.success(" Cập nhật hát thành công ", {
-                                position: toast.POSITION.BOTTOM_RIGHT
+                                position: toast.POSITION.BOTTOM_RIGHT, autoClose:500
                             })
                         })
                         setIsModalOpen(false);

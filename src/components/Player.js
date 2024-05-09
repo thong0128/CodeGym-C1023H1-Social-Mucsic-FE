@@ -104,11 +104,11 @@ const Player = (prop) => {
     const [played, setPlayed] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const playerRef = useRef(null);
-
-    console.log('---> playing', playing);
-    console.log('---> seeking', seeking);
-    console.log('---> played', played);
-    console.log('---> duration', duration);
+    //
+    // console.log('---> playing', playing);
+    // console.log('---> seeking', seeking);
+    // console.log('---> played', played);
+    // console.log('---> duration', duration);
     useEffect(() => {
         axios.get("http://localhost:8080/songs").then((res) => {
             setListSong(res.data);
@@ -117,8 +117,8 @@ const Player = (prop) => {
 
 
     useEffect(() => {
-        console.log("current: ", currentSong)
-        console.log("img:", urlImg)
+        // console.log("current: ", currentSong)
+        // console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
         setNameSong(currentSong.title);
@@ -134,7 +134,7 @@ const Player = (prop) => {
         } else {
             setIndexSong(0)
         }
-        console.log(indexSong);
+        // console.log(indexSong);
     }
     const reverseNextSong = () => {
         if (indexSong < listSong.length && indexSong >= 0) {
@@ -144,34 +144,34 @@ const Player = (prop) => {
             setNameSong(listSong[indexSong].title);
             setSinger(listSong[indexSong].singer);
         } else {setIndexSong(0)}
-        console.log(indexSong);
+        // console.log(indexSong);
     }
     const handlePlay = () => {
-        console.log('onPlay')
+        // console.log('onPlay')
         setPlaying(true);
     }
     const handlePause = () => {
-        console.log('onPause')
+        // console.log('onPause')
         setPlaying(false);
     }
     const handlePlayPause = () => {
-        console.log('playing', playing);
+        // console.log('playing', playing);
         setPlaying(!playing);
     }
     const handleEnded = () => {
-        console.log('onEnded')
+        // console.log('onEnded')
         setPlaying(true);
     }
     const handleProgress = state => {
         setCurrentTime(state.playedSeconds)
-        console.log('onProgress', state)
+        // console.log('onProgress', state)
         // We only want to update time slider if we are not currently seeking
         if (!seeking) {
             setPlayed(state.played);
         }
     }
     const handleDuration = (duration) => {
-        console.log('onDuration', duration);
+        // console.log('onDuration', duration);
         setDuration(duration);
     }
     const handleSeekMouseDown = e => {
@@ -179,7 +179,7 @@ const Player = (prop) => {
     }
 
     const handleSeekChange = e => {
-        console.log('handleSeekChange', e.target.value);
+        // console.log('handleSeekChange', e.target.value);
         setPlayed(parseFloat(e.target.value));
     }
 
@@ -188,7 +188,7 @@ const Player = (prop) => {
         ref.current?.seekTo(parseFloat(e.target.value));
     }
     const handleVolumeChange = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setVolume(parseFloat(e.target.value))
     }
 
@@ -261,12 +261,6 @@ const Player = (prop) => {
                                 outline: 'none',
                                 border: 'none',
                                 height: '5px'
-                                // palette: {
-                                //     primary: {
-                                //         main: '#c8e6c9',
-                                //     },
-                                //     secondary: "red",
-                                // }
                             }}
 
                                    className="form-control-range"
@@ -338,10 +332,8 @@ const Player = (prop) => {
                 onDuration={handleDuration}
                 onSeek={(seconds) => setCurrentTime(seconds)}
                 seekTo = {currentTime}
-                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
-                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
+                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
+                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
             />
         </>
     );

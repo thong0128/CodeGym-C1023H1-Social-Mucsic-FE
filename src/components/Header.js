@@ -38,7 +38,7 @@ const Header = () => {
     useEffect(() => {
         if (id !== null){
             axios.get('http://localhost:8080/users/' + id).then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                 setUser(res.data)
                 setImg(localStorage.getItem("avatar"));
             })}else {

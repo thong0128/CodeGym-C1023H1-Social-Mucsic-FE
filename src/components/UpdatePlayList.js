@@ -29,11 +29,15 @@ function UpdatePlayList(props) {
                         values.id = idPlayList.id;
                         axios.put("http://localhost:8080/playlists/update", values).then((res)=>{
                             toast.success("Sửa playlist thành công", {
-                                position: toast.POSITION.BOTTOM_RIGHT
+                                position: toast.POSITION.BOTTOM_RIGHT,
+                                autoClose: 500
                             })
                             navigate("/showPlaylist")
                         }).catch(() => {
-                            toast.error('Không thể update')
+                            toast.error('Không thể update', {
+                                position: toast.POSITION.BOTTOM_RIGHT,
+                                autoClose: 500
+                            })
                         })
                     }}>
                 <Form>
