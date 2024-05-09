@@ -10,7 +10,6 @@ import {AppContext} from "../Context/AppContext";
 import {FaHeadphonesAlt} from "react-icons/fa";
 import SongMenu from "../songMenu/SongMenu";
 
-
 const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, releaseDate, order, percent, style, sm}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
@@ -28,10 +27,8 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
             toggleFlag();
         })
     }
-
     const handleCount = ()=>{
         axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
-            console.log("success")
             toggleFlag();
         })
     }

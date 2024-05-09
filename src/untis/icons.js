@@ -26,6 +26,7 @@ import { AiOutlineEllipsis } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoCloseOutline } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
 
 
 
@@ -56,7 +57,8 @@ const icons = {
     AiOutlineEllipsis,
     BiUser,
     HiOutlinePencil,
-    IoCloseOutline
+    IoCloseOutline,
+    AiOutlineDelete
 
 }
 export default icons

@@ -19,10 +19,12 @@ const Public = () => {
                         <div className={'h-[70px] flex-none px-[59px] flex items-center'}>
                             <Header/>
                         </div>
-                        <Scrollbars autoHide style={{width: '100%', height: '100%'}}>
+                        <Scrollbars autoHide style={{width: '100%', height: '95%'}}>
                             <Outlet/>
                         </Scrollbars>
                     </div>
+                    {/*<div className={'mt-12 px-[59px] flex flex-col gap-5'}>*/}
+                    {/*</div>*/}
 
                 </div>
             </div>
