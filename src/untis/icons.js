@@ -27,6 +27,8 @@ import { BiUser } from "react-icons/bi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineDelete } from "react-icons/ai";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
+import { SiApplemusic } from "react-icons/si";
 
 
 
@@ -58,7 +60,9 @@ const icons = {
     BiUser,
     HiOutlinePencil,
     IoCloseOutline,
-    AiOutlineDelete
+    AiOutlineDelete,
+    MdOutlinePlaylistAdd,
+    SiApplemusic
 
 }
 export default icons

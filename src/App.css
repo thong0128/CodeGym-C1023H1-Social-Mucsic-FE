@@ -6,6 +6,22 @@
     padding: 0;
     margin: 0;
 }
+
+.ant-dropdown-menu {
+    background-color: #34224f !important;
+    padding: 0px !important;
+    width:200px !important;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+}
+.ant-dropdown-menu-item {
+    padding: 0 !important;
+
+}
+/*.ant-dropdown-menu-item:hover{*/
+/*    background-color: #493961 !important;*/
+/*    cursor: pointer !important;*/
+/*}*/
 .wrapper{
     width:100%;
     height:100%;
@@ -58,8 +74,13 @@
 input[type="file"]{
     display: none;
 }
+.text-gradient{
+    color: red;
+}
 .text-f{
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Segoe UI", sans-serif;
+    font-size: medium;
+
 }
 html {
     width: 100%;

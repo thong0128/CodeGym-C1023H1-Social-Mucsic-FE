@@ -76,7 +76,6 @@ img {
     display: none;
 }
 button[type="submit"] {
-    font-family: 'Montserrat', sans-serif;
     border: none;
     background-color: #8F46CE;
     color: white;
@@ -86,7 +85,6 @@ button[type="submit"] {
 
 
 button[type="submit"]:hover {
-    font-family: 'Montserrat', sans-serif;
     border: none;
     background-color: #975EDE;
     color: white;

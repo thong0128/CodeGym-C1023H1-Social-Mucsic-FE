@@ -63,11 +63,11 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                             <div className="flex justify-between text-base font-medium mb-2">
                                 <h3>
                                     <Link to={`/detailSong/${sid}`}
-                                          className="text-slate-900 font-semibold">{title}</Link>
+                                          className="text-slate-900 font-semibold text-f">{title}</Link>
                                 </h3>
                             </div>
-                            <p className="mb-1 text-slate-500 text-sm">{artists}</p>
-                            <p className="mb-1 text-slate-500 text-sm">{author}</p>
+                            <p className="mb-1 text-slate-500 text-sm text-f">{artists}</p>
+                            <p className="mb-1 text-slate-500 text-sm text-f">{author}</p>
                         </div>
                     </div>
                     <div  className="w-15">

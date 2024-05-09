@@ -113,19 +113,19 @@ export default function Register() {
                 {({isSubmitting}) => (
                     <Form>
                         <div style={{textAlign: "center"}}>
-                                <div className="card mt-32 rounded-2xl">
+                                <div className="card mt-32 rounded-2xl text-f">
                                     <div className="wrap-login100">
                                         <div className="login100-pic js-tilt">
                                             <img src="images/img-01.png" alt="IMG"/>
                                         </div>
                                         <div className="login100-form validate-form">
-					<span className="login100-form-title">
+					<span className="login100-form-title text-f">
 						Đăng ký Zingmp3
 					</span>
                                             <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
                                                           name="userName" component="div"/>
                                             <div className="wrap-input100 validate-input">
-                                                <Field className="input100" type="text" name="userName"
+                                                <Field className="input100 text-f" type="text" name="userName"
                                                        placeholder="Tên tài khoản"/>
                                                 <span className="focus-input100"></span>
                                                 <span className="symbol-input100">
@@ -135,7 +135,7 @@ export default function Register() {
                                             <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
                                                           name="password" component="div"/>
                                             <div className="wrap-input100 validate-input">
-                                                <Field className="input100" type="password" name="password"
+                                                <Field className="input100 text-f" type="password" name="password"
                                                        placeholder="Mật khẩu"/>
                                                 <span className="focus-input100"></span>
                                                 <span className="symbol-input100">
@@ -145,7 +145,7 @@ export default function Register() {
                                             <ErrorMessage style={{color: 'red'}} className={'formik-error-message'}
                                                           name="confirmPassword" component="div"/>
                                             <div className="wrap-input100 validate-input">
-                                                <Field className="input100" type="password" name="confirmPassword"
+                                                <Field className="input100 text-f" type="password" name="confirmPassword"
                                                        placeholder="Nhập lại mật khẩu"/>
                                                 <span className="focus-input100"></span>
                                                 <span className="symbol-input100">
@@ -153,11 +153,12 @@ export default function Register() {
 						</span>
                                             </div>
                                             <div className="container-login100-form-btn">
-                                                <button className="login100-form-btn h-[40px]">
+                                                <button className="login100-form-btn h-[40px] text-f mb-2">
                                                     Đăng ký
                                                 </button>
                                             </div>
-                                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+                                            <a className="text-f text-blue-600 mt-2"
+                                                href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
     &client_id=80724656105-fg2ndheoujm7c7dd4ob1i9mq3ebdbjhb.apps.googleusercontent.com&approval_prompt=force">Login With
                                                 Gmail</a>
                                             <div>
