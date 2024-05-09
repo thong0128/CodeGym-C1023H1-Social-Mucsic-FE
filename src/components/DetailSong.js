@@ -55,7 +55,7 @@ export default function SongDetail (){
                             }} src={detailSong.img_url}/>
                         </div>
                         <div className={'flex flex-col justify-center text-white ml-4 mt-4'}>
-                            <div className="text-center"><span className="text-white text-2xl font-sans">{detailSong.title}</span></div>
+                            <div className="text-center"><span className="text-white text-2xl font-sans text-f">{detailSong.title}</span></div>
                             <div className="text-center text">
                                 <p className="mb-2 mt-2 text-slate-400 group-hover:text-black text-sm text-f">Singer: {detailSong.singer}</p>
                                 <p className="mb-2 mt-2 text-slate-400 group-hover:text-black text-sm text-f">Composer: {detailSong.author}</p>
@@ -100,7 +100,7 @@ export default function SongDetail (){
                                 >
                             </textarea>
                             </div>
-                            <button className="login100-form-btn w-[100px] h-[30px] rounded-full uppercase" type={"submit"}>
+                            <button className="login100-form-btn w-[100px] h-[30px] rounded-full uppercase text-f" type={"submit"}>
                                 Post
                             </button>
                         </form> :

@@ -6,11 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuSetting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShowPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowPlaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailSong.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dropdown_song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dropdown_song.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuLogOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SidebarLeft.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarLeft.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ViewPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ViewPlaylist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modanCreatePlayList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css_component/updateUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css_component/updateUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/UpdateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdateUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +28,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="features/css" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -32,6 +47,9 @@
     &quot;accountId&quot;: &quot;de884fd3-227d-4465-bfb5-2cf27e268d57&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -40,26 +58,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/hot-song&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "features/cssplaylist",
+    "last_opened_file_path": "D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,6 +95,7 @@
       <workItem from="1714978685385" duration="629000" />
       <workItem from="1714979506028" duration="95000" />
       <workItem from="1715157102828" duration="17000" />
+      <workItem from="1715216217532" duration="11113000" />
     </task>
     <servers />
   </component>

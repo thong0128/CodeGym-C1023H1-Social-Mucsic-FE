@@ -67,8 +67,8 @@ export default function UpdatePass() {
                 enableReinitialize={true}>
                 <Form>
                         <div className="d-flex justify-content-center">
-                            <div className="card rounded-2xl">
-                                <p className="card-header text-gray-800 text-xl">Đổi mật khẩu</p>
+                            <div className="card rounded-2xl text-f">
+                                <p className="card-header text-gray-800 text-xl text-f font-semibold">Đổi mật khẩu</p>
                                 <div className="card-body">
                                     <div className="form-outline mb-4">
                                         <label htmlFor="oldPassword" className="uppercase">Mật khẩu cũ</label>
@@ -93,7 +93,7 @@ export default function UpdatePass() {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <button className="login100-form-btn w-30 m-auto h-12">
+                                    <button className="login100-form-btn w-30 m-auto h-12 text-f">
                                         Cập nhật
                                     </button>
                                     <button type="button" className="mt-2 text-base text-f"

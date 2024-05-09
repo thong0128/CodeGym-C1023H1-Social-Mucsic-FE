@@ -117,8 +117,8 @@ const ModalCreateSong = () => {
                     navigate("/")
                 }}>
                     <Form>
-                        <div className="card rounded-2xl">
-                            <p className="card-header text-gray-800 text-xl">Tải nhạc lên</p>
+                        <div className="card rounded-2xl text-f">
+                            <p className="card-header text-gray-800 text-xl text-f">Tải nhạc lên</p>
                             <div className="row align-items-center no-gutters">
                                 <div className="col-md-5">
                                     <img name="url_img"
@@ -206,7 +206,7 @@ const ModalCreateSong = () => {
                                             </div>
                                         </div>
                                         <div className="my-4 text-center">
-                                            <button className="login100-form-btn w-30 m-auto h-12">Tạo bài
+                                            <button className="login100-form-btn w-30 m-auto h-12 text-f">Tạo bài
                                                 hát
                                             </button>
                                             <button type="button" className="mt-2 text-base text-f"
