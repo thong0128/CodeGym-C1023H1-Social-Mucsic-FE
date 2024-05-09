@@ -21,7 +21,7 @@ const ModalEditPlayList = ({handler, pllId}) => {
     function checkName(data) {
         let namePlayList = [];
         for (let i = 0; i < data.length; i++) {
-            namePlayList.push(data[i].name)
+            namePlayList.push(data[i].title)
         }
         return namePlayList;
     }
