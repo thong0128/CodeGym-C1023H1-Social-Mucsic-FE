@@ -1,12 +1,7 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useContext, useEffect} from "react";
+import {useSelector} from "react-redux";
 import {SongItem} from "./index";
-import {newSongsList} from "../service/SongService";
-import {AppContext} from "../Context/AppContext";
 
 const SearchResult = () => {
-    const {isFlag } = useContext(AppContext);
-    const dispatch = useDispatch();
 
     const songsByTitle = useSelector((store)=>{
         return store.songStore.songsByTitle
@@ -19,10 +14,6 @@ const SearchResult = () => {
     const songsByAuthor = useSelector((store)=>{
         return store.songStore.songsByAuthor
     })
-
-    useEffect(() => {
-        dispatch(newSongsList())
-    }, [isFlag]);
 
     return (
         <div className={'overflow-y-auto w-full'}>

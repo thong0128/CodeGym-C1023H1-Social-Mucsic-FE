@@ -15,7 +15,7 @@ const initialState = {
     songsByTitle: [],
     songsBySinger: [],
     songsByAuthor: [],
-    songPlaying: []
+    songPlaying: [],
 }
 const songSlice = createSlice({
     name:'songs',

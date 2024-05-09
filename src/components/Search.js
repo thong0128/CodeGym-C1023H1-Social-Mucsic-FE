@@ -1,16 +1,12 @@
 
 import icons from "../untis/icons";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Field, Form, Formik} from "formik";
 import {useDispatch} from "react-redux";
 import {findSongByAuthor, findSongBySinger, findSongByTitle} from "../service/SongService";
 import {useState} from "react";
 const {AiOutlineSearch} =icons
 const Search = () => {
-    const [inputValue, setInputValue] = useState('');
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    };
 
     const dispatch = useDispatch()
     function searchByTitle(value) {

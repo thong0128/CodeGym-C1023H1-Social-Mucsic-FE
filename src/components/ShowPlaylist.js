@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import {toast} from "react-toastify";
 import swal from "sweetalert";
@@ -9,14 +9,15 @@ import {Modal} from "antd";
 import ModalEditPlayList from "./ModalEditPlaylist";
 import {IoCloseOutline} from "react-icons/io5";
 import {AiOutlineDelete} from "react-icons/ai";
+import {favoriteSongs, getSongByPll} from "../service/SongService";
+import {useDispatch} from "react-redux";
 
 const ShowPlaylist = () => {
-    const [checkDelete, setCheckDelete] = useState(false);
     const [playlistId, setPlaylistId] = useState(null);
     const [list, setList] = useState([]);
     const {toggleFlag} = useContext(AppContext);
     const {isFlag} = useContext(AppContext);
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const idUser = localStorage.getItem("idUser");
     useEffect(() => {
@@ -27,10 +28,6 @@ const ShowPlaylist = () => {
                 toast.success("Bạn chưa có PlayList nào")
             }})
     }, [isFlag]);
-
-    function updatePlaylist(id) {
-        navigate("/updatePlayList/" + id)
-    }
 
     function deletePlaylist(id) {
         swal({
@@ -63,6 +60,16 @@ const ShowPlaylist = () => {
         setIsModalVisible(false);  // Đặt trạng thái của modal là ẩn khi nhấn Cancel
     };
 
+    useEffect(()=>{
+        dispatch(favoriteSongs())
+    },[isFlag])
+
+
+    function getSongsPll(value) {
+        dispatch(getSongByPll(value))
+        localStorage.setItem("idPll", value)
+    }
+
     return (
         <>
             <div style={{color: "white", marginTop: 30}}>
@@ -80,7 +87,13 @@ const ShowPlaylist = () => {
                                         alt=""/>
                                 </div>
                                 <div className="flex items-center justify-center mt-2">
-                                    <span className="text-xl text-f text-white font-semibold">{i.title}</span>
+                                    <span className="text-xl text-f text-white font-semibold">
+                                        <Link onClick={()=>{
+                                            getSongsPll(i.id)}
+                                        } to={"/viewPlaylist/"+i.id}>
+                                            {i.title}
+                                        </Link>
+                                    </span>
                                     <div className="ml-2 h-[22px] text-f text-base rounded-lg text-white my-auto font-semibold hover:cursor-pointer"
                                         onClick={()=>showModal(i.id)}>
                                         <HiOutlinePencil size={24}/>

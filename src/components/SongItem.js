@@ -10,12 +10,13 @@ import {AppContext} from "../Context/AppContext";
 import {FaHeadphonesAlt} from "react-icons/fa";
 import SongMenu from "../songMenu/SongMenu";
 
-const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, releaseDate, order, percent, style, sm}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {toggleFlag} = useContext(AppContext);
     const [checkLike, setCheckLike] = useState()
+    const pllId = localStorage.getItem("idPll");
     useEffect(() => {
         userId?
             axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
@@ -37,6 +38,14 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
         dispatch(findSongById(sid));
 
     };
+
+    const deleteSongInPll=(pllId,sId) =>{
+        axios.delete("http://localhost:8080/playlist/song/"+pllId+"&"+sId).then((res) => {
+            toggleFlag();
+        })
+    }
+
+
     return (
         <div className="col-md-4 song-item hover:cursor-pointer" onClick={()=>handleClick()}>
             <div >
@@ -72,9 +81,12 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                         </div>
                     </div>
                     <div className="w-10">
-                        <button className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
+                        {removePll ? <button onClick={()=>{
+                            deleteSongInPll(pllId,sid)}}>Xóa</button> : <button
+                            className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
                             {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}
-                        </button>
+                        </button>}
+
                     </div>
                 </div>
             </div>

@@ -1,7 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {useState} from "react";
-
 
 export const findSongById = createAsyncThunk(
     'songs/findSongById',
@@ -63,6 +61,14 @@ export const findSongByAuthor = createAsyncThunk(
     'songs/findSongByAuthor',
     async (author) =>{
         const res = await axios.get("http://localhost:8080/songs/findSongByAuthor/" + author);
+        return res.data
+    }
+)
+
+export const getSongByPll = createAsyncThunk(
+    'playlist/song',
+    async (idPll) => {
+        const res = await axios.get("http://localhost:8080/playlist/song/" + idPll);
         return res.data
     }
 )

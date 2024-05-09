@@ -1,61 +1,42 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
-import {Field, Form, Formik} from "formik";
+import React, {useContext, useEffect, useState} from 'react';
+import {SongItem} from "./index";
 import axios from "axios";
-import {toast} from "react-toastify";
-import {IoAddOutline} from "react-icons/io5";
-import {MdDeleteOutline, MdOutlineBrowserUpdated} from "react-icons/md";
+import {AppContext} from "../Context/AppContext";
 
-function ViewPlaylist(props) {
-    const navigate = useNavigate();
-    const idPlaylist = useParams();
-    const [listSong, setListSong] = useState([])
-    const [playList, setPlayList] = useState({})
+function ViewPlaylist() {
+    const [List, setList] = useState();
+    const {isFlag} = useContext(AppContext);
+    const pllId = localStorage.getItem("idPll");
 
-
-    function deleteSong(idSong, idPlaylist) {
-        axios.delete("http://localhost:8080/playLists/deleteSongInPlaylist/" + idSong + "/" + idPlaylist).then((res)=>{
-            toast.success("Bạn vừa xóa 1 bài hát ra khỏi D/S", {
-                position: toast.POSITION.BOTTOM_RIGHT
-            })
+    useEffect(() => {
+        axios.get(`http://localhost:8080/playlist/song/${pllId}`).then((res) => {
+            setList(res.data);
         })
-    }
+    }, [isFlag]);
+
     return (
         <>
-            <div style={{color:"white", marginTop:30}}>
-                <div className="name_playlist" style={{paddingBottom:20, fontSize: 30, paddingLeft:10}}>
-                    Danh sách bài hát của: {playList.namePlayList}
+            <div className='mt-8 px-[59px] flex flex-col gap-4' style={{color: "white"}}>
+                <div className='flex items-center justify-between'>
+                    <h4 className='text-[18px] font-bold'>Bài hát</h4>
+                    <span className='text-xs'>TẤT CẢ</span>
                 </div>
-                <table className="table" style={{color:"white"}}>
-                    <thead>
-                    <tr>
-                        <th scope="col">STT</th>
-                        <th scope="col">Tên bài hát</th>
-                        <th scope="col">Tên ca sĩ</th>
-                        <th scope="col">Tên nhạc sĩ</th>
-                        <th scope="col">Ảnh</th>
-                        <th scope="col" colSpan={2}></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {listSong.map((i, key)=> {
-                        return (
-                            <tr>
-                                <th scope="row">{i.id}</th>
-                                <td onClick={()=>{
-                                    navigate("/detailSong/" + i.id)
-                                }}>{i.nameSong}</td>
-                                <td>{i.singer}</td>
-                                <td>{i.author}</td>
-                                <td><img src={i.url_img} style={{width:50, height:50}}/></td>
-                                <td><MdDeleteOutline onClick={()=>{
-                                    deleteSong(i.id, idPlaylist.id);
-                                }} style={{width:30, height:30}}/></td>
-                            </tr>
-                        )
-                    })}
-                    </tbody>
-                </table>
+                <div className={'row'}>
+                    {List?.map(item => (
+                        <SongItem
+                            sid={item.id}
+                            key={item.id}
+                            thumbnail={item.img_url}
+                            title={item.title}
+                            artists={item.singer}
+                            author={item.author}
+                            countLikes={item.countLike}
+                            releaseDate={new Date()}
+                            check={false}
+                            removePll={true}
+                        />
+                    ))}
+                </div>
             </div>
         </>
     );

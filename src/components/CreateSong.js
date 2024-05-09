@@ -67,9 +67,6 @@ const ModalCreateSong = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(true);
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
 
     const  handleOk = () => {
         setIsModalOpen(false);
