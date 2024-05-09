@@ -44,7 +44,7 @@ const MenuLogOut = ({handler}) => {
 
     return (
         <>
-            <div className="menu-logout py-2 px-2">
+            <div className="menu-logout py-2 px-2 text-f">
                 <ul>
                     <li role="button" onClick={updateProfile}>
                         <div className="use-icon">

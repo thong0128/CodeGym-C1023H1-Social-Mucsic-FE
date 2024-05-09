@@ -10,7 +10,7 @@ const MenuLogin = ({handler}) => {
     }
     return (
         <>
-            <div className="menuLogin py-[18px] mt-14">
+            <div className="menuLogin py-[18px] mt-14 text-f">
                 <div onClick={login} className="login mx-[18px]">
                     <button className= "button justify-center text-base font-semibold">
                         Đăng nhập

@@ -71,15 +71,15 @@ export default function Login() {
                     }}>
                 <Form>
                     <div style={{textAlign: "center"}}>
-                        <div className="card mt-32 rounded-2xl">
+                        <div className="card mt-32 rounded-2xl text-f">
                                 <div className="wrap-login100">
                                     <div className="login100-pic js-tilt">
                                         <img src="images/img-01.png" alt="IMG"/>
                                     </div>
-                                    <div className="login100-form validate-form"><span className="login100-form-title">Đăng nhập Zingmp3</span>
+                                    <div className="login100-form validate-form"><span className="login100-form-title text-f">Đăng nhập Zingmp3</span>
                                         <div className="wrap-input100 validate-input"
                                              data-validate="Valid email is required: ex@abc.xyz">
-                                            <Field className="input100" type="text" name="userName"
+                                            <Field className="input100 text-f" type="text" name="userName"
                                                    placeholder="Tên đăng nhập"/>
                                             <span className="focus-input100"></span>
                                             <span className="symbol-input100"><i className="fa fa-solid fa-user"
@@ -87,18 +87,19 @@ export default function Login() {
                                         </div>
                                         <div className="wrap-input100 validate-input"
                                              data-validate="Password is required">
-                                            <Field className="input100" type="password"
+                                            <Field className="input100 text-f" type="password"
                                                    name="password" placeholder="Mật khẩu"/>
                                             <span className="focus-input100"></span>
                                             <span className="symbol-input100"><i className="fa fa-lock"
                                                                                  aria-hidden="true"></i></span>
                                         </div>
                                         <div className="container-login100-form-btn">
-                                            <button className="login100-form-btn h-[40px]">
+                                            <button className="login100-form-btn h-[40px] text-f mb-2">
                                                 Đăng nhập
                                             </button>
                                         </div>
-                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code&client_id=80724656105-fg2ndheoujm7c7dd4ob1i9mq3ebdbjhb.apps.googleusercontent.com&approval_prompt=force">Login
+                                        <a className="text-f text-blue-600 mt-2"
+                                            href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code&client_id=80724656105-fg2ndheoujm7c7dd4ob1i9mq3ebdbjhb.apps.googleusercontent.com&approval_prompt=force">Login
                                             With Gmail</a>
                                         <div>
                                             <button onClick={next} className="txt2">
