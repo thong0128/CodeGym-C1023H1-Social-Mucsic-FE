@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DetailSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dropdown_song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dropdown_song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuLogOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogOut.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SidebarLeft.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SidebarLeft.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css_component/updateUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css_component/updateUser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdatePassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/public/UpdateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/UpdateUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/untis/icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/untis/icons.js" afterDir="false" />
-    </list>
+    <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "features/cssplaylist",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
