@@ -9,7 +9,7 @@ import {IoCloseOutline, IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import ModalEditPlayList from "./ModalEditPlaylist";
 import {AiOutlineDelete} from "react-icons/ai";
 import swal from "sweetalert";
-import {findSongById, getSongByPll} from "../service/SongService";
+import {getSongByPll} from "../service/SongService";
 import {useDispatch} from "react-redux";
 
 function ViewPlaylist() {
