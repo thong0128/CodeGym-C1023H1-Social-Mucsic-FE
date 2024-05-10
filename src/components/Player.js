@@ -17,6 +17,8 @@ import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import {AppContext} from "../Context/AppContext";
 import {findAllSong, newSongsList} from "../service/SongService";
+import songItem from "./SongItem";
+import {setCurSongId} from "../store/actions";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -90,9 +92,6 @@ const Player = (prop) => {
     const currentSong = useSelector((store) => {
         return store.songStore.song;
     })
-    // const listSong = useSelector((store) => {
-    //     return store.songStore.songsByPll;
-    // })
     const [listSong, setListSong] = useState([])
     const [url, setUrl] = useState(currentSong?.song_url);
     const [urlImg, setUrlImg] = useState(currentSong?.img_url);
@@ -111,21 +110,16 @@ const Player = (prop) => {
     const playerRef = useRef(null);
     const idPll = localStorage.getItem("idPll");
     const location = localStorage.getItem("location");
-    //
-    // console.log('---> playing', playing);
-    // console.log('---> seeking', seeking);
-    // console.log('---> played', played);
-    // console.log('---> duration', duration);
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs").then((res) => {
-    //         setListSong(res.data);
-    //     })
-    // }, [isFlag]);
+
+
+    //set list songs theo cac loai
     const listSongAll = useSelector((store)=>{return store.songStore.songs});
     const listSongNew = useSelector((store)=>{return store.songStore.songsLates});
     const listSongHot = useSelector((store)=>{return store.songStore.songHot});
     const listSongFavorite = useSelector((store)=>{return store.songStore.favoriteSongs});
     const listSongByPll = useSelector((store)=>{return store.songStore.songsByPll});
+
+    //set listSong theo vi tri bai hat
     useEffect(() => {
         switch (location) {
             case 'newSongs' :
@@ -143,40 +137,44 @@ const Player = (prop) => {
             default:
                 setListSong(listSongAll);
         }
-    }, [location, idPll]);
+    }, [currentSong, location, idPll]);
 
-
-
+    //set thong tin bai hat cho player
     useEffect(() => {
-        // console.log("current: ", currentSong.id)
-        // console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
         setNameSong(currentSong.title);
         setSinger(currentSong.singer)
-
-    }, [currentSong])
-    const transferNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong + 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-            setNameSong(listSong[indexSong].title);
-            setSinger(listSong[indexSong].singer);
-        } else {
-            setIndexSong(0)
+        for (let i = 0; i<listSong.length; i++){
+            if (listSong[i].id === currentSong.id){
+                setIndexSong(i);
+                break;
+            }
         }
-        console.log(indexSong);
+    }, [currentSong, listSong])
+
+
+    const transferNextSong = () => {
+        let newIndex = indexSong + 1; // Calculate the next index
+        if (newIndex >= listSong.length) {
+            newIndex = 0; // Loop back to the first song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setNameSong(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const reverseNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong - 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-            setNameSong(listSong[indexSong].title);
-            setSinger(listSong[indexSong].singer);
-        } else {setIndexSong(listSong.length-1)}
-        console.log(indexSong);
+        let newIndex = indexSong - 1; // Calculate the previous index
+        if (newIndex < 0) {
+            newIndex = listSong.length - 1; // Loop to the last song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setNameSong(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const handlePlay = () => {
         // console.log('onPlay')
@@ -230,9 +228,6 @@ const Player = (prop) => {
         return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     }
 
-    // const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
-    // const lightIconColor =
-    //     theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
     return (
         <>

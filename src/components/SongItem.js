@@ -41,7 +41,6 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
         dispatch(findSongById(sid));
         toggleFlag();
         localStorage.setItem("location",location)
-
     };
 
     const deleteSongInPll=(pllId,sId) =>{
