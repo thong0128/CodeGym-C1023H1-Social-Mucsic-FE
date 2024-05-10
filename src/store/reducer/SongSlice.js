@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {
     findSongBySinger,
     findAllSong,
-    findSongById, newSongsList, findSongByTitle, findSongByAuthor, hotSongsList, favoriteSongs,
+    findSongById, newSongsList, findSongByTitle, findSongByAuthor, hotSongsList, favoriteSongs, getSongByPll,
     // reverseNextSong,
     // transferNextSong
 } from "../../service/SongService"
@@ -16,6 +16,7 @@ const initialState = {
     songsBySinger: [],
     songsByAuthor: [],
     songPlaying: [],
+    songsByPll:[]
 }
 const songSlice = createSlice({
     name:'songs',
@@ -47,6 +48,9 @@ const songSlice = createSlice({
         })
         builder.addCase(findSongByAuthor.fulfilled, (state, action) => {
             state.songsByAuthor = action.payload
+        })
+        builder.addCase(getSongByPll.fulfilled, (state, action) => {
+            state.songsByPll = action.payload
         })
     }
 })

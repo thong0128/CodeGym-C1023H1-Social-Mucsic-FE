@@ -9,6 +9,8 @@ import {IoCloseOutline} from "react-icons/io5";
 import ModalEditPlayList from "./ModalEditPlaylist";
 import {AiOutlineDelete} from "react-icons/ai";
 import swal from "sweetalert";
+import {findSongById, getSongByPll} from "../service/SongService";
+import {useDispatch} from "react-redux";
 
 function ViewPlaylist() {
     const [List, setList] = useState();
@@ -17,6 +19,7 @@ function ViewPlaylist() {
     const pllId = localStorage.getItem("idPll");
     const {toggleFlag} = useContext(AppContext);
     const [userName1, setUserName1] = useState('')
+    const dispatch = useDispatch();
     useEffect(() => {
         axios.get("http://localhost:8080/playlist/" + pllId).then((res) => {
                 setCurrentList(res.data);
@@ -45,6 +48,11 @@ function ViewPlaylist() {
         })
 
     }
+    const handleClick = () => {
+        dispatch(getSongByPll(pllId));
+        toggleFlag();
+
+    };
     const handleCheck = (isCheck) => {
         setIsModalVisible(isCheck);
     }
@@ -73,7 +81,7 @@ function ViewPlaylist() {
                                 <img
                                     className="w-[250px] h-[250px] rounded-xl transition-transform duration-300 transform hover:scale-110 hover:cursor-pointer"
                                     src="https://cdn.pixabay.com/photo/2017/05/09/10/03/music-2297759_1280.png"
-                                    alt=""/>
+                                    alt="" onClick={()=>handleClick()}/>
                                 <div className="flex items-center justify-center mt-4">
                                     <span
                                         className="text-2xl text-center text-f text-white font-semibold">{currentList.title}</span>
@@ -106,6 +114,7 @@ function ViewPlaylist() {
                                         releaseDate={new Date()}
                                         check={false}
                                         removePll={true}
+                                        location={'playlistSongs'}
                                     />
                                 </div>
                             ))}

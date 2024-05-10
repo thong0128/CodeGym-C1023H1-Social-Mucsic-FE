@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
-import {hotSongsList, newSongsList, favoriteSongs} from "../service/SongService";
+import {hotSongsList, newSongsList, favoriteSongs, findAllSong} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
 
 const NewRelease = () => {
@@ -17,6 +17,9 @@ const NewRelease = () => {
     const favoriteSong = useSelector((store)=>{
         return store.songStore.favoriteSongs;
     })
+    useEffect(() => {
+        dispatch(findAllSong())
+    }, [isFlag]);
 
     useEffect(() => {
         dispatch(newSongsList())
@@ -72,6 +75,7 @@ const NewRelease = () => {
                                 countListen={item.listenCount}
                                 releaseDate={new Date()}
                                 check={false}
+                                location={'newSongs'}
                             />
                         </div>
 
@@ -119,6 +123,7 @@ const NewRelease = () => {
                                 countListen={item.listenCount}
                                 releaseDate={new Date()}
                                 check={false}
+                                location={'hotSongs'}
                             />
                         </div>
 
@@ -165,6 +170,7 @@ const NewRelease = () => {
                                 countListen={item.listenCount}
                                 releaseDate={new Date()}
                                 check={false}
+                                location={'favoriteSongs'}
                             />
                         </div>
 
