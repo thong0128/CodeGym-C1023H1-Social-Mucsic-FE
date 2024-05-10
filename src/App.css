@@ -97,16 +97,20 @@ html {
     padding: 0px !important;
 }
 .like-item{
-    display: none;
+    /*display: none;*/
+    display: block;
+    opacity: 1;
 }
 .drop-menu{
-    display: none;
+    /*display: none;*/
+    display: block;
 }
 .song-item:hover .drop-menu{
-    display: inline-block;
+    display: block;
 }
 .song-item:hover .like-item{
-    display: grid;
+    display: block;
+    opacity: 1;
 }
 
 .glass{

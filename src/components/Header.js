@@ -124,6 +124,8 @@ const Header = () => {
                                     onOk={handleOk}
                                     onCancel={handleCancel}
                                     footer={null}
+                                    closable={false}
+
                                 >
                                     <MenuLogOut handler={handleCheck}/>
                                 </Modal>
@@ -162,6 +164,7 @@ const Header = () => {
                             onOk={handleOk}
                             onCancel={handleCancel}
                             footer={null}
+                            closable={false}
                         >
                             <MenuLogin handler={handleCheck}/>
                         </Modal>

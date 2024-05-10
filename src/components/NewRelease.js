@@ -63,7 +63,7 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songsLates?.map(item => (
-                        <div className="col-md-4" key={item.id}>
+                        <div className="col-md-4 hover:bg-white hover:bg-opacity-10" key={item.id}>
                             <SongItem
                                 sid={item.id}
                                 // key={item.id}
@@ -111,7 +111,7 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songHot?.map(item => (
-                        <div className="col-md-4" key={item.id}>
+                        <div className="col-md-4 hover:bg-white hover:bg-opacity-10" key={item.id}>
                             <SongItem
                                 sid={item.id}
                                 // key={item.id}
@@ -158,7 +158,7 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {favoriteSong?.map(item => (
-                        <div className="col-md-4" key={item.id}>
+                        <div className="col-md-4 hover:bg-white hover:bg-opacity-10" key={item.id}>
                             <SongItem
                                 sid={item.id}
                                 // key={item.id}

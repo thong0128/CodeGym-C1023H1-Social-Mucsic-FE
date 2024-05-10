@@ -283,34 +283,48 @@ const Player = (prop) => {
                                     <FastForwardRounded fontSize="large" htmlColor={'#fff'}/>
                                 </IconButton>
                             </Box>
-                            <input style={{
-                                accentColor: 'white',
-                                outline: 'none',
-                                border: 'none',
-                                height: '5px'
-                            }}
+                            {/*<input style={{*/}
+                            {/*    accentColor: 'white',*/}
+                            {/*    outline: 'none',*/}
+                            {/*    border: 'none',*/}
+                            {/*    height: '5px'*/}
+                            {/*}}*/}
 
-                                   className="form-control-range"
-                                   type='range' min={0} max={0.999999} step='any'
-                                   value={played}
-                                   onMouseDown={handleSeekMouseDown}
-                                   onChange={handleSeekChange}
-                                   onMouseUp={handleSeekMouseUp}
-                            />
+                            {/*       className="form-control-range"*/}
+                            {/*       type='range' min={0} max={0.999999} step='any'*/}
+                            {/*       value={played}*/}
+                            {/*       onMouseDown={handleSeekMouseDown}*/}
+                            {/*       onChange={handleSeekChange}*/}
+                            {/*       onMouseUp={handleSeekMouseUp}*/}
+                            {/*/>*/}
                             <Box
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    mt: 1,
+                                    mt: -1,
                                 }}
                             >
-                                <TinyText className="text-white">{formatDuration(duration * played)}</TinyText>
-                                <TinyText className="text-white">{formatDuration(duration)}</TinyText>
+                                <TinyText className="text-white w-[40px] text-center">{formatDuration(duration * played)}</TinyText>
+                                <input style={{
+                                    accentColor: 'white',
+                                    outline: 'none',
+                                    border: 'none',
+                                    height: '5px'
+                                }}
+
+                                       className="form-control-range"
+                                       type='range' min={0} max={0.999999} step='any'
+                                       value={played}
+                                       onMouseDown={handleSeekMouseDown}
+                                       onChange={handleSeekChange}
+                                       onMouseUp={handleSeekMouseUp}
+                                />
+                                <TinyText className="text-white w-[40px] text-center">{formatDuration(duration)}</TinyText>
                             </Box>
                         </Grid>
                         <Grid xs={2} sm={4} md={3}>
-                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 4, mt:2}} alignItems="center">
+                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 4, mt: 2}} alignItems="center">
                                 <VolumeDownRounded htmlColor={'#fff'} sx={{fontSize: '1.2rem'}}/>
                                 <Slider
                                     value={volume ?? 0.8}
