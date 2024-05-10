@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState, useRef, useContext} from "react";
 import ReactPlayer from "react-player";
 import axios from "../axios";
@@ -16,6 +16,9 @@ import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import {AppContext} from "../Context/AppContext";
+import {findAllSong, newSongsList} from "../service/SongService";
+import songItem from "./SongItem";
+import {setCurSongId} from "../store/actions";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -85,7 +88,7 @@ const TinyText = styled(Typography)({
 const Player = (prop) => {
     const ref = useRef(null);
     const theme = useTheme();
-    const [indexSong, setIndexSong] = useState(3)
+    const [indexSong, setIndexSong] = useState()
     const currentSong = useSelector((store) => {
         return store.songStore.song;
     })
@@ -98,80 +101,107 @@ const Player = (prop) => {
     const [nameSong, setNameSong] = useState(currentSong?.nameSong);
     const [singer, setSinger] = useState(currentSong?.singer);
     const {isFlag} = useContext(AppContext);
+    const dispatch = useDispatch();
 
     const [loaded, setLoaded] = useState(0);
     const [duration, setDuration] = useState(0);
     const [played, setPlayed] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const playerRef = useRef(null);
+    const idPll = localStorage.getItem("idPll");
+    const location = localStorage.getItem("location");
 
-    console.log('---> playing', playing);
-    console.log('---> seeking', seeking);
-    console.log('---> played', played);
-    console.log('---> duration', duration);
+
+    //set list songs theo cac loai
+    const listSongAll = useSelector((store)=>{return store.songStore.songs});
+    const listSongNew = useSelector((store)=>{return store.songStore.songsLates});
+    const listSongHot = useSelector((store)=>{return store.songStore.songHot});
+    const listSongFavorite = useSelector((store)=>{return store.songStore.favoriteSongs});
+    const listSongByPll = useSelector((store)=>{return store.songStore.songsByPll});
+
+    //set listSong theo vi tri bai hat
     useEffect(() => {
-        axios.get("http://localhost:8080/songs").then((res) => {
-            setListSong(res.data);
-        })
-    }, [isFlag]);
+        switch (location) {
+            case 'newSongs' :
+                setListSong(listSongNew);
+                break;
+            case 'hotSongs':
+                setListSong(listSongHot);
+                break;
+            case 'favoriteSongs' :
+                setListSong(listSongFavorite);
+                break;
+            case 'playlistSongs':
+                setListSong(listSongByPll);
+                break;
+            default:
+                setListSong(listSongAll);
+        }
+    }, [currentSong, location, idPll]);
 
-
+    //set thong tin bai hat cho player
     useEffect(() => {
-        console.log("current: ", currentSong)
-        console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
         setNameSong(currentSong.title);
         setSinger(currentSong.singer)
-    }, [currentSong])
-    const transferNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong + 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-            setNameSong(listSong[indexSong].title);
-            setSinger(listSong[indexSong].singer);
-        } else {
-            setIndexSong(0)
+        for (let i = 0; i<listSong.length; i++){
+            if (listSong[i].id === currentSong.id){
+                setIndexSong(i);
+                break;
+            }
         }
-        console.log(indexSong);
+    }, [currentSong, listSong])
+
+
+    const transferNextSong = () => {
+        let newIndex = indexSong + 1; // Calculate the next index
+        if (newIndex >= listSong.length) {
+            newIndex = 0; // Loop back to the first song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setNameSong(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const reverseNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong - 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-            setNameSong(listSong[indexSong].title);
-            setSinger(listSong[indexSong].singer);
-        } else {setIndexSong(0)}
-        console.log(indexSong);
+        let newIndex = indexSong - 1; // Calculate the previous index
+        if (newIndex < 0) {
+            newIndex = listSong.length - 1; // Loop to the last song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setNameSong(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const handlePlay = () => {
-        console.log('onPlay')
+        // console.log('onPlay')
         setPlaying(true);
     }
     const handlePause = () => {
-        console.log('onPause')
+        // console.log('onPause')
         setPlaying(false);
     }
     const handlePlayPause = () => {
-        console.log('playing', playing);
+        // console.log('playing', playing);
         setPlaying(!playing);
     }
     const handleEnded = () => {
-        console.log('onEnded')
+        // console.log('onEnded')
         setPlaying(true);
     }
     const handleProgress = state => {
         setCurrentTime(state.playedSeconds)
-        console.log('onProgress', state)
+        // console.log('onProgress', state)
         // We only want to update time slider if we are not currently seeking
         if (!seeking) {
             setPlayed(state.played);
         }
     }
     const handleDuration = (duration) => {
-        console.log('onDuration', duration);
+        // console.log('onDuration', duration);
         setDuration(duration);
     }
     const handleSeekMouseDown = e => {
@@ -179,7 +209,7 @@ const Player = (prop) => {
     }
 
     const handleSeekChange = e => {
-        console.log('handleSeekChange', e.target.value);
+        // console.log('handleSeekChange', e.target.value);
         setPlayed(parseFloat(e.target.value));
     }
 
@@ -188,7 +218,7 @@ const Player = (prop) => {
         ref.current?.seekTo(parseFloat(e.target.value));
     }
     const handleVolumeChange = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setVolume(parseFloat(e.target.value))
     }
 
@@ -198,9 +228,6 @@ const Player = (prop) => {
         return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     }
 
-    // const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
-    // const lightIconColor =
-    //     theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
     return (
         <>
@@ -235,13 +262,13 @@ const Player = (prop) => {
                                     px:1,
                                 }}
                             >
-                                <IconButton aria-label="previous song" onClick={reverseNextSong} size="medium">
-                                    <FastRewindRounded fontSize="medium" htmlColor={'#fff'}/>
+                                <IconButton aria-label="previous song" onClick={()=>reverseNextSong()} size="large">
+                                    <FastRewindRounded fontSize="large" htmlColor={'#fff'}/>
                                 </IconButton>
                                 <IconButton
                                     aria-label={playing ? 'pause' : 'play'}
-                                    onClick={handlePlayPause}
-                                    size="medium"
+                                    onClick={()=>handlePlayPause()}
+                                    size="large"
                                 >
                                     {playing ? (
                                         <PauseRounded sx={{fontSize: '2.5rem'}} htmlColor={'#fff'}/>
@@ -252,8 +279,8 @@ const Player = (prop) => {
                                         />
                                     )}
                                 </IconButton>
-                                <IconButton aria-label="next song" onClick={transferNextSong} size="medium">
-                                    <FastForwardRounded fontSize="medium" htmlColor={'#fff'}/>
+                                <IconButton aria-label="next song" onClick={()=>transferNextSong()} size="large">
+                                    <FastForwardRounded fontSize="large" htmlColor={'#fff'}/>
                                 </IconButton>
                             </Box>
                             <input style={{
@@ -261,12 +288,6 @@ const Player = (prop) => {
                                 outline: 'none',
                                 border: 'none',
                                 height: '5px'
-                                // palette: {
-                                //     primary: {
-                                //         main: '#c8e6c9',
-                                //     },
-                                //     secondary: "red",
-                                // }
                             }}
 
                                    className="form-control-range"
@@ -338,10 +359,8 @@ const Player = (prop) => {
                 onDuration={handleDuration}
                 onSeek={(seconds) => setCurrentTime(seconds)}
                 seekTo = {currentTime}
-                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
-                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
+                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
+                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
             />
         </>
     );

@@ -9,45 +9,66 @@ import axios from "axios";
 import {AppContext} from "../Context/AppContext";
 import {FaHeadphonesAlt} from "react-icons/fa";
 import SongMenu from "../songMenu/SongMenu";
+import swal from "sweetalert";
+import {toast} from "react-toastify";
+import {IoMdRemoveCircleOutline} from "react-icons/io";
 
-const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll,location}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {toggleFlag} = useContext(AppContext);
-    const [checkLike, setCheckLike] = useState()
+    const [checkLike, setCheckLike] = useState();
     const pllId = localStorage.getItem("idPll");
+
     useEffect(() => {
         userId?
             axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
                 setCheckLike(res.data)
             }) : setCheckLike(false)
-    });
+    },[userId,sid]);
+
     const handleLike = ()=>{
         axios.post(`http://localhost:8080/songs/likes/${userId}/${sid}`).then((res) => {
             toggleFlag();
         })
     }
+
     const handleCount = ()=>{
         axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
             toggleFlag();
         })
     }
+
     const handleClick = () => {
         handleCount();
         dispatch(findSongById(sid));
-
+        toggleFlag();
+        localStorage.setItem("location",location)
     };
 
     const deleteSongInPll=(pllId,sId) =>{
-        axios.delete("http://localhost:8080/playlist/song/"+pllId+"&"+sId).then((res) => {
-            toggleFlag();
+        swal({
+            text: "Bạn có muốn xóa bài hát này không?",
+            icon: "info",
+            buttons: {
+                cancel: true,
+                confirm: true
+            },
+        }).then(r => {
+            if (r) {
+                axios.delete("http://localhost:8080/playlist/song/"+pllId+"&"+sId).then((res) => {
+                    toggleFlag();
+                    toast.success("Xóa thành công!", {position: toast.POSITION.BOTTOM_RIGHT,
+                        autoClose: 500})
+                })
+            }
         })
     }
 
 
     return (
-        <div className="col-md-4 song-item hover:cursor-pointer" onClick={()=>handleClick()}>
+        <div className=" song-item hover:cursor-pointer" onClick={()=>handleClick()}>
             <div >
                 <div
                     className={'group flex p-3 rounded-md hover:bg-white hover:bg-opacity-10'}>
@@ -80,9 +101,13 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                             <div>{countListen}</div>
                         </div>
                     </div>
-                    <div className="w-10">
-                        {removePll ? <button onClick={()=>{
-                            deleteSongInPll(pllId,sid)}}>Xóa</button> : <button
+                    <div className="w-16">
+                        {removePll ?
+                            <button className="drop-menu font-medium text-slate-300 opacity-50 hover:text-slate-50 hover:scale-125 py-3 px-2 ml-2 "
+                                    onClick={()=>{deleteSongInPll(pllId,sid)}}>
+                                <IoMdRemoveCircleOutline size={24}/>
+                            </button>
+                            : <button
                             className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
                             {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}
                         </button>}

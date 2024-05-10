@@ -29,12 +29,6 @@ function ModalCreateTypeSong(props) {
     const {toggleFlag} = useContext(AppContext);
     const [uploadedImageUrl, setUploadedImageUrl] = useState(undefined);
 
-    // useEffect(() => {
-    //     axios.get('http://localhost:8080/playLists').then(res => {
-    //         setPlaylistCheck(findPlaylist(res.data));
-    //     })
-    // }, [isFlag]);
-
     function findPlaylist(data) {
         let a = [];
         for (let i = 0; i < data.length; i++) {
@@ -49,8 +43,8 @@ function ModalCreateTypeSong(props) {
         uploadBytes(imageRef, image).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
                 setUploadedImageUrl(url); // Lưu URL sau khi upload thành công vào state mới
-                console.log("image uploaded successfully", url);
-                console.log("image uploaded successfully", uploadedImageUrl);
+                // console.log("image uploaded successfully", url);
+                // console.log("image uploaded successfully", uploadedImageUrl);
                 setImgTypeSOng(url)
                 localStorage.setItem("imgTypeSong", url)
             });
@@ -67,26 +61,16 @@ function ModalCreateTypeSong(props) {
                     name: "",
                     img_url: ""
                 }}
-                    // validationSchema={
-                    //     require("yup").object().shape({
-                    //         name: require("yup")
-                    //             .string()
-                    //             .matches(/^[a-zA-Z0-9_]+$/, "Tên không hợp lệ")
-                    //             .required("Vui lòng nhập tên Playlist").test('unique', 'Playlist đã tồn tại', (value) => {
-                    //                 return !listPlaylistCheck.includes(value);
-                    //             }),
-                    //     })
-                    // }
+
                         enableReinitialize={true}
                         onSubmit={(values) => {
                             values.img_url= localStorage.getItem("imgTypeSong")
                             axios.put("http://localhost:8080/songTypes", values).then((res) => {
-                                console.log("sdasdasdádas")
                                 if (res.data === false) {
                                     toast.error('Không thể tạo')
                                 }
                                 toast.success("Tạo thành công", {
-                                    position: toast.POSITION.BOTTOM_RIGHT
+                                    position: toast.POSITION.BOTTOM_RIGHT, autoClose:500
                                 })
                                 toggleFlag()
                             })

@@ -28,7 +28,7 @@ const Dropdown_listSong = ({idSong}) => {
             label: (
                 <dev>
                     <select onChange={(e) => {
-                        console.log("taget", e.target.value)
+                        // console.log("taget", e.target.value)
                         addPlayList(e.target.value)
                     }}>
                         <option>Thêm vào PlayList</option>
@@ -81,7 +81,7 @@ const Dropdown_listSong = ({idSong}) => {
     function addPlayList(idPlaylist) {
             if (idUser != null) {
                 axios.put("http://localhost:8080/songs/addPlayList/" + idSong + "/" + idPlaylist).then((res) => {
-                    toast.success("Thêm thành công vào playlist")
+                    toast.success("Thêm thành công vào playlist", {position: toast.POSITION.BOTTOM_RIGHT, autoClose:500})
                 })
             }
     }
@@ -105,7 +105,7 @@ const Dropdown_listSong = ({idSong}) => {
                             setCheckDelete(!checkDelete)
                             toggleFlag()
 
-                            toast.success("Xóa thành công!", {autoClose: 700})
+                            toast.success("Xóa thành công!", {position: toast.POSITION.BOTTOM_RIGHT,autoClose: 500})
                         }
                     )
             }

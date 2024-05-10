@@ -8,8 +8,8 @@ import {Modal} from "antd";
 import ModalCreatePlayList from "./ModanCreatePlayList";
 import {HiOutlinePlus} from "react-icons/hi";
 import {IoCloseOutline} from "react-icons/io5";
-const notActiveStyle = 'py-2 px-[25px] font-bold text-[#32323D] text-[13px]  flex gap-[12px] items-center text-f'
-const activeStyle ='py-2 px-[25px] font-bold text-[#0F7070] text-[13px]  flex gap-[12px] items-center text-f'
+const notActiveStyle = 'py-2 px-[25px] font-bold text-[#32323D] text-[13px]  flex gap-[12px] items-center text-f hover:bg-[#493961] hover:no-underline'
+const activeStyle ='py-2 px-[25px] font-bold text-[#0F7070] text-[13px]  flex gap-[12px] items-center text-f hover:bg-[#493961] hover:no-underline'
 const SidebarLeft = () => {
     const naviagte = useNavigate()
     const id = localStorage.getItem("idUser");
@@ -41,7 +41,7 @@ const SidebarLeft = () => {
                              end={item.end}
                              className={({isActive}) => isActive ? activeStyle : notActiveStyle}>
                         {item.icons}
-                        <span style={{color: "white"}}>{item.text}</span>
+                        <span className="text-base " style={{color: "white"}}>{item.text}</span>
                     </NavLink>
                 ))}
             </div>

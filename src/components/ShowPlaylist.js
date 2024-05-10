@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {toast} from "react-toastify";
 import swal from "sweetalert";
@@ -18,6 +18,7 @@ const ShowPlaylist = () => {
     const {toggleFlag} = useContext(AppContext);
     const {isFlag} = useContext(AppContext);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const idUser = localStorage.getItem("idUser");
     useEffect(() => {
@@ -67,7 +68,8 @@ const ShowPlaylist = () => {
 
     function getSongsPll(value) {
         dispatch(getSongByPll(value))
-        localStorage.setItem("idPll", value)
+        localStorage.setItem("idPll", value);
+        navigate("/viewPlaylist/"+value)
     }
 
     return (
@@ -79,16 +81,18 @@ const ShowPlaylist = () => {
                 <div className="flex flex-row flex-wrap gap-12 px-4">
                     {list.map((i, key) => {
                         return (
-                            <div className="text-white w-[300px] h-[300px] text-center p-2 mt-2">
-                                <div className="w-[250px] h-[250px] mx-auto rounded-xl overflow-hidden">
+                            <div className="text-white w-[300px] h-[300px] text-center p-2 mt-2"  >
+                                <div className="w-[250px] h-[250px] mx-auto rounded-xl overflow-hidden" onClick={()=>{
+                                    getSongsPll(i.id)}
+                                }>
                                     <img
                                         className="rounded-xl transition-transform duration-300 transform hover:scale-125 hover:cursor-pointer"
                                         src="https://cdn.pixabay.com/photo/2017/05/09/10/03/music-2297759_1280.png"
                                         alt=""/>
                                 </div>
                                 <div className="flex items-center justify-center mt-2">
-                                    <span className="text-xl text-f text-white font-semibold">
-                                        <Link onClick={()=>{
+                                    <span >
+                                        <Link className="text-xl text-f text-white font-semibold" onClick={()=>{
                                             getSongsPll(i.id)}
                                         } to={"/viewPlaylist/"+i.id}>
                                             {i.title}

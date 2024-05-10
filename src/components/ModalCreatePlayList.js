@@ -51,7 +51,7 @@ const ModalCreatePlayList = ({handler}) => {
                             axios.post("http://localhost:8080/playlists/create", values).then(() => {
                                 toast.success("Tạo playlist thành công", {
                                     position: toast.POSITION.BOTTOM_RIGHT,
-                                    autoClose:700
+                                    autoClose:500
                                 })
                                 resetForm();
                                 handler(false)

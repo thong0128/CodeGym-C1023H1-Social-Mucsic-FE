@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useContext, useEffect, useState} from "react";
 import {SongItem} from "./index";
-import {hotSongsList, newSongsList, favoriteSongs} from "../service/SongService";
+import {hotSongsList, newSongsList, favoriteSongs, findAllSong} from "../service/SongService";
 import {AppContext} from "../Context/AppContext";
 
 const NewRelease = () => {
@@ -17,6 +17,9 @@ const NewRelease = () => {
     const favoriteSong = useSelector((store)=>{
         return store.songStore.favoriteSongs;
     })
+    useEffect(() => {
+        dispatch(findAllSong())
+    }, [isFlag]);
 
     useEffect(() => {
         dispatch(newSongsList())
@@ -60,18 +63,22 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songsLates?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4" key={item.id}>
+                            <SongItem
+                                sid={item.id}
+                                // key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                                location={'newSongs'}
+                            />
+                        </div>
+
 
                     ))}
                 </div>
@@ -104,18 +111,22 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songHot?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4" key={item.id}>
+                            <SongItem
+                                sid={item.id}
+                                // key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                                location={'hotSongs'}
+                            />
+                        </div>
+
                     ))}
                 </div>
             </div>
@@ -147,18 +158,22 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {favoriteSong?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={false}
-                        />
+                        <div className="col-md-4" key={item.id}>
+                            <SongItem
+                                sid={item.id}
+                                // key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={false}
+                                location={'favoriteSongs'}
+                            />
+                        </div>
+
                     ))}
                 </div>
             </div>

@@ -52,11 +52,11 @@ const ModalEditPlayList = ({handler, pllId}) => {
                         axios.put("http://localhost:8080/playlist/update", values).then(() => {
                             toast.success("Cập nhật playlist thành công", {
                                 position: toast.POSITION.BOTTOM_RIGHT,
-                                autoClose:700
+                                autoClose:500
                             })
                             resetForm();
                             handler(false)
-                            navigate("/showPlaylist")
+                            // navigate("/showPlaylist")
                             toggleFlag()
                         })
                     }}>

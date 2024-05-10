@@ -15,23 +15,25 @@ const ShowListSong = () => {
     }, [isFlag]);
     return (
         <>
-            <div style={{backgroundColor: "#3c2452", color:"white"}}>
-                <div className="container mt-4" style={{paddingBlock: 50}}>
+            <div style={{backgroundColor: "#3c2452", color: "white"}}>
+                <div className="flex flex-col gap-5 mt-4" style={{paddingBlock: 50}}>
                     <h1 className="font-weight-bold" style={{fontSize: 30}}>Danh sách bài hát</h1>
                     <div className={'row'}>
                         {list?.map(item => (
-                            <SongItem
-                                sid={item.id}
-                                key={item.id}
-                                thumbnail={item.img_url}
-                                title={item.title}
-                                artists={item.singer}
-                                author={item.author}
-                                countLikes={item.countLike}
-                                countListen={item.listenCount}
-                                releaseDate={new Date()}
-                                check={true}
-                            />
+                            <div className="col-md-4">
+                                <SongItem
+                                    sid={item.id}
+                                    key={item.id}
+                                    thumbnail={item.img_url}
+                                    title={item.title}
+                                    artists={item.singer}
+                                    author={item.author}
+                                    countLikes={item.countLike}
+                                    countListen={item.listenCount}
+                                    releaseDate={new Date()}
+                                    check={true}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
