@@ -23,9 +23,6 @@ const Public = () => {
                             <Outlet/>
                         </Scrollbars>
                     </div>
-                    {/*<div className={'mt-12 px-[59px] flex flex-col gap-5'}>*/}
-                    {/*</div>*/}
-
                 </div>
             </div>
             <div className='fixed bottom-0 left-0 right-0 h-[100px]'>

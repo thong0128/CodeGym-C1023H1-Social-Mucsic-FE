@@ -5,30 +5,38 @@ import {AppContext} from "../Context/AppContext";
 import {toast} from "react-toastify";
 import {HiOutlinePencil} from "react-icons/hi";
 import {Modal} from "antd";
-import {IoCloseOutline} from "react-icons/io5";
+import {IoCloseOutline, IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import ModalEditPlayList from "./ModalEditPlaylist";
 import {AiOutlineDelete} from "react-icons/ai";
 import swal from "sweetalert";
 
 function ViewPlaylist() {
     const [List, setList] = useState();
-    const [currentList, setCurrentList] = useState({})
+    const [currentPll, setCurrentPll] = useState({});
+    const [checkLike, setCheckLike] = useState(null);
     const {isFlag} = useContext(AppContext);
     const pllId = localStorage.getItem("idPll");
+    const userId = localStorage.getItem("idUser");
     const {toggleFlag} = useContext(AppContext);
     const [userName1, setUserName1] = useState('')
+
+    // Lấy thông tin của playlist hiện tại
     useEffect(() => {
         axios.get("http://localhost:8080/playlist/" + pllId).then((res) => {
-                setCurrentList(res.data);
+                setCurrentPll(res.data);
                 setUserName1(res.data.appUser.userName)
         })
-    },[]);
+    },[isFlag]);
 
+
+    // Lấy ra tất cả bài hát có trong playlist hiện tại
     useEffect(() => {
         axios.get(`http://localhost:8080/playlist/song/${pllId}`).then((res) => {
             setList(res.data);
         })
     }, [isFlag]);
+
+    // Xóa playlist hiện tại
     function deletePlaylist(id) {
         swal({
             text: "Bạn có muốn xóa Playlist này không?",
@@ -43,7 +51,21 @@ function ViewPlaylist() {
                 toast.success("Xóa thành công!", {position: toast.POSITION.BOTTOM_RIGHT, autoClose: 700})
             })
         })
+    }
 
+    // Kiểm tra user đã like playlist này chưa
+    useEffect(() => {
+        userId?
+            axios.get(`http://localhost:8080/likePll/isLiked/${userId}/${pllId}`).then((res) => {
+                setCheckLike(res.data)
+            }) : setCheckLike(false)
+    },[isFlag]);
+
+    // Like playlist hiện tại
+    const handleLike = ()=>{
+        axios.post(`http://localhost:8080/likePll/${userId}/${pllId}`).then((res) => {
+            toggleFlag();
+        })
     }
     const handleCheck = (isCheck) => {
         setIsModalVisible(isCheck);
@@ -58,6 +80,7 @@ function ViewPlaylist() {
     const handleCancel = () => {
         setIsModalVisible(false);  // Đặt trạng thái của modal là ẩn khi nhấn Cancel
     };
+
 
     return (
         <>
@@ -76,7 +99,7 @@ function ViewPlaylist() {
                                     alt=""/>
                                 <div className="flex items-center justify-center mt-4">
                                     <span
-                                        className="text-2xl text-center text-f text-white font-semibold">{currentList.title}</span>
+                                        className="text-2xl text-center text-f text-white font-semibold">{currentPll.title}</span>
                                     <div
                                         className="ml-2 h-[22px] text-f text-base rounded-lg text-white my-auto font-semibold hover:cursor-pointer"
                                         onClick={() => showModal(pllId)}>
@@ -87,9 +110,13 @@ function ViewPlaylist() {
                                 <div className="flex items-center justify-center mt-2">
                                     <AiOutlineDelete className="text-gray-400 hover:cursor-pointer hover:scale-125"
                                                      size={30} onClick={() => deletePlaylist(pllId)}/>
+                                    <div onClick={() => handleLike()}>
+                                        {checkLike ? <IoHeartSharp size={30}/> : <IoHeartOutline size={30}/>}
+                                    </div>
+                                    <div>{currentPll.countLike}</div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                         <div className="w-2/3 mx-auto rounded-xl px-[10px] ml-4">
                             {List?.map(item => (

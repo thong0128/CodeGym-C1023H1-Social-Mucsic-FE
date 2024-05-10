@@ -15,8 +15,7 @@ import UpdatePass from "./page/public/UpdatePassword";
 import Register from "./page/public/Register";
 import CreateSong from "./components/CreateSong";
 import UpdateSong from "./components/UpdateSong";
-import ShowListSong from "./components/ShowListSong";
-import {DetailSong, NewRelease} from "./components";
+import {DetailSong} from "./components";
 import ListSearchBySongName from "./page/public/ListSearchBySongName";
 import ShowPlaylist from "./components/ShowPlaylist";
 import ViewPlaylist from "./components/ViewPlaylist";
@@ -26,7 +25,6 @@ import ViewSongByType from "./components/ViewSongByType";
 import ShoListSongByNameSinger from "./components/ShoListSongByNameSinger";
 import SearchResult from "./components/SearchResult";
 import UserSongList from "./userSongList/UserSongList";
-import ModalCreatePlayList from "./components/ModanCreatePlayList";
 
 function App() {
     const dispatch = useDispatch()

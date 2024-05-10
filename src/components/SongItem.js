@@ -18,24 +18,28 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {toggleFlag} = useContext(AppContext);
-    const [checkLike, setCheckLike] = useState()
+    const [checkLike, setCheckLike] = useState();
     const pllId = localStorage.getItem("idPll");
+
     useEffect(() => {
         userId?
             axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
                 setCheckLike(res.data)
             }) : setCheckLike(false)
-    });
+    },[userId,sid]);
+
     const handleLike = ()=>{
         axios.post(`http://localhost:8080/songs/likes/${userId}/${sid}`).then((res) => {
             toggleFlag();
         })
     }
+
     const handleCount = ()=>{
         axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
             toggleFlag();
         })
     }
+
     const handleClick = () => {
         handleCount();
         dispatch(findSongById(sid));
