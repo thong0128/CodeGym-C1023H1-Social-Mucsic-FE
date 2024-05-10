@@ -29,6 +29,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { SiApplemusic } from "react-icons/si";
+import { IoMdRemoveCircleOutline } from "react-icons/io";
 
 
 
@@ -62,7 +63,8 @@ const icons = {
     IoCloseOutline,
     AiOutlineDelete,
     MdOutlinePlaylistAdd,
-    SiApplemusic
+    SiApplemusic,
+    IoMdRemoveCircleOutline
 
 }
 export default icons

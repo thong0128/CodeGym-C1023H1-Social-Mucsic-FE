@@ -11,6 +11,7 @@ import {FaHeadphonesAlt} from "react-icons/fa";
 import SongMenu from "../songMenu/SongMenu";
 import swal from "sweetalert";
 import {toast} from "react-toastify";
+import {IoMdRemoveCircleOutline} from "react-icons/io";
 
 const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll}) => {
     let userId = localStorage.getItem("idUser");
@@ -97,8 +98,10 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                     </div>
                     <div className="w-16">
                         {removePll ?
-                            <button className="drop-menu font-medium text-slate-600 hover:text-slate-400 py-3 px-2 ml-2"
-                                    onClick={()=>{deleteSongInPll(pllId,sid)}}>Xóa</button>
+                            <button className="drop-menu font-medium text-slate-300 opacity-50 hover:text-slate-50 hover:scale-125 py-3 px-2 ml-2 "
+                                    onClick={()=>{deleteSongInPll(pllId,sid)}}>
+                                <IoMdRemoveCircleOutline size={24}/>
+                            </button>
                             : <button
                             className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
                             {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}

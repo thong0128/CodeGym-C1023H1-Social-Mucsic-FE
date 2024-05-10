@@ -25,19 +25,20 @@ export default function UserSongList() {
                 <p className="text-slate-200 font-semibold text-2xl">Danh sách bài hát</p>
                 <div className={'row'}>
                     {list?.map(item => (
-                        <SongItem
-                            sid={item.id}
-                            key={item.id}
-                            thumbnail={item.img_url}
-                            title={item.title}
-                            artists={item.singer}
-                            author={item.author}
-                            countLikes={item.countLike}
-                            countListen={item.listenCount}
-                            releaseDate={new Date()}
-                            check={true}
-                        />
-
+                        <div className="col-md-4">
+                            <SongItem
+                                sid={item.id}
+                                key={item.id}
+                                thumbnail={item.img_url}
+                                title={item.title}
+                                artists={item.singer}
+                                author={item.author}
+                                countLikes={item.countLike}
+                                countListen={item.listenCount}
+                                releaseDate={new Date()}
+                                check={true}
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
