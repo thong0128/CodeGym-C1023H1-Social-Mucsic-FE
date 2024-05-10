@@ -60,10 +60,10 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songsLates?.map(item => (
-                        <div className="col-md-4">
+                        <div className="col-md-4" key={item.id}>
                             <SongItem
                                 sid={item.id}
-                                key={item.id}
+                                // key={item.id}
                                 thumbnail={item.img_url}
                                 title={item.title}
                                 artists={item.singer}
@@ -107,10 +107,10 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {songHot?.map(item => (
-                        <div className="col-md-4">
+                        <div className="col-md-4" key={item.id}>
                             <SongItem
                                 sid={item.id}
-                                key={item.id}
+                                // key={item.id}
                                 thumbnail={item.img_url}
                                 title={item.title}
                                 artists={item.singer}
@@ -153,10 +153,10 @@ const NewRelease = () => {
                 </div>
                 <div className={'row'}>
                     {favoriteSong?.map(item => (
-                        <div className="col-md-4">
+                        <div className="col-md-4" key={item.id}>
                             <SongItem
                                 sid={item.id}
-                                key={item.id}
+                                // key={item.id}
                                 thumbnail={item.img_url}
                                 title={item.title}
                                 artists={item.singer}
