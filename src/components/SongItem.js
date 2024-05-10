@@ -17,18 +17,20 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {toggleFlag} = useContext(AppContext);
+    const {toggleFlag, isFlag} = useContext(AppContext);
     const [checkLike, setCheckLike] = useState();
     const pllId = localStorage.getItem("idPll");
 
     useEffect(() => {
         userId?
             axios.get(`http://localhost:8080/songs/users/likes/${userId}/${sid}`).then((res) => {
-                setCheckLike(res.data)
+                setCheckLike(res.data);
+                toggleFlag()
             }) : setCheckLike(false)
-    },[userId,sid]);
+    },[userId,sid,isFlag]);
 
-    const handleLike = ()=>{
+    const handleLike = (event)=>{
+        event.stopPropagation();
         axios.post(`http://localhost:8080/songs/likes/${userId}/${sid}`).then((res) => {
             toggleFlag();
         })
@@ -68,10 +70,9 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
 
 
     return (
-        <div className=" song-item hover:cursor-pointer" onClick={()=>handleClick()}>
+        <div className="song-item hover:cursor-pointer" onClick={()=>handleClick()}>
             <div >
-                <div
-                    className={'group flex p-3 rounded-md hover:bg-white hover:bg-opacity-10'}>
+                <div className={'group flex rounded-md p-2 justify-center items-center'}>
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
                         <img
                             onClick={() => {
@@ -91,25 +92,29 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
                             <p className="mb-1 text-slate-500 text-sm text-f">{author}</p>
                         </div>
                     </div>
-                    <div  className="w-15">
-                        <div className="like-item grid grid-cols-2 grid-rows-4 w-10 justify-center items-center text-center opacity-50">
-                            <div onClick={() => handleLike()}>
-                                {checkLike ? <IoHeartSharp size={16}/> : <IoHeartOutline size={16}/>}
+                    <div className="w-[60px] like-item mt-2 ">
+                            <div
+                                className=" grid grid-cols-3 grid-rows-3 gap-y-2 w-full justify-center items-center text-center opacity-50">
+                                <div className="flex justify-center items-center" onClick={(e) => handleLike(e)}>
+                                    {checkLike ? <IoHeartSharp  size={16}/> : <IoHeartOutline size={16}/>}
+                                </div>
+                                <div className="col-span-2">{countLikes}</div>
+                                <div className="flex justify-center items-center"><FaHeadphonesAlt size={15}/></div>
+                                <div className="col-span-2">{countListen}</div>
                             </div>
-                            <div>{countLikes}</div>
-                            <div><FaHeadphonesAlt size={15}/></div>
-                            <div>{countListen}</div>
-                        </div>
                     </div>
                     <div className="w-16">
                         {removePll ?
-                            <button className="drop-menu font-medium text-slate-300 opacity-50 hover:text-slate-50 hover:scale-125 py-3 px-2 ml-2 "
-                                    onClick={()=>{deleteSongInPll(pllId,sid)}}>
+                            <button
+                                className="drop-menu font-medium text-slate-300 opacity-50 hover:text-slate-50 hover:scale-125 py-3 px-2 ml-2 "
+                                onClick={() => {
+                                    deleteSongInPll(pllId, sid)
+                                }}>
                                 <IoMdRemoveCircleOutline size={24}/>
                             </button>
                             : <button
-                            className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
-                            {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}
+                                className="drop-menu font-medium text-indigo-600 hover:text-indigo-500 py-3 px-2 ml-2">
+                                {check ? <SongMenu idSong={sid}/> : <Dropdown_song idSong={sid}/>}
                         </button>}
 
                     </div>
