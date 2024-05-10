@@ -30,7 +30,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { SiApplemusic } from "react-icons/si";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
-
+import { BsPlayCircle } from "react-icons/bs";
+import { BsPauseCircle } from "react-icons/bs";
 
 
 const icons = {
@@ -64,7 +65,7 @@ const icons = {
     AiOutlineDelete,
     MdOutlinePlaylistAdd,
     SiApplemusic,
-    IoMdRemoveCircleOutline
+    IoMdRemoveCircleOutline,BsPlayCircle,BsPauseCircle
 
 }
 export default icons
