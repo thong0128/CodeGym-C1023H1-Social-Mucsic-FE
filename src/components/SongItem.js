@@ -13,7 +13,7 @@ import swal from "sweetalert";
 import {toast} from "react-toastify";
 import {IoMdRemoveCircleOutline} from "react-icons/io";
 
-const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll}) => {
+const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countListen,check, removePll,location}) => {
     let userId = localStorage.getItem("idUser");
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -43,7 +43,8 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
     const handleClick = () => {
         handleCount();
         dispatch(findSongById(sid));
-
+        toggleFlag();
+        localStorage.setItem("location",location)
     };
 
     const deleteSongInPll=(pllId,sId) =>{
