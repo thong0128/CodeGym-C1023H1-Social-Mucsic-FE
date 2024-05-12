@@ -3,7 +3,7 @@ import icons from "../untis/icons";
 import {useNavigate} from "react-router-dom";
 import {Field, Form, Formik} from "formik";
 import {useDispatch} from "react-redux";
-import {findSongByAuthor, findSongBySinger, findSongByTitle} from "../service/SongService";
+import {findPlaylistByTitle, findSongByAuthor, findSongBySinger, findSongByTitle} from "../service/SongService";
 import {useState} from "react";
 const {AiOutlineSearch} =icons
 const Search = () => {
@@ -18,6 +18,9 @@ const Search = () => {
     function searchByAuthor(value) {
         dispatch(findSongByAuthor(value.searchInput))
     }
+    function searchPlaylist(value) {
+        dispatch(findPlaylistByTitle(value.searchInput))
+    }
 
     const navigate = useNavigate();
     const [isFocused, setIsFocused] = useState(false);
@@ -29,6 +32,7 @@ const Search = () => {
         searchByTitle(values);
         searchBySinger(values);
         searchByAuthor(values);
+        searchPlaylist(values)
         navigate('/fill');
     };
     return (

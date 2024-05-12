@@ -94,7 +94,7 @@ function ViewPlaylist() {
         <>
             <div className='mt-8 px-[59px] flex flex-col gap-4' style={{color: "white"}}>
                 <div className='flex items-center justify-between mb-4'>
-                    <h4 className='text-3xl font-bold'>Playlist của tôi</h4>
+                    <h4 className='text-3xl font-bold'>Playlist</h4>
                     <span className='text-xs'>TẤT CẢ</span>
                 </div>
                 <div className="row">
@@ -106,22 +106,14 @@ function ViewPlaylist() {
                                     src="https://cdn.pixabay.com/photo/2017/05/09/10/03/music-2297759_1280.png"
                                     alt="" onClick={()=>handleClick()}/>
                                 <div className="flex items-center justify-center mt-4">
-                                    <span
-                                        className="text-2xl text-center text-f text-white font-semibold">{currentPll.title}</span>
-                                    <div
-                                        className="ml-2 h-[22px] text-f text-base rounded-lg text-white my-auto font-semibold hover:cursor-pointer"
-                                        onClick={() => showModal(pllId)}>
-                                        <HiOutlinePencil size={24}/>
-                                    </div>
+                                    <span className="text-2xl text-center text-f text-white font-semibold">{currentPll.title}</span>
                                 </div>
                                 <p className="text-center text-f text-slate-400">Tao boi {userName1}</p>
                                 <div className="flex items-center justify-center mt-2">
-                                    <AiOutlineDelete className="text-gray-400 hover:cursor-pointer hover:scale-125"
-                                                     size={30} onClick={() => deletePlaylist(pllId)}/>
                                     <div onClick={() => handleLike()}>
-                                        {checkLike ? <IoHeartSharp size={30}/> : <IoHeartOutline size={30}/>}
+                                        {checkLike ? <IoHeartSharp size={20}/> : <IoHeartOutline size={20}/>}
                                     </div>
-                                    <div>{currentPll.countLike}</div>
+                                    <p className="ml-1 text-[15px]" >{currentPll.countLike}</p>
                                 </div>
                             </div>
 

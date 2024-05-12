@@ -65,6 +65,14 @@ export const findSongByAuthor = createAsyncThunk(
     }
 )
 
+export const findPlaylistByTitle = createAsyncThunk(
+    'playlist/findByTitle',
+    async (title) => {
+        const res = await axios.get("http://localhost:8080/playlist/findByTitle/" + title);
+        return res.data
+    }
+)
+
 export const getSongByPll = createAsyncThunk(
     'playlist/song',
     async (idPll) => {
