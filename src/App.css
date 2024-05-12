@@ -99,14 +99,16 @@ html {
 .like-item{
     /*display: none;*/
     display: block;
-    opacity: 1;
+    opacity: 0;
 }
 .drop-menu{
     /*display: none;*/
     display: block;
+    opacity: 0;
 }
 .song-item:hover .drop-menu{
     display: block;
+    opacity: 1;
 }
 .song-item:hover .like-item{
     display: block;

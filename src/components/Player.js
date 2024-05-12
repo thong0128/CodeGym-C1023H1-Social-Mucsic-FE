@@ -19,6 +19,7 @@ import {AppContext} from "../Context/AppContext";
 import {findAllSong, newSongsList} from "../service/SongService";
 import songItem from "./SongItem";
 import {setCurSongId} from "../store/actions";
+import {BsPauseCircle, BsPlayCircle} from "react-icons/bs";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -263,7 +264,7 @@ const Player = (prop) => {
                                 }}
                             >
                                 <IconButton aria-label="previous song" onClick={()=>reverseNextSong()} size="large">
-                                    <FastRewindRounded fontSize="large" htmlColor={'#fff'}/>
+                                    <FastRewindRounded fontSize="30px" htmlColor={'#f3f4f6'}/>
                                 </IconButton>
                                 <IconButton
                                     aria-label={playing ? 'pause' : 'play'}
@@ -271,32 +272,16 @@ const Player = (prop) => {
                                     size="large"
                                 >
                                     {playing ? (
-                                        <PauseRounded sx={{fontSize: '2.5rem'}} htmlColor={'#fff'}/>
+                                        <BsPauseCircle className="text-gray-100 hover:text-purple-700" size={35} />
                                     ) : (
-                                        <PlayArrowRounded
-                                            sx={{fontSize: '2.5rem'}}
-                                            htmlColor={'#fff'}
+                                        <BsPlayCircle className="text-gray-100 hover:text-purple-700" size={35}
                                         />
                                     )}
                                 </IconButton>
-                                <IconButton aria-label="next song" onClick={()=>transferNextSong()} size="large">
-                                    <FastForwardRounded fontSize="large" htmlColor={'#fff'}/>
+                                <IconButton aria-label="next song" onClick={()=>transferNextSong()} size="medium">
+                                    <FastForwardRounded fontSize="30px" htmlColor={'#f3f4f6'}/>
                                 </IconButton>
                             </Box>
-                            {/*<input style={{*/}
-                            {/*    accentColor: 'white',*/}
-                            {/*    outline: 'none',*/}
-                            {/*    border: 'none',*/}
-                            {/*    height: '5px'*/}
-                            {/*}}*/}
-
-                            {/*       className="form-control-range"*/}
-                            {/*       type='range' min={0} max={0.999999} step='any'*/}
-                            {/*       value={played}*/}
-                            {/*       onMouseDown={handleSeekMouseDown}*/}
-                            {/*       onChange={handleSeekChange}*/}
-                            {/*       onMouseUp={handleSeekMouseUp}*/}
-                            {/*/>*/}
                             <Box
                                 sx={{
                                     display: 'flex',
