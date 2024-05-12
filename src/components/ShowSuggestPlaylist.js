@@ -13,7 +13,7 @@ const ShowSuggestPlaylist = () => {
     useEffect(() => {
         axios.get("http://localhost:8080/playlist/suggest/" + idUser).then((res) => {
             setList(res.data);
-        }, [idUser]);
+        });
     });
 
 

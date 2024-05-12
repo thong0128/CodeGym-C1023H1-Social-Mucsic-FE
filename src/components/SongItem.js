@@ -20,6 +20,7 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
     const {toggleFlag, isFlag} = useContext(AppContext);
     const [checkLike, setCheckLike] = useState();
     const pllId = localStorage.getItem("idPll");
+    localStorage.setItem("sId",sid);
 
     useEffect(() => {
         userId?
@@ -36,14 +37,7 @@ const SongItem = ({thumbnail, title, artists, sid, author, countLikes, countList
         })
     }
 
-    const handleCount = ()=>{
-        axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
-            toggleFlag();
-        })
-    }
-
     const handleClick = () => {
-        handleCount();
         dispatch(findSongById(sid));
         toggleFlag();
         localStorage.setItem("location",location)

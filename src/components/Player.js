@@ -1,14 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState, useRef, useContext} from "react";
 import ReactPlayer from "react-player";
-import axios from "../axios";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import PauseRounded from '@mui/icons-material/PauseRounded';
-import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded';
 import FastForwardRounded from '@mui/icons-material/FastForwardRounded';
 import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
@@ -16,10 +13,8 @@ import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import {AppContext} from "../Context/AppContext";
-import {findAllSong, newSongsList} from "../service/SongService";
-import songItem from "./SongItem";
-import {setCurSongId} from "../store/actions";
 import {BsPauseCircle, BsPlayCircle} from "react-icons/bs";
+import axios from "axios";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -99,7 +94,7 @@ const Player = (prop) => {
     const [volume, setVolume] = useState(0.8);
     const [playing, setPlaying] = useState(true);
     const [seeking, setSeeking] = useState(false);
-    const [nameSong, setNameSong] = useState(currentSong?.nameSong);
+    const [title, setTitle] = useState(currentSong?.nameSong);
     const [singer, setSinger] = useState(currentSong?.singer);
     const {isFlag} = useContext(AppContext);
     const dispatch = useDispatch();
@@ -144,7 +139,7 @@ const Player = (prop) => {
     useEffect(() => {
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
-        setNameSong(currentSong.title);
+        setTitle(currentSong.title);
         setSinger(currentSong.singer)
         for (let i = 0; i<listSong.length; i++){
             if (listSong[i].id === currentSong.id){
@@ -163,7 +158,7 @@ const Player = (prop) => {
         setIndexSong(newIndex);
         setUrl(listSong[newIndex].song_url);
         setUrlImg(listSong[newIndex].img_url);
-        setNameSong(listSong[newIndex].title);
+        setTitle(listSong[newIndex].title);
         setSinger(listSong[newIndex].singer);
     }
     const reverseNextSong = () => {
@@ -174,7 +169,7 @@ const Player = (prop) => {
         setIndexSong(newIndex);
         setUrl(listSong[newIndex].song_url);
         setUrlImg(listSong[newIndex].img_url);
-        setNameSong(listSong[newIndex].title);
+        setTitle(listSong[newIndex].title);
         setSinger(listSong[newIndex].singer);
     }
     const handlePlay = () => {
@@ -193,10 +188,20 @@ const Player = (prop) => {
         // console.log('onEnded')
         setPlaying(true);
     }
+
+    const [axiosCalled, setAxiosCalled] = useState(false);
+    const sid = localStorage.getItem("sId");
+    const {toggleFlag} = useContext(AppContext);
     const handleProgress = state => {
         setCurrentTime(state.playedSeconds)
         // console.log('onProgress', state)
         // We only want to update time slider if we are not currently seeking
+        if (state.playedSeconds > 60 && !axiosCalled) {
+            axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
+                setAxiosCalled(true);
+                toggleFlag();
+            });
+        }
         if (!seeking) {
             setPlayed(state.played);
         }
@@ -245,7 +250,7 @@ const Player = (prop) => {
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
                                     <Typography className="text-white" fontSize={16}>
-                                        {nameSong === null ? "Unknown" : nameSong}
+                                        {title === null ? "Unknown" : title}
                                     </Typography>
                                     <Typography className="text-gray-500" fontSize={12}>
                                         <b>{singer === null ? "Ca sĩ" : singer}</b>

@@ -30,7 +30,7 @@ const ModalCreatePlayList = ({handler}) => {
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
     return (
-<>
+        <>
                 <Formik initialValues={{
                     title: "",
                     appUser: {
@@ -79,7 +79,7 @@ const ModalCreatePlayList = ({handler}) => {
 
                     </Form>
                 </Formik>
-</>
+        </>
     );
 };
 
