@@ -6,10 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModanCreatePlayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModanCreatePlayList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Chill.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreatePlayList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MenuSetting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreatePlayList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreateTypeSong.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShowSuggestPlaylist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowSuggestPlaylist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShoListSongByNameSinger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShowListSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowListSong.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ViewSongByType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dropdown_listSong.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/hover.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/public/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userSongList/UserSongList.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/css" />
+        <entry key="$PROJECT_DIR$" value="features/playlist" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +67,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "features/playlist",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/0_WebFullStack/8_Module6/CodeGym-C1023H1-Social-Mucsic-FE",
     "node.js.detected.package.eslint": "true",

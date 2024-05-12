@@ -21,11 +21,9 @@ import ShowPlaylist from "./components/ShowPlaylist";
 import ViewPlaylist from "./components/ViewPlaylist";
 import {AppProvider} from "./Context/AppContext";
 import UpdatePlayList from "./components/UpdatePlayList";
-import ViewSongByType from "./components/ViewSongByType";
-import ShoListSongByNameSinger from "./components/ShoListSongByNameSinger";
 import SearchResult from "./components/SearchResult";
-import UserSongList from "./userSongList/UserSongList";
 import ShowSuggestPlaylist from "./components/ShowSuggestPlaylist";
+import ShowListSong from "./components/ShowListSong";
 
 function App() {
     const dispatch = useDispatch()
@@ -41,21 +39,19 @@ function App() {
                       <Route path={path.HOME} element={<Home/>}></Route>
                       <Route path={path.FILL} element={<SearchResult/>}></Route>
                       <Route path={path.LOGIN} element={<Login/>}></Route>
-                      <Route path={path.CREATESONG} element={<CreateSong></CreateSong>}></Route>
+                      <Route path={path.CREATESONG} element={<CreateSong/>}></Route>
                       <Route path={path.REGISTER} element={<Register/>}></Route>
                       <Route path={path.LISTUSER} element={<UserList/>}></Route>
                       <Route path={path.UPDATEUSER} element={<UpdateUser/>}></Route>
                       <Route path={'album/:id'} element={<Album/>}></Route>
                       <Route path={path.UPDATEPASS} element={<UpdatePass/>}></Route>
-                      <Route path={"update/:id"} element={<UpdateSong></UpdateSong>}></Route>
-                      <Route path={"showList"} element={<UserSongList></UserSongList>}></Route>
+                      <Route path={"update/:id"} element={<UpdateSong/>}></Route>
+                      <Route path={"showList"} element={<ShowListSong/>}></Route>
                       <Route path={path.DETAILSONG} element={<DetailSong/>}></Route>
                       <Route path={path.SEARCHBYSONGNAME} element={<ListSearchBySongName/>}></Route>
                       <Route path={"showPlaylist"} element={<ShowPlaylist/>}></Route>
                       <Route path={"viewPlaylist/:id"} element={<ViewPlaylist/>}></Route>
                       <Route path={"updatePlayList/:id"} element={<UpdatePlayList/>}></Route>
-                      <Route path={"viewSongByType/:id"} element={<ViewSongByType/>}></Route>
-                      <Route path={"showListByNameSinger/:name"} element={<ShoListSongByNameSinger/>}></Route>
                       <Route path={path.SUGGEST_PLAYLIST} element={<ShowSuggestPlaylist/>}></Route>
                   </Route>
               </Routes>

@@ -7,10 +7,8 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import MenuLogOut from "./MenuLogOut";
 import MenuAdmin from "./MenuAdmin";
-import {FaRegCircleUser} from "react-icons/fa6";
 import {AppContext} from "../Context/AppContext";
 import {Modal} from "antd";
-import ModalCreatePlayList from "./ModanCreatePlayList";
 import {BiUser} from "react-icons/bi";
 
 const {IoIosArrowRoundBack, IoIosArrowRoundForward} = icons

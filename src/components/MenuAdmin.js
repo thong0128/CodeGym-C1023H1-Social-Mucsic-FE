@@ -2,11 +2,8 @@ import React from 'react';
 import "../css_component/MenuLogoutCSS.css"
 import {CiSettings} from "react-icons/ci";
 import {TbPasswordUser} from "react-icons/tb";
-import {HiOutlinePlus} from "react-icons/hi";
 import {AiOutlineLogout} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
-import UpdatePass from "../page/public/UpdatePassword";
-import ModalCreateTypeSong from "./ModalCreateTypeSong";
     const MenuAdmin = ({handler}) => {
     const navigate = useNavigate()
     function logOut() {
@@ -41,9 +38,6 @@ import ModalCreateTypeSong from "./ModalCreateTypeSong";
                     <li>
                         <div className="use-icon">
                             <TbPasswordUser style={{width:20, height:20}} />
-                        </div>
-                        <div className="use-content">
-                            <ModalCreateTypeSong/>
                         </div>
                     </li>
                     <li onClick={logOut}>

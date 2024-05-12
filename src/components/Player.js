@@ -192,6 +192,11 @@ const Player = (prop) => {
     const [axiosCalled, setAxiosCalled] = useState(false);
     const sid = localStorage.getItem("sId");
     const {toggleFlag} = useContext(AppContext);
+
+    useEffect(() => {
+        setAxiosCalled(false);
+    }, [sid]);
+
     const handleProgress = state => {
         setCurrentTime(state.playedSeconds)
         // console.log('onProgress', state)
