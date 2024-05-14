@@ -14,6 +14,26 @@ import { IoTrashBin } from "react-icons/io5";
 import { RiPlayListLine } from "react-icons/ri";
 import { IoSettings } from "react-icons/io5";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { FaHeart } from "react-icons/fa";
+import { IoHeartOutline } from "react-icons/io5";
+import { IoHeartSharp } from "react-icons/io5";
+import { FaHeadphonesAlt } from "react-icons/fa";
+import { MdClear } from "react-icons/md";
+import { RiFolderMusicLine } from "react-icons/ri";
+import { BiSolidPlaylist } from "react-icons/bi";
+import { FiUpload } from "react-icons/fi";
+import { AiOutlineEllipsis } from "react-icons/ai";
+import { BiUser } from "react-icons/bi";
+import { HiOutlinePencil } from "react-icons/hi";
+import { IoCloseOutline } from "react-icons/io5";
+import { AiOutlineDelete } from "react-icons/ai";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
+import { SiApplemusic } from "react-icons/si";
+import { IoMdRemoveCircleOutline } from "react-icons/io";
+import { BsPlayCircle } from "react-icons/bs";
+import { BsPauseCircle } from "react-icons/bs";
+
+
 const icons = {
     MdOutlineLibraryMusic,
     LiaChartPieSolid,
@@ -30,8 +50,22 @@ const icons = {
     IoTrashBin,
     RiPlayListLine,
     IoSettings,
-    IoArrowBackOutline
-
+    IoArrowBackOutline,
+    FaHeart,
+    IoHeartOutline,
+    FaHeadphonesAlt,
+    IoHeartSharp,MdClear,
+    RiFolderMusicLine,
+    BiSolidPlaylist,
+    FiUpload,
+    AiOutlineEllipsis,
+    BiUser,
+    HiOutlinePencil,
+    IoCloseOutline,
+    AiOutlineDelete,
+    MdOutlinePlaylistAdd,
+    SiApplemusic,
+    IoMdRemoveCircleOutline,BsPlayCircle,BsPauseCircle
 
 }
 export default icons

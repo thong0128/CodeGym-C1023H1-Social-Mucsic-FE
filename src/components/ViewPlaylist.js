@@ -1,72 +1,158 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate, useParams} from "react-router-dom";
-import {Field, Form, Formik} from "formik";
+import React, {useContext, useEffect, useState} from 'react';
+import {SongItem} from "./index";
 import axios from "axios";
+import {AppContext} from "../Context/AppContext";
 import {toast} from "react-toastify";
-import {IoAddOutline} from "react-icons/io5";
-import {MdDeleteOutline, MdOutlineBrowserUpdated} from "react-icons/md";
+import {HiOutlinePencil} from "react-icons/hi";
+import {Modal} from "antd";
+import {IoCloseOutline, IoHeartOutline, IoHeartSharp} from "react-icons/io5";
+import ModalEditPlayList from "./ModalEditPlaylist";
+import {AiOutlineDelete} from "react-icons/ai";
+import swal from "sweetalert";
+import {getSongByPll} from "../service/SongService";
+import {useDispatch} from "react-redux";
 
-function ViewPlaylist(props) {
-    const navigate = useNavigate();
-    const idPlaylist = useParams();
-    const [listSong, setListSong] = useState([])
-    const [playList, setPlayList] = useState({})
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs/searchByIdPll/" + idPlaylist.id).then((res)=>{
-    //         setListSong(res.data);
-    //         console.log("lít r: ", listSong)
-    //     })
-    // },[listSong]);
+function ViewPlaylist() {
+    const [List, setList] = useState();
+    const [currentPll, setCurrentPll] = useState({});
+    const [checkLike, setCheckLike] = useState(null);
+    const {isFlag} = useContext(AppContext);
+    const pllId = localStorage.getItem("idPll");
+    const userId = localStorage.getItem("idUser");
+    const {toggleFlag} = useContext(AppContext);
+    const [userName1, setUserName1] = useState('')
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/playLists/" + idPlaylist.id).then((res)=>{
-    //         setPlayList(res.data);
-    //     })
-    // }, []);
+    // Lấy thông tin của playlist hiện tại
+    useEffect(() => {
+        axios.get("http://localhost:8080/playlist/" + pllId).then((res) => {
+                setCurrentPll(res.data);
+                setUserName1(res.data.appUser.userName)
+        })
+    },[isFlag]);
 
-    function deleteSong(idSong, idPlaylist) {
-        axios.delete("http://localhost:8080/playLists/deleteSongInPlaylist/" + idSong + "/" + idPlaylist).then((res)=>{
-            toast.success("Bạn vừa xóa 1 bài hát ra khỏi D/S", {
-                position: toast.POSITION.BOTTOM_RIGHT
+
+    // Lấy ra tất cả bài hát có trong playlist hiện tại
+    useEffect(() => {
+        axios.get(`http://localhost:8080/playlist/song/${pllId}`).then((res) => {
+            setList(res.data);
+        })
+    }, [isFlag]);
+
+    // Xóa playlist hiện tại
+    function deletePlaylist(id) {
+        swal({
+            text: "Bạn có muốn xóa Playlist này không?",
+            icon: "info",
+            buttons: {
+                cancel: true,
+                confirm: true
+            },
+        }).then(r=>{
+            axios.delete("http://localhost:8080/playlist/" + id).then((res) => {
+                toggleFlag()
+                toast.success("Xóa thành công!", {position: toast.POSITION.BOTTOM_RIGHT, autoClose: 700})
             })
         })
     }
+
+    // Kiểm tra user đã like playlist này chưa
+    useEffect(() => {
+        userId?
+            axios.get(`http://localhost:8080/likePll/isLiked/${userId}/${pllId}`).then((res) => {
+                setCheckLike(res.data)
+            }) : setCheckLike(false)
+    },[isFlag]);
+
+    // Like playlist hiện tại
+    const handleLike = ()=>{
+        axios.post(`http://localhost:8080/likePll/${userId}/${pllId}`).then((res) => {
+            toggleFlag();
+        })
+    }
+    const handleClick = () => {
+        dispatch(getSongByPll(pllId));
+        toggleFlag();
+
+    };
+    const handleCheck = (isCheck) => {
+        setIsModalVisible(isCheck);
+    }
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const showModal = (pid) => {
+        setIsModalVisible(true);  // Đặt trạng thái của modal là hiển thị
+    };
+    const handleOk = () => {
+        setIsModalVisible(false);  // Đặt trạng thái của modal là ẩn khi nhấn OK
+    };
+    const handleCancel = () => {
+        setIsModalVisible(false);  // Đặt trạng thái của modal là ẩn khi nhấn Cancel
+    };
+
+
     return (
         <>
-            <div style={{color:"white", marginTop:30}}>
-                <div className="name_playlist" style={{paddingBottom:20, fontSize: 30, paddingLeft:10}}>
-                    Danh sách bài hát của: {playList.namePlayList}
+            <div className='mt-8 px-[59px] flex flex-col gap-4' style={{color: "white"}}>
+                <div className='flex items-center justify-between mb-4'>
+                    <h4 className='text-3xl font-bold'>Playlist</h4>
+                    <span className='text-xs'>TẤT CẢ</span>
                 </div>
-                <table className="table" style={{color:"white"}}>
-                    <thead>
-                    <tr>
-                        <th scope="col">STT</th>
-                        <th scope="col">Tên bài hát</th>
-                        <th scope="col">Tên ca sĩ</th>
-                        <th scope="col">Tên nhạc sĩ</th>
-                        <th scope="col">Ảnh</th>
-                        <th scope="col" colSpan={2}></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {listSong.map((i, key)=> {
-                        return (
-                            <tr>
-                                <th scope="row">{i.id}</th>
-                                <td onClick={()=>{
-                                    navigate("/detailSong/" + i.id)
-                                }}>{i.nameSong}</td>
-                                <td>{i.singer}</td>
-                                <td>{i.author}</td>
-                                <td><img src={i.url_img} style={{width:50, height:50}}/></td>
-                                <td><MdDeleteOutline onClick={()=>{
-                                    deleteSong(i.id, idPlaylist.id);
-                                }} style={{width:30, height:30}}/></td>
-                            </tr>
-                        )
-                    })}
-                    </tbody>
-                </table>
+                <div className="row">
+                    <div className="flex flex-row gap-4 w-full">
+                        <div className="w-1/3 h-full mx-auto rounded-xl flex justify-center">
+                            <div>
+                                <img
+                                    className="w-[250px] h-[250px] rounded-xl transition-transform duration-300 transform hover:scale-110 hover:cursor-pointer"
+                                    src="https://cdn.pixabay.com/photo/2017/05/09/10/03/music-2297759_1280.png"
+                                    alt="" onClick={()=>handleClick()}/>
+                                <div className="flex items-center justify-center mt-4">
+                                    <span className="text-2xl text-center text-f text-white font-semibold">{currentPll.title}</span>
+                                </div>
+                                <p className="text-center text-f text-slate-400">Tao boi {userName1}</p>
+                                <div className="flex items-center justify-center mt-2">
+                                    <div onClick={() => handleLike()}>
+                                        {checkLike ? <IoHeartSharp size={20}/> : <IoHeartOutline size={20}/>}
+                                    </div>
+                                    <p className="ml-1 text-[15px]" >{currentPll.countLike}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="w-2/3 mx-auto rounded-xl px-[10px] ml-4">
+                            {List?.map(item => (
+                                <div className="col-md-10">
+                                    <SongItem
+                                        sid={item.id}
+                                        key={item.id}
+                                        thumbnail={item.img_url}
+                                        title={item.title}
+                                        artists={item.singer}
+                                        author={item.author}
+                                        countLikes={item.countLike}
+                                        countListen={item.listenCount}
+                                        releaseDate={new Date()}
+                                        check={false}
+                                        removePll={true}
+                                        location={'playlistSongs'}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div>
+                        <Modal
+                            width={350}
+                            visible={isModalVisible}
+                            onOk={handleOk}
+                            onCancel={handleCancel}
+                            footer={null}
+                            closeIcon={<IoCloseOutline size={24} style={{color: 'white'}}/>}
+                        >
+                            <ModalEditPlayList pllId={pllId} handler={handleCheck}/>
+                        </Modal>
+                    </div>
+                </div>
+
             </div>
         </>
     );

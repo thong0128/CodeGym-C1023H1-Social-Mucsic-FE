@@ -1,45 +1,70 @@
 
 import icons from "../untis/icons";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {Field, Form, Formik} from "formik";
-import {toast} from "react-toastify";
-import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {searchByName} from "../service/SongService";
+import {findPlaylistByTitle, findSongByAuthor, findSongBySinger, findSongByTitle} from "../service/SongService";
+import {useState} from "react";
 const {AiOutlineSearch} =icons
 const Search = () => {
-    let navigate = useNavigate();
-    let [idSong,setIdSong] = useState()
+
     const dispatch = useDispatch()
-    function searchByNameSong(value) {
-        dispatch(searchByName(value.nameSong))
+    function searchByTitle(value) {
+        dispatch(findSongByTitle(value.searchInput))
     }
+    function searchBySinger(value) {
+        dispatch(findSongBySinger(value.searchInput))
+    }
+    function searchByAuthor(value) {
+        dispatch(findSongByAuthor(value.searchInput))
+    }
+    function searchPlaylist(value) {
+        dispatch(findPlaylistByTitle(value.searchInput))
+    }
+
+    const navigate = useNavigate();
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => setIsFocused(true);
+    const handleBlur = () => setIsFocused(false);
+
+    const handleSubmit = (values) => {
+        searchByTitle(values);
+        searchBySinger(values);
+        searchByAuthor(values);
+        searchPlaylist(values)
+        navigate('/fill');
+    };
     return (
         <>
-            <Formik initialValues={{
-                nameSong: "",
-            }}
-                    enableReinitialize={true}
-                    onSubmit={(value) => {
-                        searchByNameSong(value)
-                        console.log(value)
-                    }}>
-                <Form>
-                    <div className='w-full flex items-center'>
-                            <span className='h-10 pl-4 bg-[#DDE4E4] flex items-center justify-center rounded-l-[20px] text-gray-500'>
-                                <AiOutlineSearch size={24}/>
-                            </span>
-                        <Field
-                            type="text"
-                            className='outline-none px-4 bg-[#DDE4E4] py-2 w-full rounded-r-[20px] h-10 text-gray-500'
-                            placeholder='Tìm kiếm bài hát, nghệ sĩ, lời bài hát...'
-                            name="nameSong"
-                        />
-                        <button>
-                        </button>
-                    </div>
-                </Form>
+            <Formik
+                initialValues={{
+                    searchInput: "",
+                }}
+                enableReinitialize={true}
+                onSubmit={(values) => handleSubmit(values)}
+            >
+                {({values})=>(
+                    <Form>
+                        <div className={`w-full flex items-center rounded-3xl ${isFocused? 'bg-[#34224f]' : 'bg-[#2f2739]'}`}>
+                        <span
+                            className='h-10 px-[16px] flex items-center justify-center rounded-l-[20px] text-slate-200'>
+                        <AiOutlineSearch size={24}/>
+                    </span>
+                            <Field
+                                type="text"
+                                className={`outline-none py-2 w-full rounded-r-[20px] h-10 text-slate-200 text-f ${isFocused? 'bg-[#34224f]' : 'bg-[#2f2739]'}`}
+                                placeholder='Tìm kiếm bài hát, nghệ sĩ, tác giả...'
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                name="searchInput"
+                            />
+                        </div>
+                    </Form>
+                )
+
+                }
+
             </Formik>
         </>
     )

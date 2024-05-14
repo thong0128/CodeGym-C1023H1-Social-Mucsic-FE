@@ -53,10 +53,6 @@ export default function UpdateUser() {
             })
         }
     }, [])
-    // const users1 = {}
-    // useEffect(() => {
-    //     setUser(users1)
-    // }, []);
 
     const uploadFile = (image) => {
         if (image === null) return
@@ -92,7 +88,7 @@ export default function UpdateUser() {
     if (id != null){
         return (
             <>
-                <Modal width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
+                <Modal width={800} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
                        footer={null}>
                     <Formik
                         initialValues={user}
@@ -109,7 +105,8 @@ export default function UpdateUser() {
                         }}
                     >
                         <Form>
-                            <div className="card">
+                            <div className="card rounded-2xl text-f">
+                                <p className="card-header text-gray-800 text-xl text-f font-semibold">Cập nhật thông tin</p>
                                 <div className="row align-items-center no-gutters">
                                     <div className="col-md-6">
                                         <div className="col-md-12 upload-img">
@@ -130,39 +127,42 @@ export default function UpdateUser() {
                                     <div className="col-md-6">
                                         <div className="card-body">
                                             <div className="form-group mb-2">
-                                                <label className="form-label" htmlFor="email">Địa chỉ email (<span
-                                                    className="text-danger">*</span>)</label>
+                                                <label className="form-label uppercase" htmlFor="email">Địa chỉ email
+                                                    (<span
+                                                        className="text-danger">*</span>)</label>
                                                 <Field name="email" type="email" id="email"
                                                        placeholder="Nhập Email của bạn"
-                                                       className="form-control"/>
+                                                       className="form-control text-f rounded-full"/>
                                             </div>
                                             <div className="form-group mb-2">
-                                                <label className="form-label" htmlFor="email">Tên đăng nhập (<span
-                                                    className="text-danger">*</span>)</label>
+                                                <label className="form-label uppercase" htmlFor="email">Tên đăng nhập
+                                                    (<span
+                                                        className="text-danger">*</span>)</label>
                                                 <Field name="userName" type="text" id="userName"
                                                        placeholder="Nhập tên của bạn"
-                                                       className="form-control"/>
+                                                       className="form-control text-f rounded-full"/>
                                             </div>
                                             <div className="form-group mb-2">
-                                                <label className="form-label" htmlFor="phone">Số điện thoại (<span
-                                                    className="text-danger">*</span>)</label>
+                                                <label className="form-label uppercase" htmlFor="phone">Số điện thoại
+                                                    (<span
+                                                        className="text-danger">*</span>)</label>
                                                 <Field name="phoneNumber" type="phoneNumber" id="phone"
                                                        placeholder="Nhập số điện thoại của bạn"
-                                                       className="form-control"/>
+                                                       className="form-control text-f rounded-full"/>
                                             </div>
                                             <div className="form-group mb-2">
-                                                <label className="form-label" htmlFor="address">Địa chỉ
+                                                <label className="form-label uppercase" htmlFor="address">Địa chỉ
                                                     (<span className="text-danger">*</span>)</label>
                                                 <Field name="address" type="text" id="address"
                                                        placeholder="Nhập địa chỉ của bạn"
-                                                       className="form-control"/>
+                                                       className="form-control text-f rounded-full"/>
                                             </div>
                                         </div>
-                                        <div className="container-login100-form-btn">
-                                            <button className="login100-form-btn">
+                                        <div className="text-center">
+                                            <button className="login100-form-btn w-30 m-auto h-12 text-f">
                                                 Cập nhật
                                             </button>
-                                            <button type="button" className="btn btn-default"
+                                            <button type="button" className="mt-2 text-base text-f"
                                                     onClick={handleCancel}>Quay lại
                                             </button>
                                         </div>

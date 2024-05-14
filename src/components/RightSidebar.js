@@ -3,8 +3,7 @@ import { Button, Drawer } from 'antd';
 import {IoTrashBin} from "react-icons/io5";
 import {SongItem} from "./index";
 import {useSelector} from "react-redux";
-import {apiGetDetailPlaylist} from "../apis";
-import axios from "axios";
+
 
 const RightSidebar = () => {
     const [open, setOpen] = useState(false);

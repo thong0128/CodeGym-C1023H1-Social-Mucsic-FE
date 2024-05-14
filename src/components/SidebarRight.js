@@ -10,12 +10,6 @@ const SidebarRight = () => {
     const [songs, setSongs] = useState([])
     const [isRecent, setisRecent] = useState(false)
     const {playlist, setPlaylist} = useState()
-    // useEffect(() => {
-    //     axios.get("http://localhost:8080/songs/searchByIdPll/" + 1).then((res)=>{
-    //         setSongs(res.data);
-    //
-    //     })
-    // }, []);
 
     return (
         <div className={'flex flex-col text-xs w-full'}>

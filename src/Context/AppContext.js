@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
 
 
     return (
-        <AppContext.Provider value={{ isFlag,toggleFlag ,checkLogin, login, logout }}>
+        <AppContext.Provider value={{ isFlag,toggleFlag ,checkLogin, login, logout}}>
             {children}
         </AppContext.Provider>
     );

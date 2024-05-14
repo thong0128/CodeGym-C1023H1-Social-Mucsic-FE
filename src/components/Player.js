@@ -1,21 +1,20 @@
-import {useSelector} from "react-redux";
-import {useEffect, useState, useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect, useState, useRef, useContext} from "react";
 import ReactPlayer from "react-player";
-import axios from "../axios";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import PauseRounded from '@mui/icons-material/PauseRounded';
-import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded';
 import FastForwardRounded from '@mui/icons-material/FastForwardRounded';
 import FastRewindRounded from '@mui/icons-material/FastRewindRounded';
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded';
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded';
 import {styled, useTheme} from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
-import Paper from '@mui/material/Paper';
+import {AppContext} from "../Context/AppContext";
+import {BsPauseCircle, BsPlayCircle} from "react-icons/bs";
+import axios from "axios";
 
 const WallPaper = styled('div')({
     position: 'absolute',
@@ -24,33 +23,33 @@ const WallPaper = styled('div')({
     top: 0,
     left: 0,
     overflow: 'hidden',
-    background: 'linear-gradient(rgb(255, 38, 142) 0%, rgb(255, 105, 79) 100%)',
+    background: '#130c1c',
     transition: 'all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s',
     '&:before': {
         content: '""',
-        width: '140%',
-        height: '140%',
+        width: '100%',
+        height: '100%',
         position: 'absolute',
-        top: '-40%',
+        top: '-10%',
         right: '-50%',
         background:
-            'radial-gradient(at center center, rgb(62, 79, 249) 0%, rgba(62, 79, 249, 0) 64%)',
+            '#130c1c',
     },
     '&:after': {
         content: '""',
-        width: '140%',
-        height: '140%',
+        width: '100%',
+        height: '100%',
         position: 'absolute',
-        bottom: '-50%',
+        bottom: '-20%',
         left: '-30%',
         background:
-            'radial-gradient(at center center, rgb(247, 237, 225) 0%, rgba(247, 237, 225, 0) 70%)',
+            '#130c1c',
         transform: 'rotate(30deg)',
     },
 });
 
 const Widget = styled('div')(({theme}) => ({
-    padding: 4,
+    padding: 10,
     borderRadius: 0,
     width: '100%',
     maxWidth: '100%',
@@ -58,13 +57,13 @@ const Widget = styled('div')(({theme}) => ({
     position: 'relative',
     zIndex: 1,
     backgroundColor:
-        theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.4)',
+        theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.6)' : '#130c1c',
     backdropFilter: 'blur(40px)',
 }));
 
 const CoverImage = styled('div')({
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     objectFit: 'cover',
     overflow: 'hidden',
     flexShrink: 0,
@@ -77,7 +76,7 @@ const CoverImage = styled('div')({
 
 const TinyText = styled(Typography)({
     fontSize: '0.75rem',
-    opacity: 0.38,
+    opacity: 0.5,
     fontWeight: 500,
     letterSpacing: 0.2,
 });
@@ -85,7 +84,7 @@ const TinyText = styled(Typography)({
 const Player = (prop) => {
     const ref = useRef(null);
     const theme = useTheme();
-    const [indexSong, setIndexSong] = useState(3)
+    const [indexSong, setIndexSong] = useState()
     const currentSong = useSelector((store) => {
         return store.songStore.song;
     })
@@ -95,75 +94,125 @@ const Player = (prop) => {
     const [volume, setVolume] = useState(0.8);
     const [playing, setPlaying] = useState(true);
     const [seeking, setSeeking] = useState(false);
-    const [nameSong, setNameSong] = useState(currentSong?.nameSong);
+    const [title, setTitle] = useState(currentSong?.nameSong);
+    const [singer, setSinger] = useState(currentSong?.singer);
+    const {isFlag} = useContext(AppContext);
+    const dispatch = useDispatch();
 
     const [loaded, setLoaded] = useState(0);
     const [duration, setDuration] = useState(0);
     const [played, setPlayed] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const playerRef = useRef(null);
+    const idPll = localStorage.getItem("idPll");
+    const location = localStorage.getItem("location");
 
-    console.log('---> playing', playing);
-    console.log('---> seeking', seeking);
-    console.log('---> played', played);
-    console.log('---> duration', duration);
+
+    //set list songs theo cac loai
+    const listSongAll = useSelector((store)=>{return store.songStore.songs});
+    const listSongNew = useSelector((store)=>{return store.songStore.songsLates});
+    const listSongHot = useSelector((store)=>{return store.songStore.songHot});
+    const listSongFavorite = useSelector((store)=>{return store.songStore.favoriteSongs});
+    const listSongByPll = useSelector((store)=>{return store.songStore.songsByPll});
+
+    //set listSong theo vi tri bai hat
     useEffect(() => {
-        axios.get("http://localhost:8080/songs").then((res) => {
-            setListSong(res.data);
-        })
-    }, []);
+        switch (location) {
+            case 'newSongs' :
+                setListSong(listSongNew);
+                break;
+            case 'hotSongs':
+                setListSong(listSongHot);
+                break;
+            case 'favoriteSongs' :
+                setListSong(listSongFavorite);
+                break;
+            case 'playlistSongs':
+                setListSong(listSongByPll);
+                break;
+            default:
+                setListSong(listSongAll);
+        }
+    }, [currentSong, location, idPll]);
 
-
+    //set thong tin bai hat cho player
     useEffect(() => {
-        console.log("current: ", currentSong)
-        console.log("img:", urlImg)
         setUrl(currentSong.song_url);
         setUrlImg(currentSong.img_url);
-    }, [currentSong])
-    const transferNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong + 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-        } else {
-            setIndexSong(3)
+        setTitle(currentSong.title);
+        setSinger(currentSong.singer)
+        for (let i = 0; i<listSong.length; i++){
+            if (listSong[i].id === currentSong.id){
+                setIndexSong(i);
+                break;
+            }
         }
-        console.log(indexSong);
+    }, [currentSong, listSong])
+
+
+    const transferNextSong = () => {
+        let newIndex = indexSong + 1; // Calculate the next index
+        if (newIndex >= listSong.length) {
+            newIndex = 0; // Loop back to the first song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setTitle(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const reverseNextSong = () => {
-        if (indexSong < listSong.length && indexSong >= 0) {
-            setIndexSong(indexSong - 1)
-            setUrl(listSong[indexSong].song_url);
-            setUrlImg(listSong[indexSong].img_url);
-        } else {setIndexSong(3)}
-        console.log(indexSong);
+        let newIndex = indexSong - 1; // Calculate the previous index
+        if (newIndex < 0) {
+            newIndex = listSong.length - 1; // Loop to the last song
+        }
+        setIndexSong(newIndex);
+        setUrl(listSong[newIndex].song_url);
+        setUrlImg(listSong[newIndex].img_url);
+        setTitle(listSong[newIndex].title);
+        setSinger(listSong[newIndex].singer);
     }
     const handlePlay = () => {
-        console.log('onPlay')
+        // console.log('onPlay')
         setPlaying(true);
     }
     const handlePause = () => {
-        console.log('onPause')
+        // console.log('onPause')
         setPlaying(false);
     }
     const handlePlayPause = () => {
-        console.log('playing', playing);
+        // console.log('playing', playing);
         setPlaying(!playing);
     }
     const handleEnded = () => {
-        console.log('onEnded')
+        // console.log('onEnded')
         setPlaying(true);
     }
+
+    const [axiosCalled, setAxiosCalled] = useState(false);
+    const sid = localStorage.getItem("sId");
+    const {toggleFlag} = useContext(AppContext);
+
+    useEffect(() => {
+        setAxiosCalled(false);
+    }, [sid]);
+
     const handleProgress = state => {
         setCurrentTime(state.playedSeconds)
-        console.log('onProgress', state)
+        // console.log('onProgress', state)
         // We only want to update time slider if we are not currently seeking
+        if (state.playedSeconds > 60 && !axiosCalled) {
+            axios.put(`http://localhost:8080/songs/count/${sid}`).then((res) => {
+                setAxiosCalled(true);
+                toggleFlag();
+            });
+        }
         if (!seeking) {
             setPlayed(state.played);
         }
     }
     const handleDuration = (duration) => {
-        console.log('onDuration', duration);
+        // console.log('onDuration', duration);
         setDuration(duration);
     }
     const handleSeekMouseDown = e => {
@@ -171,7 +220,7 @@ const Player = (prop) => {
     }
 
     const handleSeekChange = e => {
-        console.log('handleSeekChange', e.target.value);
+        // console.log('handleSeekChange', e.target.value);
         setPlayed(parseFloat(e.target.value));
     }
 
@@ -180,7 +229,7 @@ const Player = (prop) => {
         ref.current?.seekTo(parseFloat(e.target.value));
     }
     const handleVolumeChange = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setVolume(parseFloat(e.target.value))
     }
 
@@ -190,14 +239,11 @@ const Player = (prop) => {
         return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     }
 
-    const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
-    const lightIconColor =
-        theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
 
     return (
         <>
-            <Box sx={{width: '100%', overflow: 'hidden'}}>
-                <Widget>
+            <Box sx={{width: '100%', overflow: 'hidden', paddingBottom:'15px'}}>
+                <Widget style={{ borderTopColor: '#2b2533', borderTopWidth: '1px', borderTopStyle: 'solid' }}>
                     <Grid container spacing={{xs: 2, md: 20}} columns={{xs: 4, sm: 8, md: 12}}>
                         <Grid xs={2} sm={4} md={3}>
                             <Box sx={{display: 'flex', alignItems: 'center'}}>
@@ -208,11 +254,11 @@ const Player = (prop) => {
                                     />
                                 </CoverImage>
                                 <Box sx={{ml: 1.5, minWidth: 0}}>
-                                    <Typography variant="h6" color="text.secondary" fontWeight={500}>
-                                        {currentSong?.nameSong === null ? "Điều ước giáng sinh" : currentSong?.nameSong}
+                                    <Typography className="text-white" fontSize={16}>
+                                        {title === null ? "Unknown" : title}
                                     </Typography>
-                                    <Typography>
-                                        <b>{currentSong?.singer === null ? "Ca sĩ" : currentSong?.singer}</b>
+                                    <Typography className="text-gray-500" fontSize={12}>
+                                        <b>{singer === null ? "Ca sĩ" : singer}</b>
                                     </Typography>
                                 </Box>
                             </Box>
@@ -224,94 +270,57 @@ const Player = (prop) => {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     mt: -1,
+                                    px:1,
                                 }}
                             >
-                                <IconButton aria-label="previous song" onClick={reverseNextSong}>
-                                    <FastRewindRounded fontSize="large" htmlColor={mainIconColor}/>
+                                <IconButton aria-label="previous song" onClick={()=>reverseNextSong()} size="large">
+                                    <FastRewindRounded fontSize="30px" htmlColor={'#f3f4f6'}/>
                                 </IconButton>
                                 <IconButton
                                     aria-label={playing ? 'pause' : 'play'}
-                                    onClick={handlePlayPause}
+                                    onClick={()=>handlePlayPause()}
+                                    size="large"
                                 >
                                     {playing ? (
-                                        <PauseRounded sx={{fontSize: '3rem'}} htmlColor={mainIconColor}/>
+                                        <BsPauseCircle className="text-gray-100 hover:text-purple-700" size={35} />
                                     ) : (
-                                        <PlayArrowRounded
-                                            sx={{fontSize: '3rem'}}
-                                            htmlColor={mainIconColor}
+                                        <BsPlayCircle className="text-gray-100 hover:text-purple-700" size={35}
                                         />
                                     )}
                                 </IconButton>
-                                <IconButton aria-label="next song" onClick={transferNextSong}>
-                                    <FastForwardRounded fontSize="large" htmlColor={mainIconColor}/>
+                                <IconButton aria-label="next song" onClick={()=>transferNextSong()} size="medium">
+                                    <FastForwardRounded fontSize="30px" htmlColor={'#f3f4f6'}/>
                                 </IconButton>
                             </Box>
-                            <input style={{
-                                palette: {
-                                    primary: {
-                                        main: '#c8e6c9',
-                                    },
-                                    secondary: "red",
-                                },
-                            }}
-
-                                   className="form-control-range"
-                                   type='range' min={0} max={0.999999} step='any'
-                                   value={played}
-                                   onMouseDown={handleSeekMouseDown}
-                                   onChange={handleSeekChange}
-                                   onMouseUp={handleSeekMouseUp}
-                            />
-                            {/*<Slider*/}
-                            {/*    aria-label="time-indicator"*/}
-                            {/*    size="small"*/}
-                            {/*    value={played ?? 0}*/}
-                            {/*    min={0}*/}
-                            {/*    step={1}*/}
-                            {/*    max={duration}*/}
-                            {/*    onChange={(_, value) => handleSeekChange(value)}*/}
-                            {/*    sx={{*/}
-                            {/*        color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',*/}
-                            {/*        height: 4,*/}
-                            {/*        '& .MuiSlider-thumb': {*/}
-                            {/*            width: 8,*/}
-                            {/*            height: 8,*/}
-                            {/*            transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',*/}
-                            {/*            '&:before': {*/}
-                            {/*                boxShadow: '0 2px 12px 0 rgba(0,0,0,0.4)',*/}
-                            {/*            },*/}
-                            {/*            '&:hover, &.Mui-focusVisible': {*/}
-                            {/*                boxShadow: `0px 0px 0px 8px ${*/}
-                            {/*                    theme.palette.mode === 'dark'*/}
-                            {/*                        ? 'rgb(255 255 255 / 16%)'*/}
-                            {/*                        : 'rgb(0 0 0 / 16%)'*/}
-                            {/*                }`,*/}
-                            {/*            },*/}
-                            {/*            '&.Mui-active': {*/}
-                            {/*                width: 20,*/}
-                            {/*                height: 20,*/}
-                            {/*            },*/}
-                            {/*        },*/}
-                            {/*        '& .MuiSlider-rail': {*/}
-                            {/*            opacity: 0.28,*/}
-                            {/*        },*/}
-                            {/*    }}*/}
-                            {/*/>*/}
                             <Box
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    mt: 1,
+                                    mt: -1,
                                 }}
                             >
-                                <TinyText>{formatDuration(duration * played)}</TinyText>
-                                <TinyText>{formatDuration(duration)}</TinyText>
+                                <TinyText className="text-white w-[40px] text-center">{formatDuration(duration * played)}</TinyText>
+                                <input style={{
+                                    accentColor: 'white',
+                                    outline: 'none',
+                                    border: 'none',
+                                    height: '5px'
+                                }}
+
+                                       className="form-control-range"
+                                       type='range' min={0} max={0.999999} step='any'
+                                       value={played}
+                                       onMouseDown={handleSeekMouseDown}
+                                       onChange={handleSeekChange}
+                                       onMouseUp={handleSeekMouseUp}
+                                />
+                                <TinyText className="text-white w-[40px] text-center">{formatDuration(duration)}</TinyText>
                             </Box>
                         </Grid>
                         <Grid xs={2} sm={4} md={3}>
-                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 1}} alignItems="center">
-                                <VolumeDownRounded htmlColor={lightIconColor}/>
+                            <Stack spacing={2} direction="row" sx={{mb: 1, px: 4, mt: 2}} alignItems="center">
+                                <VolumeDownRounded htmlColor={'#fff'} sx={{fontSize: '1.2rem'}}/>
                                 <Slider
                                     value={volume ?? 0.8}
                                     min={0}
@@ -320,13 +329,14 @@ const Player = (prop) => {
                                     onChange={handleVolumeChange}
                                     aria-label="Volume"
                                     sx={{
-                                        color: theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
+                                        width: 100,
+                                        color: theme.palette.mode === 'dark' ? '#fff' : '#fff',
                                         '& .MuiSlider-track': {
                                             border: 'none',
                                         },
                                         '& .MuiSlider-thumb': {
-                                            width: 24,
-                                            height: 24,
+                                            width: 12,
+                                            height: 12,
                                             backgroundColor: '#fff',
                                             '&:before': {
                                                 boxShadow: '0 4px 8px rgba(0,0,0,0.4)',
@@ -337,7 +347,7 @@ const Player = (prop) => {
                                         },
                                     }}
                                 />
-                                <VolumeUpRounded htmlColor={lightIconColor}/>
+                                <VolumeUpRounded htmlColor={'#fff'} sx={{fontSize: '1.2rem'}}/>
                             </Stack>
                         </Grid>
                     </Grid>
@@ -358,10 +368,8 @@ const Player = (prop) => {
                 onDuration={handleDuration}
                 onSeek={(seconds) => setCurrentTime(seconds)}
                 seekTo = {currentTime}
-                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
-                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))
-                    console.log("thời gian", currentTime)}}
+                onMouseUp={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
+                onTouchEnd={() => {playerRef.current.seekTo(parseFloat(currentTime))}}
             />
         </>
     );

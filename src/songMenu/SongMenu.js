@@ -1,12 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Dropdown} from 'antd';
-import {AiOutlineMore} from "react-icons/ai";
+import {AiOutlineDelete, AiOutlineEllipsis} from "react-icons/ai";
 import axios from "axios";
 import {toast} from "react-toastify";
 import "./hover.css"
 import swal from "sweetalert";
 import {AppContext} from "../Context/AppContext";
 import {useNavigate} from "react-router-dom";
+import {SiApplemusic} from "react-icons/si";
+import {HiOutlinePencil} from "react-icons/hi";
 
 const SongMenu = ({idSong}) => {
     let [checkDelete, setCheckDelete] = useState(false)
@@ -22,46 +24,47 @@ const SongMenu = ({idSong}) => {
     const navigate = useNavigate()
     const {toggleFlag} = useContext(AppContext);
     const items = [
-        // {
-        //     key: '1',
-        //     label: (
-        //         <dev>
-        //             <select onChange={(e) => {
-        //                 console.log("taget", e.target.value)
-        //                 addPlayList(e.target.value)
-        //             }}>
-        //                 <option>Thêm vào PlayList</option>
-        //                 {playlists.map((i,key) => {
-        //                     return(
-        //                         <option value={i.id}>{i.namePlayList}</option>
-        //                     )
-        //                 })}
-        //             </select>
-        //         </dev>
-        //
-        //     ),
-        // },
+
         {
             key: '2',
             label: (
-                <a onClick={()=>{
-                    edit(idSong)
-                }}>
-                    Sửa bài hát
-                </a>
+                <div
+                    className="flex justify-center items-center text-gray-300 w-full h-[35px] hover:bg-[#493961] hover:cursor-pointer pl-[20px]"
+                    onClick={() => {
+                        edit(idSong)
+                    }}>
+                    <span className="text-base text-f font-semibold">
+                        <HiOutlinePencil size={20}
+                                      className="text-gray-300 text-center rounded"/>
+                    </span>
+                    <div
+                        className="w-full ml-[10px] text-f text-base text-gray-300">Sửa bài hát
+                    </div>
+                </div>
+
             ),
         },
         {
             key: '3',
             label: (
-                <div onClick={() => {
-                    deleteSong(idSong)
-                }}>
-                    Xóa bài hát
+                <div
+                    className="flex justify-center items-center text-gray-300 w-full h-[35px] hover:bg-[#493961] hover:cursor-pointer pl-[20px]"
+                    onClick={() => {
+                        deleteSong(idSong)
+                    }}>
+                    <span className="text-base text-f font-semibold">
+                        <AiOutlineDelete size={20}
+                                      className="text-gray-300 text-center rounded"/>
+                    </span>
+                    <div
+                        className="w-full ml-[10px] text-f text-base text-gray-300">Xóa bài hát
+                    </div>
                 </div>
+
             ),
         },
-    ];
+        ]
+    ;
     return (
         <>
             <Dropdown
@@ -71,7 +74,7 @@ const SongMenu = ({idSong}) => {
                 placement="topRight"
                 arrow
             >
-                <Button style={{backgroundColor: "#3C2C52", border: "none", color: "white"}} ><AiOutlineMore/></Button>
+                <AiOutlineEllipsis size={20} className="text-white"/>
             </Dropdown>
         </>
     )
@@ -86,7 +89,7 @@ const SongMenu = ({idSong}) => {
     }
 
     function edit(id) {
-        navigate("/songs/" + id)
+        navigate("/update/" + id)
     }
 
     function deleteSong(id) {
@@ -103,7 +106,6 @@ const SongMenu = ({idSong}) => {
                     .then(() => {
                             setCheckDelete(!checkDelete)
                             toggleFlag()
-
                             toast.success("Xóa thành công!", {autoClose: 700})
                         }
                     )
