@@ -2,7 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {getArrSlider} from "../untis/fn";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
-import * as actions from '../store/actions'
 import banner1 from '../accsets/banner-1.jpg'
 import banner2 from '../accsets/banner-2.jpg'
 import banner3 from '../accsets/banner-3.jpg'

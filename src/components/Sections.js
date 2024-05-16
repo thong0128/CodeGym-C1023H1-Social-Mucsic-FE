@@ -1,10 +1,7 @@
-
-import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 
 const Sections = ({data}) => {
-    const navigate = useNavigate
     const [list, setList] = useState([]);
     const [check, setCheck] = useState(false);
 

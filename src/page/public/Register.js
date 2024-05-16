@@ -17,11 +17,6 @@ export default function Register() {
         })
     }, []);
 
-    // const users1 = {}
-    // useEffect(() => {
-    //     // setListEmailCheck(findEmail(users1.data)) ;
-    //     setListUserCheck(findUser(users1.data)) ;
-    // }, []);
     function findUser (data) {
         let a = [] ;
         for (let i = 0; i < data.length; i++) {
@@ -29,13 +24,7 @@ export default function Register() {
         }
         return a ;
     }
-    // function findEmail (data) {
-    //     let a = [] ;
-    //     for (let i = 0; i < data.length; i++) {
-    //         a.push(data[i].email)
-    //     }
-    //     return a ;
-    // }
+
 
     const handleButtonClick = (values) => {
         if(values !== null) {
@@ -97,14 +86,6 @@ export default function Register() {
                             .required("Vui lòng nhập mật khẩu."),
                         confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password does not match!')
                             .required('You must fill in this section')
-                        // phoneNumber: Yup.string().matches(/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/, "Not Vietnam's phone number")
-                        //     .required("Invalid phone number")
-                        // email: require("yup")
-                        //     .string()
-                        //     .email("Email không hợp lệ.")
-                        //     .required("Vui lòng nhập email.").test('unique', 'Email đã tồn tại', (value) => {
-                        //         return !listMailCheck.includes(value);
-                        //     }),
                     })
                 }
                 onSubmit={onSubmit}

@@ -2,14 +2,11 @@ import React, {useState} from 'react';
 import "../css_component/MenuLogoutCSS.css"
 import {CiSettings} from "react-icons/ci";
 import {TbPasswordUser} from "react-icons/tb";
-import {HiOutlinePlus} from "react-icons/hi";
 import {AiOutlineLogout} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 import {RiFolderMusicLine} from "react-icons/ri";
 import {BiSolidPlaylist} from "react-icons/bi";
 import {FiUpload} from "react-icons/fi";
-import ModalCreatePlayList from "./ModanCreatePlayList";
-import {Button, Modal} from "antd";
 
 const MenuLogOut = ({handler}) => {
     const navigate = useNavigate()

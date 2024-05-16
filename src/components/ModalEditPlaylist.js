@@ -2,11 +2,9 @@ import React, {useContext, useEffect, useState} from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import axios from "axios";
 import {toast} from "react-toastify";
-import {useNavigate} from "react-router-dom";
 import {AppContext} from "../Context/AppContext";
 
 const ModalEditPlayList = ({handler, pllId}) => {
-    const navigate = useNavigate();
     const id_user = localStorage.getItem("idUser")
     const [playlistCheck, setPlaylistCheck] = useState([]);
     const {isFlag} = useContext(AppContext);

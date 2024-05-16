@@ -9,7 +9,7 @@ import {
     getDownloadURL
 } from "firebase/storage";
 import React from 'react';
-import {Button, Modal, notification, Space} from 'antd';
+import {Modal, notification, Space} from 'antd';
 import {AppContext} from "../../Context/AppContext";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
@@ -20,7 +20,6 @@ export default function UpdateUser() {
     const id = localStorage.getItem("idUser")
     const [user, setUser] = useState({})
     const [uploadedImageUrl, setUploadedImageUrl] = useState(undefined);
-    // const [image, setImage] = useState(null);
     const [api, contextHolder] = notification.useNotification();
     const [isModalOpen, setIsModalOpen] = useState(true);
     const token = localStorage.getItem('token'); // Lấy token từ Local Storage

@@ -8,15 +8,12 @@ import path from "./untis/path";
 import Home from "./page/public/Home";
 import Login from "./page/public/Login";
 import * as actions from './store/actions'
-import UserList from "./page/public/UserList";
 import UpdateUser from "./page/public/UpdateUser";
-import Album from "./page/public/Album";
 import UpdatePass from "./page/public/UpdatePassword";
 import Register from "./page/public/Register";
 import CreateSong from "./components/CreateSong";
 import UpdateSong from "./components/UpdateSong";
 import {DetailSong} from "./components";
-import ListSearchBySongName from "./page/public/ListSearchBySongName";
 import ShowPlaylist from "./components/ShowPlaylist";
 import ViewPlaylist from "./components/ViewPlaylist";
 import {AppProvider} from "./Context/AppContext";
@@ -36,23 +33,20 @@ function App() {
               <AppProvider>
               <Routes>
                   <Route path={path.PUBLIC} element={<Public/>}>
-                      <Route path={path.HOME} element={<Home/>}></Route>
-                      <Route path={path.FILL} element={<SearchResult/>}></Route>
-                      <Route path={path.LOGIN} element={<Login/>}></Route>
-                      <Route path={path.CREATESONG} element={<CreateSong/>}></Route>
-                      <Route path={path.REGISTER} element={<Register/>}></Route>
-                      <Route path={path.LISTUSER} element={<UserList/>}></Route>
-                      <Route path={path.UPDATEUSER} element={<UpdateUser/>}></Route>
-                      <Route path={'album/:id'} element={<Album/>}></Route>
-                      <Route path={path.UPDATEPASS} element={<UpdatePass/>}></Route>
-                      <Route path={"update/:id"} element={<UpdateSong/>}></Route>
-                      <Route path={"showList"} element={<ShowListSong/>}></Route>
-                      <Route path={path.DETAILSONG} element={<DetailSong/>}></Route>
-                      <Route path={path.SEARCHBYSONGNAME} element={<ListSearchBySongName/>}></Route>
-                      <Route path={"showPlaylist"} element={<ShowPlaylist/>}></Route>
-                      <Route path={"viewPlaylist/:id"} element={<ViewPlaylist/>}></Route>
-                      <Route path={"updatePlayList/:id"} element={<UpdatePlayList/>}></Route>
-                      <Route path={path.SUGGEST_PLAYLIST} element={<ShowSuggestPlaylist/>}></Route>
+                      <Route path={path.HOME} element={<Home/>}/>
+                      <Route path={path.FILL} element={<SearchResult/>}/>
+                      <Route path={path.LOGIN} element={<Login/>}/>
+                      <Route path={path.CREATE_SONG} element={<CreateSong/>}/>
+                      <Route path={path.REGISTER} element={<Register/>}/>
+                      <Route path={path.UPDATE_USER} element={<UpdateUser/>}/>
+                      <Route path={path.UPDATE_PASS} element={<UpdatePass/>}/>
+                      <Route path={path.UPDATE_SONG} element={<UpdateSong/>}/>
+                      <Route path={path.SHOW_LIST_SONGS} element={<ShowListSong/>}/>
+                      <Route path={path.DETAIL_SONG} element={<DetailSong/>}/>
+                      <Route path={path.SHOW_PLAYLIST} element={<ShowPlaylist/>}/>
+                      <Route path={path.VIEW_PLAYLIST} element={<ViewPlaylist/>}/>
+                      <Route path={path.UPDATE_PLAYLIST} element={<UpdatePlayList/>}/>
+                      <Route path={path.SUGGEST_PLAYLIST} element={<ShowSuggestPlaylist/>}/>
                   </Route>
               </Routes>
               </AppProvider> <ToastContainer />

@@ -27,8 +27,6 @@ const ModalCreateSong = () => {
             getDownloadURL(snapshot.ref).then((url) => {
                 setImageUrl(url);
                 setImgname(image.name);
-                console.log("image uploaded successfully", url);
-                console.log("image uploaded successfully", imageUrl);
                 songs.img_url = url;
                 localStorage.setItem("img_url", url);
             });
@@ -42,8 +40,6 @@ const ModalCreateSong = () => {
             getDownloadURL(snapshot.ref).then((url) => {
                 setSongUrl(url);
                 setSongname(music.name);
-                console.log("song uploaded successfully", url);
-                console.log("song uploaded successfully", songUrl);
                 songs.song_url = url;
                 localStorage.setItem("song_url", url);
             });

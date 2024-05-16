@@ -1,16 +1,24 @@
 const path = {
     PUBLIC :"/*",
     HOME: "",
-    FILL:"fill",
     LOGIN: "login",
     REGISTER: "register",
-    LISTUSER: "userList",
-    UPDATEUSER: "updateProfile",
-    AlBUM_TITLE_PID : 'album/:title/:pid',
-    UPDATEPASS: "updatePassword",
-    CREATESONG: "create",
-    DETAILSONG: "detailSong/:id",
-    SEARCHBYSONGNAME: "searchBySongName/:id",
-    SUGGEST_PLAYLIST:"suggestPlaylist/:uId"
+    // user
+    UPDATE_USER: "updateProfile",
+    UPDATE_PASS: "updatePassword",
+
+    // song
+    CREATE_SONG: "create",
+    DETAIL_SONG: "detailSong/:id",
+    SUGGEST_PLAYLIST:"suggestPlaylist/:uId",
+    UPDATE_SONG:"update/:id",
+    SHOW_LIST_SONGS: "showList",
+    FILL:"fill",
+
+    // playlist
+    SHOW_PLAYLIST: "showPlaylist",
+    VIEW_PLAYLIST: "viewPlaylist/:id",
+    UPDATE_PLAYLIST: "updatePlayList/:id"
+
 }
 export default path
