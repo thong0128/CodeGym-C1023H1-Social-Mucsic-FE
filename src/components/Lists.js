@@ -1,6 +1,4 @@
-
 const Lists = ({songs, totalDuration}) => {
-
 
     return (
         <div className={'w-full flex flex-col text-xs text-gray-500 '}>

@@ -3,11 +3,9 @@ import {Button, Dropdown} from 'antd';
 import {AiOutlineDelete, AiOutlineEllipsis} from "react-icons/ai";
 import axios from "axios";
 import {toast} from "react-toastify";
-import "./hover.css"
 import swal from "sweetalert";
 import {AppContext} from "../Context/AppContext";
 import {useNavigate} from "react-router-dom";
-import {SiApplemusic} from "react-icons/si";
 import {HiOutlinePencil} from "react-icons/hi";
 
 const SongMenu = ({idSong}) => {

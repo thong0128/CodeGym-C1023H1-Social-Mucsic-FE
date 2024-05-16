@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73f7080f-cffc-417e-9026-71a7ae7dc8ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/responsiveDrawer/ResponsiveDrawer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/FindById.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Lists.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Lists.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RightSidebar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SidebarRight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/ListSearchBySongName.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/public/UserList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/songMenu/SongMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/songMenu/hover.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

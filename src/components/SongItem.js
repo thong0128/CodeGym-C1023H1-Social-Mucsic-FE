@@ -8,7 +8,7 @@ import {IoHeartOutline, IoHeartSharp} from "react-icons/io5";
 import axios from "axios";
 import {AppContext} from "../Context/AppContext";
 import {FaHeadphonesAlt} from "react-icons/fa";
-import SongMenu from "../songMenu/SongMenu";
+import SongMenu from "./SongMenu";
 import swal from "sweetalert";
 import {toast} from "react-toastify";
 import {IoMdRemoveCircleOutline} from "react-icons/io";
